@@ -58,10 +58,20 @@ public class shootBullet : MonoBehaviour
 			GameObject currentShot = shotsEnumerator.Current;
 			currentShot.transform.position = bulletSpawnPos.position;
 			currentShot.transform.rotation = bulletSpawnPos.rotation;
-			currentShot.SetActive(true);
+            currentShot.transform.eulerAngles = new Vector3(
+                currentShot.transform.eulerAngles.x,
+                currentShot.transform.eulerAngles.y - 110.0f,
+                currentShot.transform.eulerAngles.z - 70.0f);
 
-			//Add velocity to the pinsel
-			//pinsel.GetComponent<Rigidbody>().velocity = pinsel.transform.forward * 60;
+            Debug.Log("x: " + currentShot.transform.eulerAngles.x);
+            Debug.Log("y: " + currentShot.transform.eulerAngles.y);
+            Debug.Log("z: " + currentShot.transform.eulerAngles.z);
+        
+            currentShot.SetActive(true);
+
+            //Add velocity to the pinsel
+            //pinsel.GetComponent<Rigidbody>().velocity = pinsel.transform.forward * 60;
+            Debug.Log("forwards: " + bulletSpawnPos.forward);
 			currentShot.GetComponent<Rigidbody>().velocity = bulletSpawnPos.forward * 60;
 
 			//Destroy the shot
