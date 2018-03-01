@@ -940,6 +940,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 419106695}
   m_Mesh: {fileID: 4300028, guid: e8752068d301d49c89ec79560bb185ca, type: 3}
+--- !u!1 &486229692 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100022, guid: aec3a8a37e8cf4aa7a4d3cfb9c743d13, type: 3}
+  m_PrefabInternal: {fileID: 1511889334}
+--- !u!4 &486229694 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400022, guid: aec3a8a37e8cf4aa7a4d3cfb9c743d13, type: 3}
+  m_PrefabInternal: {fileID: 1511889334}
+--- !u!114 &486229695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 486229692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c09a3db276a4540bcc8c0f420e8a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObject: {fileID: 891499877}
+  bulletSpawnPos: {fileID: 486229694}
 --- !u!1 &548165703
 GameObject:
   m_ObjectHideFlags: 0
