@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: d11bc501b308a40a2a0a5e1b389b2a3d
+timeCreated: 1519926342
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Arc
+    100002: Box001_1
+    100004: Cap_1
+    100006: Cap_2
+    100008: Cap_2_2
+    100010: Cube
+    100012: Cube_1
+    100014: Cube_2
+    100016: Cube_3
+    100018: Cylinder
+    100020: Cylinder_1
+    100022: //RootNode
+    100024: Lathe
+    100026: lower_dimandcaps
+    100028: lower_endcaps
+    100030: Null
+    100032: Null_1
+    100034: Null_2
+    100036: Platonic
+    100038: Platonic_1
+    100040: Platonic_1_2
+    100042: Platonic_2
+    100044: Platonic_2_2
+    100046: Platonic_2_3
+    100048: Platonic_3
+    100050: Platonic_3_2
+    100052: Platonic_3_3
+    100054: Sweep
+    100056: Torus
+    100058: Torus_2
+    100060: Tube001_1
+    100062: upper_dimandcaps
+    100064: upper_endcaps
+    400000: Arc
+    400002: Box001_1
+    400004: Cap_1
+    400006: Cap_2
+    400008: Cap_2_2
+    400010: Cube
+    400012: Cube_1
+    400014: Cube_2
+    400016: Cube_3
+    400018: Cylinder
+    400020: Cylinder_1
+    400022: //RootNode
+    400024: Lathe
+    400026: lower_dimandcaps
+    400028: lower_endcaps
+    400030: Null
+    400032: Null_1
+    400034: Null_2
+    400036: Platonic
+    400038: Platonic_1
+    400040: Platonic_1_2
+    400042: Platonic_2
+    400044: Platonic_2_2
+    400046: Platonic_2_3
+    400048: Platonic_3
+    400050: Platonic_3_2
+    400052: Platonic_3_3
+    400054: Sweep
+    400056: Torus
+    400058: Torus_2
+    400060: Tube001_1
+    400062: upper_dimandcaps
+    400064: upper_endcaps
+    2100000: No Name
+    2100002: 'Material #28'
+    2100004: 'Material #29'
+    2100006: holo_diamond
+    2300000: Box001_1
+    2300002: Cap_1
+    2300004: Cap_2_2
+    2300006: Cube
+    2300008: Cube_1
+    2300010: Cube_2
+    2300012: Cube_3
+    2300014: Cylinder
+    2300016: Cylinder_1
+    2300018: Lathe
+    2300020: Platonic
+    2300022: Platonic_1
+    2300024: Platonic_1_2
+    2300026: Platonic_2
+    2300028: Platonic_2_2
+    2300030: Platonic_2_3
+    2300032: Platonic_3
+    2300034: Platonic_3_2
+    2300036: Platonic_3_3
+    2300038: Sweep
+    2300040: Torus
+    2300042: Torus_2
+    2300044: Tube001_1
+    3300000: Box001_1
+    3300002: Cap_1
+    3300004: Cap_2_2
+    3300006: Cube
+    3300008: Cube_1
+    3300010: Cube_2
+    3300012: Cube_3
+    3300014: Cylinder
+    3300016: Cylinder_1
+    3300018: Lathe
+    3300020: Platonic
+    3300022: Platonic_1
+    3300024: Platonic_1_2
+    3300026: Platonic_2
+    3300028: Platonic_2_2
+    3300030: Platonic_2_3
+    3300032: Platonic_3
+    3300034: Platonic_3_2
+    3300036: Platonic_3_3
+    3300038: Sweep
+    3300040: Torus
+    3300042: Torus_2
+    3300044: Tube001_1
+    4300000: Platonic_3
+    4300002: Platonic_2
+    4300004: Platonic_3_2
+    4300006: Platonic_2_2
+    4300008: Lathe
+    4300010: Platonic_1
+    4300012: Tube001_1
+    4300014: Box001_1
+    4300016: Cube
+    4300018: Torus
+    4300020: Cube_2
+    4300022: Torus_2
+    4300024: Platonic_3_3
+    4300026: Platonic_2_3
+    4300028: Cylinder_1
+    4300030: Cube_1
+    4300032: Cylinder
+    4300034: Cube_3
+    4300036: Sweep
+    4300038: Cap_1
+    4300040: Cap_2_2
+    4300042: Platonic_1_2
+    4300044: Platonic
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
