@@ -5,9 +5,12 @@ using UnityEngine;
 public class shootBullet : MonoBehaviour
 {
 	public GameObject gameObject;
+	public Transform bulletSpawnPos;
 	private List<GameObject> shotsPool = new List<GameObject>();
 	private List<GameObject>.Enumerator shotsEnumerator;
-	public Transform bulletSpawnPos;
+	public float shootCooldownSeconds = 0.5f;
+	private float lastShot = 0.0f;
+	private bool canFire = true;
 
 	// Use this for initialization
 	void Start ()
@@ -21,12 +24,19 @@ public class shootBullet : MonoBehaviour
 		}
 
 		shotsEnumerator = shotsPool.GetEnumerator();
+		lastShot = Time.realtimeSinceStartup;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetButton("Fire1"))
+		float timeDelta = (Time.realtimeSinceStartup - lastShot - shootCooldownSeconds);
+		if (timeDelta > 0.0f)
+		{
+			canFire = true;
+		}
+
+		if (Input.GetButton("Fire1") && canFire)
 		{
 			fire();
 		}
@@ -34,6 +44,9 @@ public class shootBullet : MonoBehaviour
 
 	private void fire()
 	{
+		canFire = false;
+		lastShot = Time.realtimeSinceStartup;
+
 		if (!shotsEnumerator.MoveNext())
 		{
 			shotsEnumerator = shotsPool.GetEnumerator();
@@ -49,7 +62,7 @@ public class shootBullet : MonoBehaviour
 
 			//Add velocity to the pinsel
 			//pinsel.GetComponent<Rigidbody>().velocity = pinsel.transform.forward * 60;
-			currentShot.GetComponent<Rigidbody>().velocity = currentShot.transform.forward * 60;
+			currentShot.GetComponent<Rigidbody>().velocity = bulletSpawnPos.forward * 60;
 
 			//Destroy the shot
 			//Destroy(shot, 5.0f);
