@@ -12,8 +12,8 @@ public class shootBullet : MonoBehaviour
 	private float lastShot = 0.0f;
 	private bool canFire = true;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
 		// prefill Pool
 		for (int i = 0; i < 20; i++)
@@ -25,7 +25,8 @@ public class shootBullet : MonoBehaviour
 
 		shotsEnumerator = shotsPool.GetEnumerator();
 		lastShot = Time.realtimeSinceStartup;
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -36,11 +37,18 @@ public class shootBullet : MonoBehaviour
 			canFire = true;
 		}
 
+		//if ((SteamVR_Controller.Input () || Input.GetButton("Fire1")) && canFire)
 		if (Input.GetButton("Fire1") && canFire)
 		{
 			fire();
 		}
-	}
+
+        //bulletSpawnPos.position = bulletSpawnPos.parent.position;
+        Debug.DrawLine(transform.localPosition, new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 60.0f), Color.blue);
+        //Debug.DrawLine(new Vector3(0, 0, 0), new Vector3(10.0f, 10.0f, 10.0f), Color.blue);
+
+        //Debug.DrawLine(new Vector3(0, 0, 0), bulletSpawnPos.parent.position, Color.red);
+    }
 
 	private void fire()
 	{
@@ -56,17 +64,18 @@ public class shootBullet : MonoBehaviour
 		if (shotsEnumerator.Current != null)
 		{
 			GameObject currentShot = shotsEnumerator.Current;
-			currentShot.transform.position = bulletSpawnPos.position;
-			currentShot.transform.rotation = bulletSpawnPos.rotation;
+			currentShot.transform.position = bulletSpawnPos.localPosition;
+			currentShot.transform.rotation = bulletSpawnPos.localRotation;
+            /*
             currentShot.transform.eulerAngles = new Vector3(
                 currentShot.transform.eulerAngles.x,
                 currentShot.transform.eulerAngles.y - 110.0f,
                 currentShot.transform.eulerAngles.z - 70.0f);
-
             Debug.Log("x: " + currentShot.transform.eulerAngles.x);
             Debug.Log("y: " + currentShot.transform.eulerAngles.y);
             Debug.Log("z: " + currentShot.transform.eulerAngles.z);
-        
+            */
+
             currentShot.SetActive(true);
 
             //Add velocity to the pinsel
@@ -77,5 +86,6 @@ public class shootBullet : MonoBehaviour
 			//Destroy the shot
 			//Destroy(shot, 5.0f);
 		}
-	}
+
+    }
 }
