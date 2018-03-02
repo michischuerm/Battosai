@@ -15,7 +15,7 @@ public class EnemyShoot : MonoBehaviour {
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject attack = Instantiate(prefab, transform.position, Quaternion.identity);
-            attack.GetComponent<Rigidbody>().AddForce((GameObject.FindGameObjectWithTag("Player").transform.position- attack.transform.position), ForceMode.Impulse);
+            attack.GetComponent<Rigidbody>().AddForce((GameObject.FindGameObjectWithTag("shootMe").transform.position- attack.transform.position), ForceMode.Impulse);
         }
     }
 }
