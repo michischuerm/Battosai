@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShoot : MonoBehaviour {
+public class EnemyShoot : MonoBehaviour
+{
     public GameObject prefab;
     public float bulletSpeed = 0.8f;
 
@@ -12,7 +13,7 @@ public class EnemyShoot : MonoBehaviour {
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject attack = Instantiate(prefab, transform.position, Quaternion.identity);
-            attack.GetComponent<Rigidbody>().AddForce(bulletSpeed*(GameObject.FindGameObjectWithTag("shootMe").transform.position- attack.transform.position), ForceMode.Impulse);
+            attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (GameObject.Find("Camera (head)").transform.position - attack.transform.position), ForceMode.Impulse);
         }
     }
 }
