@@ -43,5 +43,10 @@ public class ViveControllerInputTest : MonoBehaviour {
 		{
 			Debug.Log(gameObject.name + " Grip Release");
 		}
+
+		if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+		{
+			Debug.Log(gameObject.name + " touch pressed");
+		}
 	}
 }
