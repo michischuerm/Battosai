@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 18b5d79386e564567b3e9da6326c56da
+timeCreated: 1520323927
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Boole
+    100002: Cap_1
+    100004: Cap_2
+    100006: Cap_2_2
+    100008: Cap_2_3
+    100010: Capsule
+    100012: Capsule_1
+    100014: Capsule_1_2
+    100016: Capsule_2
+    100018: griff
+    100020: holes
+    100022: holes_2
+    100024: Loft
+    100026: Loft_2
+    100028: Platonic
+    100030: Rounding
+    100032: Rounding_1
+    100034: Rounding_2
+    100036: Rounding_2_2
+    100038: Sphere
+    100040: sword
+    100042: //RootNode
+    100044: sword_2
+    100046: sword_full
+    100048: sword_full_1
+    100050: sword_handle
+    400000: Boole
+    400002: Cap_1
+    400004: Cap_2
+    400006: Cap_2_2
+    400008: Cap_2_3
+    400010: Capsule
+    400012: Capsule_1
+    400014: Capsule_1_2
+    400016: Capsule_2
+    400018: griff
+    400020: holes
+    400022: holes_2
+    400024: Loft
+    400026: Loft_2
+    400028: Platonic
+    400030: Rounding
+    400032: Rounding_1
+    400034: Rounding_2
+    400036: Rounding_2_2
+    400038: Sphere
+    400040: sword
+    400042: //RootNode
+    400044: sword_2
+    400046: sword_full
+    400048: sword_full_1
+    400050: sword_handle
+    2100000: holo_diamond
+    2100002: No Name
+    2300000: Cap_1
+    2300002: Cap_2
+    2300004: Cap_2_2
+    2300006: Cap_2_3
+    2300008: Capsule
+    2300010: Capsule_1
+    2300012: Capsule_1_2
+    2300014: Capsule_2
+    2300016: griff
+    2300018: Loft
+    2300020: Loft_2
+    2300022: Platonic
+    2300024: Rounding
+    2300026: Rounding_1
+    2300028: Rounding_2
+    2300030: Rounding_2_2
+    2300032: Sphere
+    3300000: Cap_1
+    3300002: Cap_2
+    3300004: Cap_2_2
+    3300006: Cap_2_3
+    3300008: Capsule
+    3300010: Capsule_1
+    3300012: Capsule_1_2
+    3300014: Capsule_2
+    3300016: griff
+    3300018: Loft
+    3300020: Loft_2
+    3300022: Platonic
+    3300024: Rounding
+    3300026: Rounding_1
+    3300028: Rounding_2
+    3300030: Rounding_2_2
+    3300032: Sphere
+    4300000: Platonic
+    4300002: griff
+    4300004: Rounding_1
+    4300006: Cap_1
+    4300008: Rounding_2
+    4300010: Cap_2
+    4300012: Sphere
+    4300014: Loft
+    4300016: Rounding
+    4300018: Cap_2_2
+    4300020: Capsule_1
+    4300022: Capsule
+    4300024: Loft_2
+    4300026: Rounding_2_2
+    4300028: Cap_2_3
+    4300030: Capsule_1_2
+    4300032: Capsule_2
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
