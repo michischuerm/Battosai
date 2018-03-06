@@ -28,6 +28,7 @@ public class shoot : MonoBehaviour
 	private List<GameObject>.Enumerator bulletEnumerator;
 	private float lastShot = 0.0f;
 	private bool canFire = true;
+	private bool hairTriggerPressed = false;
 
 	private void ShowLaser(RaycastHit hit)
 	{
@@ -69,6 +70,15 @@ public class shoot : MonoBehaviour
 		}
 
 		if (Controller.GetHairTriggerDown())
+		{
+			hairTriggerPressed = true;
+		}
+		if (Controller.GetHairTriggerUp())
+		{
+			hairTriggerPressed = false;
+		}
+
+		if (hairTriggerPressed)
 		{
 			RaycastHit hit;
 
