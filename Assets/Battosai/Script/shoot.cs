@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class shoot : MonoBehaviour
 {
-
 	private SteamVR_TrackedObject trackedObj;
 
 	private SteamVR_Controller.Device Controller
@@ -92,6 +91,7 @@ public class shoot : MonoBehaviour
 
 	private void fire()
 	{
+		Controller.TriggerHapticPulse(100);
 		canFire = false;
 		lastShot = Time.realtimeSinceStartup;
 
