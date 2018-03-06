@@ -7,6 +7,7 @@ public class PlayerHitDetection : MonoBehaviour {
     private GameObject sphere;
     private float currentSphereSize = 0.25f;
     public int hp = 3;
+    public bool isHit = false;
 
     void OnTriggerEnter(Collider col)
     {
@@ -18,6 +19,7 @@ public class PlayerHitDetection : MonoBehaviour {
                 Debug.Log("you lose");
             }else
             {
+                isHit = true;
                 sphere = Instantiate(prefabSafeSphere, transform.position, Quaternion.identity);
                 sphere.transform.parent = this.transform;
                 sphere.transform.localScale = new Vector3(currentSphereSize, currentSphereSize, currentSphereSize);
@@ -37,6 +39,7 @@ public class PlayerHitDetection : MonoBehaviour {
         }
         else if(sphere != null)
         {
+            isHit = false;
             Destroy(sphere);
             currentSphereSize = 0.25f;
         }
