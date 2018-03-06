@@ -19,8 +19,8 @@ public class shoot : MonoBehaviour
 
 	public GameObject laserPrefab;
 	public GameObject bulletPrefab;
-	public float shootCooldownSeconds = 0.5f;
-	public float shotSpeedMS = 10.0f;
+	public float shootCooldownSeconds = 0.2f;
+	public float shotSpeedMS = 40.0f;
 
 	private GameObject laser;
 	private Transform laserTransform;
