@@ -34,6 +34,7 @@ public class PlayerHitDetection : MonoBehaviour {
         else if(sphere != null)
         {
             Destroy(sphere);
+            currentSphereSize = 0.25f;
         }
     }
 }

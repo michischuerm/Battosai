@@ -13,7 +13,7 @@ public class EnemyShoot : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             GameObject attack = Instantiate(prefab, transform.position, Quaternion.identity);
-            attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (GameObject.Find("Camera (head)").transform.position - attack.transform.position), ForceMode.Impulse);
+            attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (GameObject.Find("Camera (eye)").transform.position - attack.transform.position), ForceMode.Impulse);
         }
     }
 }
