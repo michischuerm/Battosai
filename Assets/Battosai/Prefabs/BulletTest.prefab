@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33504904260409716}
   - component: {fileID: 23272544213214940}
   - component: {fileID: 136492252586924816}
+  - component: {fileID: 54353566649170224}
   m_Layer: 0
   m_Name: BulletTest
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1877085780320486}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,6 +85,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1877085780320486}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54353566649170224
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1877085780320486}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!136 &136492252586924816
 CapsuleCollider:
   m_ObjectHideFlags: 1
