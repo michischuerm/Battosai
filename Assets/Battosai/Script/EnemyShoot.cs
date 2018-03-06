@@ -12,12 +12,18 @@ public class EnemyShoot : MonoBehaviour
     public int minAmountOfShootsInOneBurst = 1;
     public int maxAmountOfShootsInOneBurst = 6;
     private bool canShoot = true;
+    private GameObject player;
     private int shootCounter = 0;
+
+    private void Start()
+    {
+        player = GameObject.Find("Camera (eye)");
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         
-        if (canShoot)
+        if (canShoot && !player.GetComponent<PlayerHitDetection>().isHit)
         {            
             canShoot = false;
             shootCounter = Random.Range(minAmountOfShootsInOneBurst, maxAmountOfShootsInOneBurst);
@@ -27,13 +33,21 @@ public class EnemyShoot : MonoBehaviour
 
     private void shoot()
     {
-        GameObject attack = Instantiate(prefab, transform.position, Quaternion.identity);
-        attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (GameObject.Find("Camera (eye)").transform.position - attack.transform.position), ForceMode.Impulse);
-        shootCounter--;
-        if (shootCounter >= 0)
+        if (!player.GetComponent<PlayerHitDetection>().isHit)
         {
-            Invoke("shoot", timeBetweenShoots);
-        }else
+            GameObject attack = Instantiate(prefab, transform.position, Quaternion.identity);
+            attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (player.transform.position - attack.transform.position), ForceMode.Impulse);
+            shootCounter--;
+            if (shootCounter >= 0)
+            {
+                Invoke("shoot", timeBetweenShoots);
+            }
+            else
+            {
+                canShoot = true;
+            }
+        }
+        else
         {
             canShoot = true;
         }
