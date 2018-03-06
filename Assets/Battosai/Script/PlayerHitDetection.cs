@@ -18,8 +18,12 @@ public class PlayerHitDetection : MonoBehaviour {
                 Debug.Log("you lose");
             }else
             {
-                sphere = Instantiate(prefabSafeSphere);
+                sphere = Instantiate(prefabSafeSphere, transform.position, Quaternion.identity);
+                sphere.transform.parent = this.transform;
                 sphere.transform.localScale = new Vector3(currentSphereSize, currentSphereSize, currentSphereSize);
+                foreach(GameObject threat in GameObject.FindGameObjectsWithTag("makeDamage")){
+                    Destroy(threat);
+                }
             }
         }
     }
