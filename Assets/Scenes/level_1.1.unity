@@ -664,6 +664,14 @@ MonoBehaviour:
   _head: {fileID: 1928965249}
   _ears: {fileID: 1635244753}
   wireframe: 0
+--- !u!45 &332629227
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 332629225}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: e222162ddb8d34547a133b673221b195, type: 2}
 --- !u!1 &333584672
 GameObject:
   m_ObjectHideFlags: 0
