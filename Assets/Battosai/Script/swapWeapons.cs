@@ -8,6 +8,7 @@ public class swapWeapons : MonoBehaviour
 	public float blindspot = 0.3f; // from 0 to 1
 	public string weaponsTag = "playerWeapons";
 	private bool weaponSwaped = false;
+	private bool touchPressed = false;
 	private GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
 
@@ -42,8 +43,9 @@ public class swapWeapons : MonoBehaviour
 			if (x > blindspot && y > blindspot)
 			{
 				//Debug.Log("top right");
-				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				if (touchPressed && !weaponSwaped)
 				{
+					weaponSwaped = true;
 					swapToGun();
 				}
 
@@ -52,8 +54,9 @@ public class swapWeapons : MonoBehaviour
             // bottom right
             if (x > blindspot && y < (-1 * blindspot))
 			{
-				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				if (touchPressed && !weaponSwaped)
 				{
+					weaponSwaped = true;
 					swapToShield();
 				}
 				//Debug.Log("bottom right");
@@ -62,8 +65,9 @@ public class swapWeapons : MonoBehaviour
 			// top left
 			if (x < (-1 * blindspot) && y > (blindspot))
 			{
-				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				if (touchPressed && !weaponSwaped)
 				{
+					weaponSwaped = true;
 					swapToSword();
 				}
 				//Debug.Log("top left");
@@ -72,12 +76,13 @@ public class swapWeapons : MonoBehaviour
 			// bottom left
 			if (x < (-1 * blindspot) && y < (-1 * blindspot))
 			{
-				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				if (touchPressed && !weaponSwaped)
 				{
+					weaponSwaped = true;
 
 				}
 				//Debug.Log("bottom left");
-            }
+			}
         }
 	}
 
@@ -141,4 +146,18 @@ public class swapWeapons : MonoBehaviour
     {
         weaponEnumerator = weapons.GetEnumerator();
     }
+
+	private void updateTouchBool()
+	{
+		if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+		{
+			touchPressed = true;
+		}
+
+		if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
+		{
+			weaponSwaped = false;
+			touchPressed = false;
+		}
+	}
 }
