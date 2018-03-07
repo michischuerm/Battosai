@@ -20,7 +20,6 @@ public class BossOneBreathParticleCollision : MonoBehaviour {
     void OnParticleTrigger()
     {
         numEnter += ps.GetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
-        Debug.Log("numEnter " + numEnter);
         if(numEnter >= 6)
         {
             player.GetComponent<PlayerHitDetection>().gotHit();
