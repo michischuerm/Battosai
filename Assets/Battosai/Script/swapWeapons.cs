@@ -29,7 +29,9 @@ public class swapWeapons : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Controller.GetAxis() != Vector2.zero)
+        updateTouchBool();
+
+        if (Controller.GetAxis() != Vector2.zero)
 		{
 			//Debug.Log(gameObject.name + Controller.GetAxis());
 			// For the y coordinate, -1 represents the bottom of the trackpad and 1 represents the top
@@ -65,10 +67,12 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapToSword()
 	{
+        Debug.Log("searching for playerSword");
         resetEnumerator();
         while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject)weaponEnumerator.Current;
+            Debug.Log("Listing: " + weapon.name);
 			if (weapon.name == "playerSword")
 			{
                 weapon.SetActive(true);
@@ -121,6 +125,7 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapWeapon(float x, float y)
 	{
+        Debug.Log("swap Weapon");
 		// top right
 		if (x > blindspot && y > blindspot)
 		{

@@ -20,6 +20,7 @@ public class shoot : MonoBehaviour
 	public GameObject bulletPrefab;
 	public float shootCooldownSeconds = 0.2f;
 	public float shotSpeedMS = 40.0f;
+	public Transform shotDirection;
 
 	private GameObject laser;
 	private Transform laserTransform;
@@ -118,7 +119,15 @@ public class shoot : MonoBehaviour
 			currentBullet.SetActive(true);
 
 			//Add velocity to the pinsel
-			currentBullet.GetComponent<Rigidbody>().velocity = currentBullet.transform.forward * shotSpeedMS;
+			if (shotDirection != null)
+			{
+				currentBullet.GetComponent<Rigidbody>().velocity = shotDirection.forward * shotSpeedMS;
+			}
+			else
+			{
+				Debug.Log("no shot direction");
+				currentBullet.GetComponent<Rigidbody>().velocity = currentBullet.transform.forward * shotSpeedMS;
+			}
 		}
 	}
 }
