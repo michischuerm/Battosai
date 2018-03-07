@@ -11,6 +11,7 @@ TagManager:
   - Fire
   - playerWeapons
   - Arena
+  - enemy
   layers:
   - Default
   - TransparentFX
