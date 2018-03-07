@@ -7,8 +7,7 @@ public class swapWeapons : MonoBehaviour
 	private SteamVR_TrackedObject trackedObj;
 	public float blindspot = 0.3f; // from 0 to 1
 	public string weaponsTag = "playerWeapons";
-	private bool weaponSwaped = false;
-	private bool touchPressed = false;
+	private bool shouldSwap = false;
 	private GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
 
@@ -32,58 +31,19 @@ public class swapWeapons : MonoBehaviour
 	{
 		if (Controller.GetAxis() != Vector2.zero)
 		{
-            //Debug.Log(gameObject.name + Controller.GetAxis());
-            // For the y coordinate, -1 represents the bottom of the trackpad and 1 represents the top
-            // for x, -1=left and 1=right
+			//Debug.Log(gameObject.name + Controller.GetAxis());
+			// For the y coordinate, -1 represents the bottom of the trackpad and 1 represents the top
+			// for x, -1=left and 1=right
 
-            float x = Controller.GetAxis().x;
+			float x = Controller.GetAxis().x;
 			float y = Controller.GetAxis().y;
 
-			// top right
-			if (x > blindspot && y > blindspot)
+			if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad) && shouldSwap)
 			{
-				//Debug.Log("top right");
-				if (touchPressed && !weaponSwaped)
-				{
-					weaponSwaped = true;
-					swapToGun();
-				}
-
+				Debug.Log("Swapping Weapon");
+				swapWeapon(x, y);
 			}
-
-            // bottom right
-            if (x > blindspot && y < (-1 * blindspot))
-			{
-				if (touchPressed && !weaponSwaped)
-				{
-					weaponSwaped = true;
-					swapToShield();
-				}
-				//Debug.Log("bottom right");
-			}
-
-			// top left
-			if (x < (-1 * blindspot) && y > (blindspot))
-			{
-				if (touchPressed && !weaponSwaped)
-				{
-					weaponSwaped = true;
-					swapToSword();
-				}
-				//Debug.Log("top left");
-			}
-
-			// bottom left
-			if (x < (-1 * blindspot) && y < (-1 * blindspot))
-			{
-				if (touchPressed && !weaponSwaped)
-				{
-					weaponSwaped = true;
-
-				}
-				//Debug.Log("bottom left");
-			}
-        }
+		}
 	}
 
 	private void swapToGun()
@@ -151,13 +111,41 @@ public class swapWeapons : MonoBehaviour
 	{
 		if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
 		{
-			touchPressed = true;
+			shouldSwap = true;
+		}
+		else
+		{
+			shouldSwap = false;
+		}
+	}
+
+	private void swapWeapon(float x, float y)
+	{
+		// top right
+		if (x > blindspot && y > blindspot)
+		{
+			//Debug.Log("top right");
+			swapToGun();
 		}
 
-		if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
+		// bottom right
+		if (x > blindspot && y < (-1 * blindspot))
 		{
-			weaponSwaped = false;
-			touchPressed = false;
+			//Debug.Log("bottom right");
+			swapToShield();
+		}
+
+		// top left
+		if (x < (-1 * blindspot) && y > (blindspot))
+		{
+			//Debug.Log("top left");
+			swapToSword();
+		}
+
+		// bottom left
+		if (x < (-1 * blindspot) && y < (-1 * blindspot))
+		{
+			//Debug.Log("bottom left");
 		}
 	}
 }
