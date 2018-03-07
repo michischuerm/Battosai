@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovementAI : MonoBehaviour {
-    private Animator animator;                          //Variable of type Animator to store a reference to the enemy's Animator component.
     private Transform[] targets;                        //All possible transformation positions
     private Transform target;                           //Transform to attempt to move toward each turn.
     private Quaternion targetRotation;                  //Rotation to face the next position
@@ -17,8 +16,6 @@ public class EnemyMovementAI : MonoBehaviour {
     private float dist;                                 //distance between target and enemy
     void Start()
     {
-        //Get and store a reference to the attached Animator component.
-        animator = GetComponent<Animator>();
         //Find all Possible MovementPositions of the Enemy and store them in a list
         GameObject[] enemyMovementPositions = GameObject.FindGameObjectsWithTag("EnemyMovement");
         targets = new Transform[enemyMovementPositions.Length];

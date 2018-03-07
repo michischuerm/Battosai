@@ -8,6 +8,8 @@ TagManager:
   - shootMe
   - projectile
   - makeDamage
+  - Fire
+  - playerWeapons
   layers:
   - Default
   - TransparentFX
