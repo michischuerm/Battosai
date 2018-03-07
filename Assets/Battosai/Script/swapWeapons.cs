@@ -41,28 +41,42 @@ public class swapWeapons : MonoBehaviour
 			// top right
 			if (x > blindspot && y > blindspot)
 			{
-                //Debug.Log("top right");
-            }
+				//Debug.Log("top right");
+				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				{
+					swapToGun();
+				}
+
+			}
 
             // bottom right
             if (x > blindspot && y < (-1 * blindspot))
 			{
-                //Debug.Log("bottom right");
-                swapToGun();
-            }
+				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				{
+					swapToShield();
+				}
+				//Debug.Log("bottom right");
+			}
 
 			// top left
 			if (x < (-1 * blindspot) && y > (blindspot))
 			{
+				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				{
+					swapToSword();
+				}
 				//Debug.Log("top left");
-                swapToSword();
-            }
+			}
 
 			// bottom left
 			if (x < (-1 * blindspot) && y < (-1 * blindspot))
 			{
-                //Debug.Log("bottom left");
-                swapToShield();
+				if (Controller.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
+				{
+
+				}
+				//Debug.Log("bottom left");
             }
         }
 	}
