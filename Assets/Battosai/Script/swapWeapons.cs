@@ -31,79 +31,83 @@ public class swapWeapons : MonoBehaviour
 	{
 		if (Controller.GetAxis() != Vector2.zero)
 		{
-			Debug.Log(gameObject.name + Controller.GetAxis());
-			// For the y coordinate, -1 represents the bottom of the trackpad and 1 represents the top
-			// for x, -1=left and 1=right
+            //Debug.Log(gameObject.name + Controller.GetAxis());
+            // For the y coordinate, -1 represents the bottom of the trackpad and 1 represents the top
+            // for x, -1=left and 1=right
 
-			float x = Controller.GetAxis().x;
+            float x = Controller.GetAxis().x;
 			float y = Controller.GetAxis().y;
 
 			// top right
 			if (x > blindspot && y > blindspot)
 			{
-				Debug.Log("top right");
-			}
+                //Debug.Log("top right");
+            }
 
-			// bottom right
-			if (x > blindspot && y < (-1 * blindspot))
+            // bottom right
+            if (x > blindspot && y < (-1 * blindspot))
 			{
-				Debug.Log("bottom right");
-			}
+                //Debug.Log("bottom right");
+                swapToGun();
+            }
 
 			// top left
-			if (x > (-1 * blindspot) && y > (blindspot))
+			if (x < (-1 * blindspot) && y > (blindspot))
 			{
-				Debug.Log("top left");
-			}
+				//Debug.Log("top left");
+                swapToSword();
+            }
 
 			// bottom left
-			if (x > (-1 * blindspot) && y > (-1 * blindspot))
+			if (x < (-1 * blindspot) && y < (-1 * blindspot))
 			{
-				Debug.Log("bottom left");
-			}
-		}
+                //Debug.Log("bottom left");
+                swapToShield();
+            }
+        }
 	}
 
 	private void swapToGun()
 	{
-		updateGunArray();
-		while(weaponEnumerator.MoveNext())
+        updateEnumerator();
+        while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject) weaponEnumerator.Current;
 			if (weapon.name == "playerGun")
 			{
 				Debug.Log("playerGun found, activate");
-				weapon.active = true;
-			}
+                weapon.SetActive(true);
+            }
 			else
 			{
-				weapon.active = false;
-			}
+                weapon.SetActive(false);
+            }
 		}
 	}
 
 	private void swapToSword()
 	{
-		updateGunArray();
-		while (weaponEnumerator.MoveNext())
+        updateEnumerator();
+        while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject)weaponEnumerator.Current;
 			if (weapon.name == "playerSword")
 			{
 				Debug.Log("playerSword found, activate");
-				weapon.active = true;
+                weapon.SetActive(true);
 			}
 			else
 			{
-				weapon.active = false;
-			}
+				weapon.SetActive(false);
+            }
 		}
 	}
 
 	private void swapToShield()
 	{
-		updateGunArray();
-		while (weaponEnumerator.MoveNext())
+        updateEnumerator();
+
+        while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject)weaponEnumerator.Current;
 			if (weapon.name == "playerShield")
@@ -121,7 +125,10 @@ public class swapWeapons : MonoBehaviour
 	private void updateGunArray()
 	{
 		weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
-		weaponEnumerator = weapons.GetEnumerator();
-		Debug.Log("Guns updated " + weapons);
 	}
+
+    private void updateEnumerator()
+    {
+        weaponEnumerator = weapons.GetEnumerator();
+    }
 }
