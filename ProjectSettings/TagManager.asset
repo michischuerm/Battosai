@@ -10,6 +10,7 @@ TagManager:
   - makeDamage
   - Fire
   - playerWeapons
+  - Arena
   layers:
   - Default
   - TransparentFX
