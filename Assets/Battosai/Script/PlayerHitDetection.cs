@@ -20,7 +20,6 @@ public class PlayerHitDetection : MonoBehaviour {
     }
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.gameObject.name);
         if(col.gameObject.tag == "makeDamage")
         {
             gotHit();
