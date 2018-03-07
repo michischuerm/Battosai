@@ -69,13 +69,12 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapToGun()
 	{
-        updateEnumerator();
+		resetEnumerator();
         while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject) weaponEnumerator.Current;
 			if (weapon.name == "playerGun")
 			{
-				Debug.Log("playerGun found, activate");
                 weapon.SetActive(true);
             }
 			else
@@ -87,13 +86,12 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapToSword()
 	{
-        updateEnumerator();
+        resetEnumerator();
         while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject)weaponEnumerator.Current;
 			if (weapon.name == "playerSword")
 			{
-				Debug.Log("playerSword found, activate");
                 weapon.SetActive(true);
 			}
 			else
@@ -105,19 +103,17 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapToShield()
 	{
-        updateEnumerator();
-
+		resetEnumerator();
         while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject)weaponEnumerator.Current;
 			if (weapon.name == "playerShield")
 			{
-				Debug.Log("playerShield found, activate");
-				weapon.active = true;
+				weapon.SetActive(true);
 			}
 			else
 			{
-				weapon.active = false;
+				weapon.SetActive(false);
 			}
 		}
 	}
@@ -127,7 +123,7 @@ public class swapWeapons : MonoBehaviour
 		weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
 	}
 
-    private void updateEnumerator()
+    private void resetEnumerator()
     {
         weaponEnumerator = weapons.GetEnumerator();
     }
