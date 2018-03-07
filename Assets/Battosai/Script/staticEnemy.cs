@@ -7,6 +7,7 @@ public class staticEnemy : MonoBehaviour {
     public int attackLength = 4;
     public int minTimeBetweenAttacks = 10;
     public int maxTimeBetweenAttacks = 15;
+    public float timeTillAttackStopsAfterHit = 1.5f;
     private bool canShoot = true;
     private GameObject player;
     private GameObject attackEffect;
@@ -25,9 +26,11 @@ public class staticEnemy : MonoBehaviour {
         {
             canShoot = false;
             Invoke("attack", Random.Range(minTimeBetweenAttacks, maxTimeBetweenAttacks));
-        }else if (!canShoot && player.GetComponent<PlayerHitDetection>().isHit)
+        }
+        //Monster damaged the player and is still attacking, stop monster attack after delay
+        else if (!canShoot && player.GetComponent<PlayerHitDetection>().isHit)
         {
-            Invoke("finishAttack", 2);
+            Invoke("finishAttack", timeTillAttackStopsAfterHit);
         }
     }
 
