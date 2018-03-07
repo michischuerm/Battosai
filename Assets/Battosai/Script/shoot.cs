@@ -101,7 +101,7 @@ public class shoot : MonoBehaviour
 
 	private void fire()
 	{
-		Controller.TriggerHapticPulse(100);
+		Controller.TriggerHapticPulse(1000);
 		canFire = false;
 		lastShot = Time.realtimeSinceStartup;
 
