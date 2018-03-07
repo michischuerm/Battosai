@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: d71db41a869e84c829df7d5961f257be
-timeCreated: 1520413658
+guid: 2c34bd4b9da664cefb6fd56dff73e0b4
+timeCreated: 1520413820
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -25,6 +25,8 @@ ModelImporter:
     4300000: Platonic
     4300002: Disc
     4300004: Lathe
+    7400000: CINEMA_4D_Main
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -99,7 +101,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
