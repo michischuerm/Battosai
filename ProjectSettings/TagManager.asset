@@ -12,6 +12,7 @@ TagManager:
   - playerWeapons
   - Arena
   - enemy
+  - enemyWeakSpot
   layers:
   - Default
   - TransparentFX
