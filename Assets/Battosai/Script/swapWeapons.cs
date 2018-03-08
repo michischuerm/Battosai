@@ -6,9 +6,9 @@ public class swapWeapons : MonoBehaviour
 {
 	private SteamVR_TrackedObject trackedObj;
 	public float blindspot = 0.2f; // from 0 to 1
-	public string weaponsTag = "playerWeapons";
+	public static string weaponsTag = "playerWeapons";
 	private bool shouldSwap = false;
-	private GameObject[] weapons;
+	private static GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
 
 	private SteamVR_Controller.Device Controller
@@ -114,9 +114,13 @@ public class swapWeapons : MonoBehaviour
 		}
 	}
 
-	private void updateGunArray()
+	private static void updateGunArray()
 	{
-		weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
+		if (weapons == null)
+		{
+			weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
+			Debug.Log("weapons updated: " + weapons);
+		}
 	}
 
     private void resetEnumerator()
