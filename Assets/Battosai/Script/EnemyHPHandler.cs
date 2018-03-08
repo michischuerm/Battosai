@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHPHandler : MonoBehaviour {
     public int hp = 100;
     public int stageTwo = 50;
-
+    public int stageThree = 0;
     private void Start()
     {
         
@@ -13,9 +13,9 @@ public class EnemyHPHandler : MonoBehaviour {
     public void takeDamage(int damage)
     {
         hp-=damage;
-        if(hp == stageTwo)
+        if(hp <= stageTwo && hp > stageThree)
         {
-            GetComponent<staticEnemy>().enabled = true;
+            GetComponent<BossOneStateHandler>().changeState(2);
         }
     }
 

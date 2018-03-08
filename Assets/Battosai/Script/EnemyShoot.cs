@@ -52,4 +52,9 @@ public class EnemyShoot : MonoBehaviour
             canShoot = true;
         }
     }
+
+    private void OnDisable()
+    {
+        CancelInvoke("shoot");
+    }
 }
