@@ -16,8 +16,9 @@ public class shoot : MonoBehaviour
 		trackedObj = GetComponent<SteamVR_TrackedObject>();
 	}
 
-	public GameObject laserPrefab;
+	//public GameObject laserPrefab;
 	public GameObject bulletPrefab;
+	public GameObject attachedGun;
 	public float shootCooldownSeconds = 0.2f;
 	public float shotSpeedMS = 40.0f;
 	public Transform shotDirection;
@@ -31,6 +32,7 @@ public class shoot : MonoBehaviour
 	private bool canFire = true;
 	private bool hairTriggerPressed = false;
 
+	/*
 	private void ShowLaser(RaycastHit hit)
 	{
 		laser.SetActive(true);
@@ -41,12 +43,15 @@ public class shoot : MonoBehaviour
 			laserTransform.localScale.y,
 			hit.distance);
 	}
+	*/
 
 	// Use this for initialization
 	void Start()
 	{
+		/*
 		laser = Instantiate(laserPrefab);
 		laserTransform = laser.transform;
+		*/
 
 		lastShot = Time.realtimeSinceStartup;
 
@@ -86,10 +91,10 @@ public class shoot : MonoBehaviour
 			if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100))
 			{
 				hitPoint = hit.point;
-				ShowLaser(hit);
+				//ShowLaser(hit);
 			}
 
-			if (canFire)
+			if (canFire && attachedGun.activeSelf)
 			{
 				fire();
 			}
@@ -102,7 +107,8 @@ public class shoot : MonoBehaviour
 
 	private void fire()
 	{
-		Controller.TriggerHapticPulse(1000);
+		ushort pulseMS = (ushort)(shootCooldownSeconds * 5);
+		Controller.TriggerHapticPulse(pulseMS);
 		canFire = false;
 		lastShot = Time.realtimeSinceStartup;
 
@@ -121,6 +127,7 @@ public class shoot : MonoBehaviour
 			//Add velocity to the pinsel
 			if (shotDirection != null)
 			{
+				currentBullet.transform.position = shotDirection.position;
 				currentBullet.GetComponent<Rigidbody>().velocity = shotDirection.forward * shotSpeedMS;
 			}
 			else
