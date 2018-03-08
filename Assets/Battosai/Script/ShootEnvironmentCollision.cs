@@ -11,4 +11,12 @@ public class ShootEnvironmentCollision : MonoBehaviour {
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "Arena" || (collision.collider.tag == "PlayerWeapons" && collision.collider.name == "playerShield"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
