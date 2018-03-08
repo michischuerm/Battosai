@@ -60,7 +60,7 @@ public class teleportLaserPointer : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
+		if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
 		{
 			RaycastHit hit;
 
@@ -80,7 +80,7 @@ public class teleportLaserPointer : MonoBehaviour
 			reticle.SetActive(false);
 		}
 
-		if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad) && shouldTeleport)
+		if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip) && shouldTeleport)
 		{
 			Teleport();
 		}
