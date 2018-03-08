@@ -31,7 +31,7 @@ public class stationaryControll : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Trigger Enter");
-		updateTrackedObjs(other);
+		addTrackedObjs(other);
 	}
 
 	private void OnTriggerStay(Collider other)
@@ -45,9 +45,9 @@ public class stationaryControll : MonoBehaviour
 		removeTrackedObjs(other);
 	}
 
-	private void updateTrackedObjs(Collider collidingObj)
+	private void addTrackedObjs(Collider collidingObj)
 	{
-		if (collidingObj.GetComponent<SteamVR_TrackedObject>())
+		if (collidingObj.GetComponent<SteamVR_TrackedObject>() != null)
 		{
 			trackedObjs.Add(collidingObj.GetComponent<SteamVR_TrackedObject>());
 		}
@@ -55,7 +55,7 @@ public class stationaryControll : MonoBehaviour
 
 	private void removeTrackedObjs(Collider collidingObj)
 	{
-		if (collidingObj.GetComponent<SteamVR_TrackedObject>())
+		if (collidingObj.GetComponent<SteamVR_TrackedObject>() != null)
 		{
 			trackedObjs.Remove(collidingObj.GetComponent<SteamVR_TrackedObject>());
 		}
