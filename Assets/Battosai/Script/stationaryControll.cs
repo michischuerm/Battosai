@@ -7,6 +7,8 @@ public class stationaryControll : MonoBehaviour
 	public Transform stationaryFixedHinge;
 	private GameObject controllerInteractionBox;
 	private List<SteamVR_TrackedObject> trackedObjs;
+	private SteamVR_TrackedObject controller1;
+	private SteamVR_TrackedObject controller2;
 	private int controllersInBox = 0;
 
 	// Use this for initialization
@@ -21,7 +23,15 @@ public class stationaryControll : MonoBehaviour
 	{
 		countControllers(trackedObjs);
 
-		Debug.Log("controllersInBox: " + controllersInBox);
+		if (controllersInBox > 0)
+		{
+			Debug.Log("controllersInBox: " + controllersInBox);
+		}
+
+		if (controllersInBox >= 2)
+		{
+
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)
