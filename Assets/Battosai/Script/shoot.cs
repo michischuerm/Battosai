@@ -23,8 +23,8 @@ public class shoot : MonoBehaviour
 	public float shotSpeedMS = 40.0f;
 	public Transform shotDirection;
 
-	private GameObject laser;
-	private Transform laserTransform;
+	//private GameObject laser;
+	//private Transform laserTransform;
 	private Vector3 hitPoint;
 	private List<GameObject> bulletPool = new List<GameObject>();
 	private List<GameObject>.Enumerator bulletEnumerator;
@@ -101,13 +101,14 @@ public class shoot : MonoBehaviour
 		}
 		else
 		{
-			laser.SetActive(false);
+			//laser.SetActive(false);
 		}
 	}
 
 	private void fire()
 	{
-		ushort pulseMS = (ushort)(shootCooldownSeconds * 5);
+		ushort pulseMS = (ushort)(shootCooldownSeconds * 2500);
+        Debug.Log(pulseMS);
 		Controller.TriggerHapticPulse(pulseMS);
 		canFire = false;
 		lastShot = Time.realtimeSinceStartup;

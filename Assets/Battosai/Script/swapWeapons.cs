@@ -5,7 +5,7 @@ using UnityEngine;
 public class swapWeapons : MonoBehaviour
 {
 	private SteamVR_TrackedObject trackedObj;
-	public float blindspot = 0.3f; // from 0 to 1
+	public float blindspot = 0.2f; // from 0 to 1
 	public string weaponsTag = "playerWeapons";
 	private bool shouldSwap = false;
 	private GameObject[] weapons;
@@ -24,7 +24,20 @@ public class swapWeapons : MonoBehaviour
 	private void Start()
 	{
 		updateGunArray();
-	}
+        resetEnumerator();
+        while (weaponEnumerator.MoveNext())
+        {
+            GameObject weapon = (GameObject)weaponEnumerator.Current;
+            if (weapon.name == "playerShield")
+            {
+                weapon.SetActive(true);
+            }
+            else
+            {
+                weapon.SetActive(false);
+            }
+        }
+    }
 
 	// Update is called once per frame
 	void Update ()
