@@ -88,7 +88,7 @@ public class teleportLaserPointer : MonoBehaviour
 
 		if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip) && shouldTeleport)
 		{
-			gripPressed = true;
+			gripPressed = false;
 			Teleport();
 		}
 	}
