@@ -10,22 +10,28 @@ public class stationaryControll : MonoBehaviour
 	private int controllersInBox = 0;
 
 	// Use this for initialization
-	void Start ()
+	void Start()
 	{
 		controllerInteractionBox = gameObject;
+		trackedObjs = new List<SteamVR_TrackedObject>();
+
 	}
-	
+
 	// Update is called once per frame
-	void Update ()
+	void Update()
 	{
 		if (trackedObjs != null && trackedObjs.Count >= 2)
 		{
 			trackedObjs.ForEach(delegate (SteamVR_TrackedObject obj)
 			{
-				Debug.Log(obj.name);
+				//Debug.Log(obj.name);
+				checkForController(obj);
 			});
 			//trackedObjs.ForEach(checkForController);
 		}
+
+		Debug.Log("controllersInBox: " + controllersInBox);
+
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -36,7 +42,6 @@ public class stationaryControll : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-		// updateTrackedObjs(other);
 	}
 
 	private void OnTriggerExit(Collider other)
@@ -47,24 +52,18 @@ public class stationaryControll : MonoBehaviour
 
 	private void addTrackedObjs(Collider collidingObj)
 	{
-		Debug.Log(collidingObj.name);
-		Debug.Log(collidingObj.GetComponent<SteamVR_TrackedObject>());
-		/*
 		if (collidingObj.GetComponent<SteamVR_TrackedObject>() != null)
 		{
 			trackedObjs.Add(collidingObj.GetComponent<SteamVR_TrackedObject>());
 		}
-		*/
 	}
 
 	private void removeTrackedObjs(Collider collidingObj)
 	{
-		/*
 		if (collidingObj.GetComponent<SteamVR_TrackedObject>() != null)
 		{
 			trackedObjs.Remove(collidingObj.GetComponent<SteamVR_TrackedObject>());
 		}
-		*/
 	}
 
 	private void checkForController(SteamVR_TrackedObject trackedObj)
@@ -75,7 +74,7 @@ public class stationaryControll : MonoBehaviour
 		}
 	}
 
-	private bool isController (SteamVR_TrackedObject trackedObj)
+	private bool isController(SteamVR_TrackedObject trackedObj)
 	{
 		if (SteamVR_Controller.Input((int)trackedObj.index) == null)
 		{
