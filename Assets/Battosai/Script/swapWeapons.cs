@@ -119,7 +119,10 @@ public class swapWeapons : MonoBehaviour
 		if (weapons == null)
 		{
 			weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
-			Debug.Log("weapons updated: " + weapons);
+			for (int i = 0; i < weapons.Length; i++)
+			{
+				Debug.Log("weapons found: " + weapons[i].name);
+			}
 		}
 	}
 
