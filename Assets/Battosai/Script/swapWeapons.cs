@@ -55,7 +55,7 @@ public class swapWeapons : MonoBehaviour
 
 			if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad) && shouldSwap)
 			{
-				Debug.Log("Swapping Weapon");
+				//Debug.Log("Swapping Weapon");
 				swapWeapon(x, y);
 			}
 		}
@@ -85,7 +85,7 @@ public class swapWeapons : MonoBehaviour
         while (weaponEnumerator.MoveNext())
 		{
 			GameObject weapon = (GameObject)weaponEnumerator.Current;
-            Debug.Log("Listing: " + weapon.name);
+            //Debug.Log("Listing: " + weapon.name);
 			if (weapon.name == "playerSword")
 			{
                 weapon.SetActive(true);
@@ -138,7 +138,7 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapWeapon(float x, float y)
 	{
-        Debug.Log("swap Weapon");
+        //Debug.Log("swap Weapon");
 		// top right
 		if (x > blindspot && y > blindspot)
 		{

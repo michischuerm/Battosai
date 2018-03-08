@@ -108,7 +108,6 @@ public class shoot : MonoBehaviour
 	private void fire()
 	{
 		ushort pulseMS = (ushort)(shootCooldownSeconds * 2500);
-        Debug.Log(pulseMS);
 		Controller.TriggerHapticPulse(pulseMS);
 		canFire = false;
 		lastShot = Time.realtimeSinceStartup;
