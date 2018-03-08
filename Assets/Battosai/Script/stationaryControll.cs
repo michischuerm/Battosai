@@ -47,18 +47,24 @@ public class stationaryControll : MonoBehaviour
 
 	private void addTrackedObjs(Collider collidingObj)
 	{
+		Debug.Log(collidingObj.name);
+		Debug.Log(collidingObj.GetComponent<SteamVR_TrackedObject>());
+		/*
 		if (collidingObj.GetComponent<SteamVR_TrackedObject>() != null)
 		{
 			trackedObjs.Add(collidingObj.GetComponent<SteamVR_TrackedObject>());
 		}
+		*/
 	}
 
 	private void removeTrackedObjs(Collider collidingObj)
 	{
+		/*
 		if (collidingObj.GetComponent<SteamVR_TrackedObject>() != null)
 		{
 			trackedObjs.Remove(collidingObj.GetComponent<SteamVR_TrackedObject>());
 		}
+		*/
 	}
 
 	private void checkForController(SteamVR_TrackedObject trackedObj)
