@@ -17,6 +17,7 @@ public class teleportLaserPointer : MonoBehaviour
 	public Vector3 teleportReticleOffset;
 	public LayerMask teleportMask;
 	private bool shouldTeleport;
+	private bool gripPressed = false;
 
 	private SteamVR_Controller.Device Controller
 	{
@@ -62,6 +63,11 @@ public class teleportLaserPointer : MonoBehaviour
 	{
 		if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
 		{
+			gripPressed = true;
+		}
+
+		if (gripPressed)
+		{
 			RaycastHit hit;
 
 			if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100, teleportMask))
@@ -82,6 +88,7 @@ public class teleportLaserPointer : MonoBehaviour
 
 		if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip) && shouldTeleport)
 		{
+			gripPressed = true;
 			Teleport();
 		}
 	}

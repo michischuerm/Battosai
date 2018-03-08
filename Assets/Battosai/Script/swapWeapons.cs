@@ -8,6 +8,8 @@ public class swapWeapons : MonoBehaviour
 	public float blindspot = 0.2f; // from 0 to 1
 	public static string weaponsTag = "playerWeapons";
 	private bool shouldSwap = false;
+	// the static is for scripts to not have separate incomplete weaponlists.
+	// first call to updateGunArray will fill the weapons array
 	private static GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
 
@@ -119,10 +121,12 @@ public class swapWeapons : MonoBehaviour
 		if (weapons == null)
 		{
 			weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
+			/*
 			for (int i = 0; i < weapons.Length; i++)
 			{
 				Debug.Log("weapons found: " + weapons[i].name);
 			}
+			*/
 		}
 	}
 
