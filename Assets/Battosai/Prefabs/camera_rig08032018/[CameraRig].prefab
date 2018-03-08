@@ -1010,7 +1010,6 @@ GameObject:
   - component: {fileID: 4042678405110826}
   - component: {fileID: 95527712573967564}
   - component: {fileID: 65628085012529034}
-  - component: {fileID: 114045888546254326}
   m_Layer: 0
   m_Name: playerShield
   m_TagString: playerWeapons
@@ -1181,7 +1180,6 @@ GameObject:
   - component: {fileID: 4825104698013584}
   - component: {fileID: 95717164250781940}
   - component: {fileID: 65476363541393242}
-  - component: {fileID: 114153802133722842}
   m_Layer: 0
   m_Name: playerShield
   m_TagString: playerWeapons
@@ -1351,8 +1349,8 @@ GameObject:
   - component: {fileID: 20057690321719640}
   - component: {fileID: 124287700110970018}
   - component: {fileID: 65209917412110038}
-  - component: {fileID: 114680671515091222}
   - component: {fileID: 114949232968046654}
+  - component: {fileID: 114864709823668482}
   m_Layer: 0
   m_Name: Camera (eye)
   m_TagString: MainCamera
@@ -7447,17 +7445,6 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
---- !u!114 &114045888546254326
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1502524011179524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882544d95c807e34c8ef7790d3579fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114122788446959494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7479,17 +7466,6 @@ MonoBehaviour:
   teleportMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &114153802133722842
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1539857567152680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 882544d95c807e34c8ef7790d3579fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114180497275688830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7584,7 +7560,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindspot: 0.3
-  weaponsTag: playerWeapons
 --- !u!114 &114641134948111084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7611,20 +7586,6 @@ MonoBehaviour:
   - {x: -1.65, y: 0.01, z: -1.275}
   - {x: -1.65, y: 0.01, z: 1.275}
   - {x: 1.65, y: 0.01, z: 1.275}
---- !u!114 &114680671515091222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602759356132496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 4622549834178332}
-  _ears: {fileID: 4581261935451792}
-  wireframe: 0
 --- !u!114 &114698562423974018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7691,7 +7652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindspot: 0.3
-  weaponsTag: playerWeapons
 --- !u!114 &114814030062797018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7721,6 +7681,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vrcam: {fileID: 0}
+--- !u!114 &114864709823668482
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602759356132496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 4622549834178332}
+  _ears: {fileID: 4581261935451792}
+  wireframe: 0
 --- !u!114 &114895249912412414
 MonoBehaviour:
   m_ObjectHideFlags: 1
