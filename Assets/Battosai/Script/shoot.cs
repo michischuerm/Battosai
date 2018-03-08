@@ -20,7 +20,7 @@ public class shoot : MonoBehaviour
 	public GameObject bulletPrefab;
 	public GameObject attachedGun;
 	public float shootCooldownSeconds = 0.2f;
-	public float shotSpeedMS = 40.0f;
+	public float shotSpeedMS = 80.0f;
 	public Transform shotDirection;
 
 	//private GameObject laser;
