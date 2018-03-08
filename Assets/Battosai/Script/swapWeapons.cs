@@ -80,7 +80,7 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapToSword()
 	{
-        Debug.Log("searching for playerSword");
+        //Debug.Log("searching for playerSword");
         resetEnumerator();
         while (weaponEnumerator.MoveNext())
 		{
