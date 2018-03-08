@@ -4,16 +4,59 @@ using UnityEngine;
 
 public class stationaryControll : MonoBehaviour
 {
+	public Transform stationaryFixedHinge;
+	private GameObject controllerInteractionBox;
+	private List<SteamVR_TrackedObject> trackedObjs;
+	private int controllersInBox = 0;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
+		controllerInteractionBox = gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		
+		if (trackedObjs != null && trackedObjs.Count >= 2)
+		{
+			trackedObjs.ForEach(checkForController);
+		}
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("Trigger Enter");
+		updateTrackedObjs(other);
+	}
+
+	private void OnTriggerStay(Collider other)
+	{
+		Debug.Log("Trigger Exit");
+		updateTrackedObjs(other);
+	}
+
+	private void updateTrackedObjs(Collider collidingObj)
+	{
+		Debug.Log(collidingObj);
+	}
+
+	private void checkForController(SteamVR_TrackedObject trackedObj)
+	{
+		if (isController(trackedObj))
+		{
+			controllersInBox++;
+		}
+	}
+
+	private bool isController (SteamVR_TrackedObject trackedObj)
+	{
+		if (SteamVR_Controller.Input((int)trackedObj.index) == null)
+		{
+			Debug.Log("no index");
+		}
+
+		Debug.Log("tracked obj as controller: " + trackedObj);
+		return true;
 	}
 }
