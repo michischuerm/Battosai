@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class playerBullet : MonoBehaviour {
-
-    void OnCollisionEnter(Collision collision)
+    public int damage = 2;
+    public int weakSpotDamage = 4;
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.tag == "enemy")
+        if (other.tag == "enemy")
         {
+            other.GetComponent<EnemyHPHandler>().takeDamage(damage);
+            gameObject.SetActive(false);
+        }
+        else if(other.tag == "enemyWeakSpot")
+        {
+            other.transform.root.GetComponent<EnemyHPHandler>().takeDamage(weakSpotDamage);
+            gameObject.SetActive(false);
+        }      
+    }
 
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+    private void OnCollisionEnter(Collision collision)
+    {
+        gameObject.SetActive(false);
     }
 }
