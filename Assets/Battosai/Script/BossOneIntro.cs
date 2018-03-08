@@ -27,9 +27,7 @@ public class BossOneIntro : MonoBehaviour {
             targetCounter++;
             if (targetCounter > targets.Length-1)
             {
-                GetComponent<EnemyShoot>().enabled = true;
-                GetComponent<EnemyMovementAI>().enabled = true;
-                GetComponent<BossOneIntro>().enabled = false;
+                GetComponent<BossOneStateHandler>().changeState(1);
                 targetCounter = 0;
             }
         }
