@@ -1010,6 +1010,7 @@ GameObject:
   - component: {fileID: 4042678405110826}
   - component: {fileID: 95527712573967564}
   - component: {fileID: 65628085012529034}
+  - component: {fileID: 114045888546254326}
   m_Layer: 0
   m_Name: playerShield
   m_TagString: playerWeapons
@@ -1180,6 +1181,7 @@ GameObject:
   - component: {fileID: 4825104698013584}
   - component: {fileID: 95717164250781940}
   - component: {fileID: 65476363541393242}
+  - component: {fileID: 114153802133722842}
   m_Layer: 0
   m_Name: playerShield
   m_TagString: playerWeapons
@@ -7445,6 +7447,17 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
+--- !u!114 &114045888546254326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1502524011179524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882544d95c807e34c8ef7790d3579fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114122788446959494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7466,6 +7479,17 @@ MonoBehaviour:
   teleportMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &114153802133722842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1539857567152680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882544d95c807e34c8ef7790d3579fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114180497275688830
 MonoBehaviour:
   m_ObjectHideFlags: 1
