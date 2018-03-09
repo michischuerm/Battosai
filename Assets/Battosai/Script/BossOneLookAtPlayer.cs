@@ -33,25 +33,6 @@ public class BossOneLookAtPlayer : MonoBehaviour {
 
     private void LateUpdate()
     {
-       /* if (canLookAtPlayer)
-        {
-            float x = monsterNeck.localRotation.eulerAngles.x;
-            float y = monsterNeck.localRotation.eulerAngles.y;
-            float z = monsterNeck.localRotation.eulerAngles.z;
-            x -= x > 180 ? 360 : 0;
-            z -= z > 180 ? 360 : 0;
-            if (Mathf.Abs(y) < 140 && Mathf.Abs(y) > 40
-                && Mathf.Abs(x) < 80
-                && Mathf.Abs(z) < 80)
-            {
-              //  startLookDirectionTimer = false;
-                //Rotate the head to lookto the player
-                monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-target.position + monsterNeck.position), Time.deltaTime * 2);
-            }
-        }else
-        {
-            monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-LookatPositionMonster.position + monsterNeck.position), Time.deltaTime * 2);
-        }*/
         if (lookDirectionTimer <= maxLookDirectionTimer && canLookAtPlayer)
         {
             float x = monsterNeck.localRotation.eulerAngles.x;
