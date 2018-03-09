@@ -14,10 +14,11 @@ public class EnemyShoot : MonoBehaviour
     private bool canShoot = true;
     private GameObject player;
     private int shootCounter = 0;
-
+    private BossOneLookAtPlayer lookScript;
     private void Start()
     {
         player = GameObject.Find("Camera (eye)");
+        lookScript = GetComponent<BossOneLookAtPlayer>();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -26,8 +27,10 @@ public class EnemyShoot : MonoBehaviour
         if (canShoot && !player.GetComponent<PlayerHitDetection>().isHit)
         {            
             canShoot = false;
+            int timeToLook = Random.Range(minTimeBetweenBursts, maxTimeBetweenBursts);
             shootCounter = Random.Range(minAmountOfShootsInOneBurst, maxAmountOfShootsInOneBurst);
-            Invoke("shoot", Random.Range(minTimeBetweenBursts, maxTimeBetweenBursts));
+            Invoke("shoot", timeToLook);
+            Invoke("activateLookAtPlayer", timeToLook>0?timeToLook-1:timeToLook);
         }
     }
 
@@ -44,17 +47,29 @@ public class EnemyShoot : MonoBehaviour
             }
             else
             {
+                deactivateLookAtPlayer();
                 canShoot = true;
             }
         }
         else
         {
+            deactivateLookAtPlayer();
             canShoot = true;
         }
     }
 
     private void OnDisable()
     {
+        activateLookAtPlayer();
         CancelInvoke("shoot");
+    }
+
+    private void activateLookAtPlayer()
+    {
+        lookScript.canLookAtPlayer = true;
+    }
+    private void deactivateLookAtPlayer()
+    {
+        lookScript.canLookAtPlayer = false;
     }
 }
