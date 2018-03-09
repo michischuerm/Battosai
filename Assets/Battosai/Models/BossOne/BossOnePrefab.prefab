@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 114726088721665988}
   - component: {fileID: 114725315812373744}
   - component: {fileID: 114017120382041878}
+  - component: {fileID: 114320831866598734}
   m_Layer: 0
   m_Name: BossOnePrefab
   m_TagString: enemy
@@ -981,6 +982,18 @@ MonoBehaviour:
   minTimeBetweenAttacks: 10
   maxTimeBetweenAttacks: 15
   timeTillAttackStopsAfterHit: 1.5
+  rotationStrength: 0.8
+--- !u!114 &114320831866598734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681263079613590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4189d497a3a563d4193a837eb8f3156f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114555797275114184
 MonoBehaviour:
   m_ObjectHideFlags: 1

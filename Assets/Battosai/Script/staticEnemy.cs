@@ -11,17 +11,40 @@ public class staticEnemy : MonoBehaviour {
     private bool canShoot = true;
     private GameObject player;
     private GameObject attackEffect;
+    private Animator animator;
+
+    private Transform target;
+    private Quaternion targetRotation;                  //Rotation to face the player
+    private float str;                                  //multiplikation of rotation strength and time
+    public float rotationStrength = 0.8f;               //Strength of the rotation
+
+    private Transform monsterHead;
+
     // Use this for initialization
     void Start () {
+        target = GameObject.Find("Camera (eye)").transform;
+        animator = GetComponent<Animator>();
+        //change animation later, for now only change the speed for testing purposes==========
+        //animator.speed = 0.01f;
+        //=====================================================================================
         GetComponent<EnemyMovementAI>().enabled = false;
         GetComponent<EnemyShoot>().enabled = false;
         //change Animation to Exhausted
         player = GameObject.Find("Camera (eye)");
-        attackEffect = Instantiate(prefab, GameObject.Find("Root").transform.position, new Quaternion(0, 1, 0, 0));
+        monsterHead = GameObject.Find("Head").transform;
+        attackEffect = Instantiate(prefab, monsterHead.position, new Quaternion(0,0,0,0));
+        attackEffect.transform.position += new Vector3(0, -0.5f, 0);
+        attackEffect.transform.SetParent(monsterHead);
+       // attackEffect.transform.rotation = Quaternion.LookRotation(target.position);
     }
     // Update is called once per frame
     void FixedUpdate()
     {
+        //Rotate to face the target
+        targetRotation = Quaternion.LookRotation(-target.position + transform.position);
+        str = Mathf.Min(rotationStrength * Time.deltaTime, 1);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
+
         if (canShoot && !player.GetComponent<PlayerHitDetection>().isHit)
         {
             canShoot = false;
@@ -31,11 +54,13 @@ public class staticEnemy : MonoBehaviour {
         else if (!canShoot && player.GetComponent<PlayerHitDetection>().isHit)
         {
             Invoke("finishAttack", timeTillAttackStopsAfterHit);
-        }
+        }        
     }
 
     private void attack()
     {
+    //attackEffect.transform.position = GameObject.Find("Head").transform.position;
+    //  attackEffect.transform.rotation = Quaternion.identity;
         attackEffect.SetActive(true);
         Invoke("finishAttack", attackLength);
     }
