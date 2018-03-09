@@ -7522,7 +7522,7 @@ MonoBehaviour:
     type: 2}
   attachedGun: {fileID: 1846869851628106}
   shootCooldownSeconds: 0.2
-  shotSpeedMS: 80
+  shotSpeedMS: 60
   shotDirection: {fileID: 4792932527351316}
 --- !u!114 &114449372706668798
 MonoBehaviour:
@@ -7601,7 +7601,7 @@ MonoBehaviour:
     type: 2}
   attachedGun: {fileID: 1258232565894694}
   shootCooldownSeconds: 0.2
-  shotSpeedMS: 80
+  shotSpeedMS: 60
   shotDirection: {fileID: 4037604056220666}
 --- !u!114 &114701407392621138
 MonoBehaviour:
