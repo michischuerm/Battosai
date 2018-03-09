@@ -35,7 +35,7 @@ public class EnemyShoot : MonoBehaviour
     {
         if (!player.GetComponent<PlayerHitDetection>().isHit)
         {
-            GameObject attack = Instantiate(prefab, transform.position, Quaternion.identity);
+            GameObject attack = Instantiate(prefab, GameObject.Find("Head").transform.position, Quaternion.identity);
             attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (player.transform.position - attack.transform.position), ForceMode.Impulse);
             shootCounter--;
             if (shootCounter >= 0)
