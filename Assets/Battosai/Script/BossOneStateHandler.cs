@@ -12,10 +12,12 @@ public class BossOneStateHandler : MonoBehaviour {
 	
     public void changeState(int newState)
     {
+        //only for testing delete after =============
         if(newState == 3)
         {
             state = 2;
         }
+        //===========================================
         if(newState == 0)
         {            
             GetComponent<EnemyHPHandler>().enabled = true;
@@ -25,7 +27,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<staticEnemy>().enabled = false;
             GetComponent<BossOneWinder>().enabled = false;
         }
-        else if (newState == 1 && state == 0)
+        else if (newState == 1)
         {
             GetComponent<EnemyHPHandler>().enabled = true;
             GetComponent<BossOneIntro>().enabled = false;
@@ -34,7 +36,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<staticEnemy>().enabled = false;
             GetComponent<BossOneWinder>().enabled = false;
         }
-        else if(newState == 2 && state == 1)
+        else if(newState == 2)
         { 
             GetComponent<EnemyMovementAI>().MovementSpeed  /= 2;
             GetComponent<EnemyMovementAI>().rotationStrength /= 2;
@@ -43,8 +45,9 @@ public class BossOneStateHandler : MonoBehaviour {
             //code below only for testing purposes, delete this when the ballista is implemented
             state = newState;
             Invoke("stater", 10);
+            //====================================================================================
         }
-        else if(newState == 3 && state == 2)
+        else if(newState == 3)
         {
             //eney is connected with ballista
             GetComponent<EnemyHPHandler>().enabled = true;
@@ -55,7 +58,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<BossOneWinder>().enabled = true;
             GetComponent<Animator>().SetBool("HarpoonHit", true);
         }
-        else if(newState == 4 && state == 3)
+        else if(newState == 4)
         {
             Debug.Log("lastState");
             GetComponent<EnemyHPHandler>().enabled = true;
@@ -64,6 +67,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyShoot>().enabled = false;
             GetComponent<BossOneWinder>().enabled = false;
             GetComponent<staticEnemy>().enabled = true;
+            GetComponent<Animator>().SetBool("Grounded", true);
         }
         state = newState;
     }
