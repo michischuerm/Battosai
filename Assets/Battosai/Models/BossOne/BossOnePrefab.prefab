@@ -1048,7 +1048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e832d1179f61bbb46b5f17cd5c08a07f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1046943092329436, guid: 821f0ab2a0d06b94a826b3551148e844, type: 2}
+  prefab: {fileID: 1121154377652542, guid: ce14eae62650cee4ab62c7867287056e, type: 2}
   attackLength: 4
   minTimeBetweenAttacks: 10
   maxTimeBetweenAttacks: 15
