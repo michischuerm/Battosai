@@ -12,7 +12,7 @@ public class BossOneLookAtPlayer : MonoBehaviour {
     private bool startLookDirectionTimer = false;
     public float maxLookDirectionTimer = 4;
     private float correctionTimer = 0;
-    private float maxCorrectionTimer = 1;
+    private float maxCorrectionTimer = .5f;
     private Transform LookatPositionMonster;
     public bool canLookAtPlayer = false;
 
@@ -25,15 +25,15 @@ public class BossOneLookAtPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       /* if(startLookDirectionTimer)
+        if(startLookDirectionTimer)
         {
             lookDirectionTimer += Time.deltaTime;
-        }*/
+        }
     }
 
     private void LateUpdate()
     {
-        if (canLookAtPlayer)
+       /* if (canLookAtPlayer)
         {
             float x = monsterNeck.localRotation.eulerAngles.x;
             float y = monsterNeck.localRotation.eulerAngles.y;
@@ -51,29 +51,32 @@ public class BossOneLookAtPlayer : MonoBehaviour {
         }else
         {
             monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-LookatPositionMonster.position + monsterNeck.position), Time.deltaTime * 2);
-        }
-        /*if (lookDirectionTimer <= maxLookDirectionTimer)
+        }*/
+        if (lookDirectionTimer <= maxLookDirectionTimer && canLookAtPlayer)
         {
             float x = monsterNeck.localRotation.eulerAngles.x;
             float y = monsterNeck.localRotation.eulerAngles.y;
             float z = monsterNeck.localRotation.eulerAngles.z;
             x -= x > 180 ? 360 : 0;
             z -= z > 180 ? 360 : 0;
-            if (Mathf.Abs(y) < 140 && Mathf.Abs(y) > 40
-                && Mathf.Abs(x) < 80
-                && Mathf.Abs(z) < 80)
+            if (Mathf.Abs(y) < 150 && Mathf.Abs(y) > 30
+                && Mathf.Abs(x) < 90
+                && Mathf.Abs(z) < 90)
             {
                 startLookDirectionTimer = false;
+                lookDirectionTimer = 0;
                 //Rotate the head to lookto the player
                 monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-target.position + monsterNeck.position), Time.deltaTime * 2);
             }
             else
             {
+                monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-LookatPositionMonster.position + monsterNeck.position), Time.deltaTime * 2);
                 startLookDirectionTimer = true;
             }
         }
         else
         {
+            Debug.Log("notshooting");
             monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-LookatPositionMonster.position + monsterNeck.position), Time.deltaTime * 2);
             correctionTimer += Time.deltaTime;
             if (correctionTimer >= maxCorrectionTimer)
@@ -82,6 +85,6 @@ public class BossOneLookAtPlayer : MonoBehaviour {
                 lookDirectionTimer = 0f;
                 correctionTimer = 0;
             }
-        }*/
+        }
     }
 }
