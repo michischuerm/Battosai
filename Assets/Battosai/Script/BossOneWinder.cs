@@ -8,7 +8,7 @@ public class BossOneWinder : MonoBehaviour {
     private Quaternion targetRotation;                  //Rotation to face the player
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
-
+    private float distanceToWindingPosition;
     private void Start()
     {
         originalPosition = transform.position;
@@ -20,10 +20,10 @@ public class BossOneWinder : MonoBehaviour {
     }
     private void MoveEnemy()
     {
-        Debug.Log(Vector3.Distance(target.position, transform.position));
+        distanceToWindingPosition = Vector3.Distance(target.position, transform.position);
         //Move to the target !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   1 muss durch die kurbel ersetzt werden, wenn nicht gekurbelt dann 0
         transform.position += (target.position- transform.position) * .005f;
-        if(Vector3.Distance(target.position, transform.position) <= 2)
+        if(distanceToWindingPosition <= 2)
         {            
             GetComponent<BossOneStateHandler>().changeState(4);
         }
