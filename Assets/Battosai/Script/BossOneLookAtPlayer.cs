@@ -10,8 +10,9 @@ public class BossOneLookAtPlayer : MonoBehaviour {
     private float distanceToPlayer;
     private float lookDirectionTimer = 0;
     private bool startLookDirectionTimer = false;
-    public int maxLookDirectionTimer = 2;
+    public float maxLookDirectionTimer = 4;
     private float correctionTimer = 0;
+    private float maxCorrectionTimer = 1;
     private Transform LookatPositionMonster;
     void Start()
     {
@@ -41,6 +42,7 @@ public class BossOneLookAtPlayer : MonoBehaviour {
                 && Mathf.Abs(x) < 80
                 && Mathf.Abs(z) < 80)
             {
+                startLookDirectionTimer = false;
                 //Rotate the head to lookto the player
                 monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-target.position + monsterNeck.position), Time.deltaTime * 2);
             }
@@ -53,7 +55,7 @@ public class BossOneLookAtPlayer : MonoBehaviour {
         {
             monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-LookatPositionMonster.position + monsterNeck.position), Time.deltaTime * 2);
             correctionTimer += Time.deltaTime;
-            if (correctionTimer >= 1.5)
+            if (correctionTimer >= maxCorrectionTimer)
             {
                 startLookDirectionTimer = false;
                 lookDirectionTimer = 0f;
