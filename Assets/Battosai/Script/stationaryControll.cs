@@ -132,7 +132,7 @@ public class stationaryControll : MonoBehaviour
 		// set as many spheres to controller positions as there are controllers
 		IEnumerator sphereEnumerator = debugSpheres.GetEnumerator();
 		IEnumerator controllersEnumerator = controllers.GetEnumerator();
-		if (controllersEnumerator.MoveNext())
+		while (controllersEnumerator.MoveNext())
 		{
 			if (sphereEnumerator.MoveNext())
 			{
