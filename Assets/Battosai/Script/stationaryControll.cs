@@ -122,6 +122,7 @@ public class stationaryControll : MonoBehaviour
 		// create more spheres when there are not enough prepared to display
 		while (debugSpheres.Count < controllersInBox)
 		{
+			Debug.Log("adding more spheres" + debugSpheres.Count + " is less than " + controllersInBox);
 			GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 			sphere.transform.position = new Vector3(0, 0F, 0);
 			sphere.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
@@ -131,7 +132,7 @@ public class stationaryControll : MonoBehaviour
 		// set as many spheres to controller positions as there are controllers
 		IEnumerator sphereEnumerator = debugSpheres.GetEnumerator();
 		IEnumerator controllersEnumerator = controllers.GetEnumerator();
-		if (controllersEnumerator.MoveNext())
+		while (controllersEnumerator.MoveNext())
 		{
 			if (sphereEnumerator.MoveNext())
 			{
@@ -149,6 +150,7 @@ public class stationaryControll : MonoBehaviour
 		// disable spheres that are not used
 		while (sphereEnumerator.MoveNext())
 		{
+			Debug.Log("too many spheres");
 			GameObject sphereToDisable = (GameObject)sphereEnumerator.Current;
 			sphereToDisable.SetActive(false);
 		}
