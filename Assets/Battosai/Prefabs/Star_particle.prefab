@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198254208879241144}
   - component: {fileID: 199780611406308688}
   m_Layer: 0
-  m_Name: DustStorm (4)
+  m_Name: Star_particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
