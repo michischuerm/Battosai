@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4634109354237952}
   m_Layer: 0
-  m_Name: Trees
+  m_Name: Tree_ensamble_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
