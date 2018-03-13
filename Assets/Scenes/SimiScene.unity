@@ -2980,7 +2980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1eb0b8ff7466c4ba48d4f6ba34f791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stationaryFixedHinge: {fileID: 0}
+  stationaryFixedHinge: {fileID: 1447012245}
 --- !u!65 &1240334912
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3566,8 +3566,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1447012244}
   m_LocalRotation: {x: -0.9997892, y: -0.0148131335, z: -0.004429732, w: 0.013514242}
-  m_LocalPosition: {x: 0.15907998, y: 0.11016508, z: 0.00390173}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.161, y: 0.053, z: -0.021}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1440301799}
   m_RootOrder: 4
