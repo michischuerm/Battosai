@@ -9,6 +9,8 @@ public class stationaryControll : MonoBehaviour
 	private List<SteamVR_TrackedObject> trackedObjs;
 	private List<SteamVR_TrackedObject> controllers;
 	private List<GameObject> debugSpheres;
+	private GameObject debugSphere;
+	private GameObject debugRect;
 	private int controllersInBox = 0;
 
 	// Use this for initialization
@@ -18,6 +20,8 @@ public class stationaryControll : MonoBehaviour
 		trackedObjs = new List<SteamVR_TrackedObject>();
 		controllers = new List<SteamVR_TrackedObject>();
 		debugSpheres = new List<GameObject>();
+		debugSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		debugRect = GameObject.CreatePrimitive(PrimitiveType.Quad);
 	}
 
 	// Update is called once per frame
@@ -29,13 +33,14 @@ public class stationaryControll : MonoBehaviour
 		{
 			updateTrackedControllers(trackedObjs);
 			drawDebugSpheresAtControllers();
-			Debug.Log("controllersInBox: " + controllersInBox);
+			drawDebugsphereAtPosition(middlePointBetweenControllers());
+			drawDebugRectFromPos(middlePointBetweenControllers(), stationaryFixedHinge);
+			//Debug.Log("controllersInBox: " + controllersInBox);
 		}
 
 		if (controllersInBox >= 2)
 		{
-			Debug.Log("at least two controller active: " + controllers);
-
+			//Debug.Log("at least two controller active: " + controllers);
 		}
 	}
 
@@ -154,5 +159,37 @@ public class stationaryControll : MonoBehaviour
 			GameObject sphereToDisable = (GameObject)sphereEnumerator.Current;
 			sphereToDisable.SetActive(false);
 		}
+	}
+
+	private Vector3 middlePointBetweenControllers()
+	{
+		int controllerCounter = 0;
+		Vector3 position = new Vector3();
+		IEnumerator controllersEnumerator = controllers.GetEnumerator();
+		while (controllersEnumerator.MoveNext())
+		{
+			controllerCounter++;
+			SteamVR_TrackedObject controller = (SteamVR_TrackedObject) controllersEnumerator.Current;
+			position += controller.transform.position;
+		}
+
+		if (controllerCounter > 0)
+		{
+			position = new Vector3(position.x / controllerCounter, position.y / controllerCounter, position.z / controllerCounter);
+		}
+		return position;
+	}
+
+	private void drawDebugsphereAtPosition(Vector3 position)
+	{
+		debugSphere.transform.position = position;
+		debugSphere.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
+	}
+
+	private void drawDebugRectFromPos(Vector3 position, Transform ObjectForDirection)
+	{
+		debugSphere.transform.position = position;
+		debugSphere.transform.localScale = new Vector3(0.015f, 0.015f, 0.1f);
+		debugSphere.transform.LookAt(ObjectForDirection);
 	}
 }
