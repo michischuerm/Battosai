@@ -200,7 +200,8 @@ public class stationaryControll : MonoBehaviour
 
 	private void drawBalistaFromPos(Vector3 position, Transform ObjectForDirection, GameObject balista)
 	{
-		balista.transform.position = position;
+		//balista.transform.position = position;
 		balista.transform.LookAt(ObjectForDirection);
+		balista.transform.Rotate(new Vector3(0.0f, 270f, 0.0f));
 	}
 }
