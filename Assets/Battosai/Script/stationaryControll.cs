@@ -201,9 +201,15 @@ public class stationaryControll : MonoBehaviour
 
 	private void drawBalistaFromPos(Vector3 position, Transform ObjectForDirection, GameObject balista)
 	{
+		// update front pivot point
 		Vector3 balistaPointOffset = balistaHingePoint.transform.position - balista.transform.position;
 		balista.transform.position = position + balistaPointOffset;
 		balista.transform.LookAt(ObjectForDirection);
-		balista.transform.Rotate(new Vector3(0.0f, 270f, 0.0f));
+		// rotate 180 and for the right direction
+		balista.transform.Rotate(new Vector3(180.0f, 270f, 0.0f));
+
+		// update balista hand pos
+		Vector3 balistaHandOffset = balista.transform.position - position;
+		balista.transform.position -= new Vector3(0.0f, balistaHandOffset.y, 0.0f);
 	}
 }
