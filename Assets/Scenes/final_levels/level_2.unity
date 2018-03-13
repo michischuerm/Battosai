@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 468223716}
   - component: {fileID: 468223718}
   - component: {fileID: 468223717}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube_13_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5134,7 +5134,7 @@ GameObject:
   - component: {fileID: 1156785522}
   - component: {fileID: 1156785524}
   - component: {fileID: 1156785523}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: player_area_1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6266,7 +6266,7 @@ GameObject:
   - component: {fileID: 1428381913}
   - component: {fileID: 1428381912}
   - component: {fileID: 1428381911}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pavement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7158,7 +7158,7 @@ GameObject:
   - component: {fileID: 1563121327}
   - component: {fileID: 1563121329}
   - component: {fileID: 1563121328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube_14_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8520,7 +8520,7 @@ GameObject:
   - component: {fileID: 1785347952}
   - component: {fileID: 1785347954}
   - component: {fileID: 1785347953}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube_15_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
