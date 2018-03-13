@@ -5,8 +5,9 @@ using UnityEngine;
 public class stationaryControll : MonoBehaviour
 {
 	public Transform stationaryFixedHinge;
-	private GameObject controllerInteractionBox;
 	public GameObject balista;
+	public GameObject balistaHingePoint;
+	private GameObject controllerInteractionBox;
 	private List<SteamVR_TrackedObject> trackedObjs;
 	private List<SteamVR_TrackedObject> controllers;
 	private List<GameObject> debugSpheres;
@@ -200,7 +201,8 @@ public class stationaryControll : MonoBehaviour
 
 	private void drawBalistaFromPos(Vector3 position, Transform ObjectForDirection, GameObject balista)
 	{
-		//balista.transform.position = position;
+		Vector3 balistaPointOffset = balistaHingePoint.transform.position - balista.transform.position;
+		balista.transform.position = position + balistaPointOffset;
 		balista.transform.LookAt(ObjectForDirection);
 		balista.transform.Rotate(new Vector3(0.0f, 270f, 0.0f));
 	}
