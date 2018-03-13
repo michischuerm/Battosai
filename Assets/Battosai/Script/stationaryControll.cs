@@ -6,6 +6,7 @@ public class stationaryControll : MonoBehaviour
 {
 	public Transform stationaryFixedHinge;
 	private GameObject controllerInteractionBox;
+	public GameObject balista;
 	private List<SteamVR_TrackedObject> trackedObjs;
 	private List<SteamVR_TrackedObject> controllers;
 	private List<GameObject> debugSpheres;
@@ -33,8 +34,12 @@ public class stationaryControll : MonoBehaviour
 		{
 			updateTrackedControllers(trackedObjs);
 			drawDebugSpheresAtControllers();
-			drawDebugsphereAtPosition(middlePointBetweenControllers());
-			drawDebugRectFromPos(middlePointBetweenControllers(), stationaryFixedHinge);
+			Vector3 middleOfControllers = middlePointBetweenControllers();
+			middleOfControllers += stationaryFixedHinge.transform.position;
+			middleOfControllers = new Vector3(middleOfControllers.x / 2, middleOfControllers.y / 2, middleOfControllers.z / 2);
+			drawDebugsphereAtPosition(middleOfControllers);
+			drawDebugRectFromPos(middleOfControllers, stationaryFixedHinge);
+			drawBalistaFromPos(middleOfControllers, stationaryFixedHinge, balista);
 			//Debug.Log("controllersInBox: " + controllersInBox);
 		}
 
@@ -191,5 +196,11 @@ public class stationaryControll : MonoBehaviour
 		debugSphere.transform.position = position;
 		debugSphere.transform.localScale = new Vector3(0.015f, 0.015f, 0.1f);
 		debugSphere.transform.LookAt(ObjectForDirection);
+	}
+
+	private void drawBalistaFromPos(Vector3 position, Transform ObjectForDirection, GameObject balista)
+	{
+		balista.transform.position = position;
+		balista.transform.LookAt(ObjectForDirection);
 	}
 }
