@@ -34,12 +34,13 @@ public class stationaryControll : MonoBehaviour
 		if (controllersInBox > 0)
 		{
 			updateTrackedControllers(trackedObjs);
-			drawDebugSpheresAtControllers();
+			//drawDebugSpheresAtControllers();
 			Vector3 middleOfControllers = middlePointBetweenControllers();
-			middleOfControllers += stationaryFixedHinge.transform.position;
-			middleOfControllers = new Vector3(middleOfControllers.x / 2, middleOfControllers.y / 2, middleOfControllers.z / 2);
-			drawDebugsphereAtPosition(middleOfControllers);
-			drawDebugRectFromPos(middleOfControllers, stationaryFixedHinge);
+            Vector3 middleOfControlAndFixedHinge = middleOfControllers + stationaryFixedHinge.transform.position;
+            middleOfControlAndFixedHinge = new Vector3(middleOfControlAndFixedHinge.x / 2, middleOfControlAndFixedHinge.y / 2, middleOfControlAndFixedHinge.z / 2);
+
+            //drawDebugsphereAtPosition(middleOfControllers);
+			//drawDebugRectFromPos(middleOfControllers, stationaryFixedHinge);
 			drawBalistaFromPos(middleOfControllers, stationaryFixedHinge, balista);
 			//Debug.Log("controllersInBox: " + controllersInBox);
 		}
@@ -199,17 +200,16 @@ public class stationaryControll : MonoBehaviour
 		debugSphere.transform.LookAt(ObjectForDirection);
 	}
 
-	private void drawBalistaFromPos(Vector3 position, Transform ObjectForDirection, GameObject balista)
+	private void drawBalistaFromPos(Vector3 middleOfControllers, Transform ObjectForDirectionAndHeadposition, GameObject balista)
 	{
-		// update front pivot point
-		Vector3 balistaPointOffset = balistaHingePoint.transform.position - balista.transform.position;
-		balista.transform.position = position + balistaPointOffset;
-		balista.transform.LookAt(ObjectForDirection);
-		// rotate 180 and for the right direction
-		balista.transform.Rotate(new Vector3(180.0f, 270f, 0.0f));
+		// update front pivot point, put balista head on fixedPoint
+		Vector3 balistaPivotPointOffset = balistaHingePoint.transform.localPosition - balista.transform.localPosition;
+        balista.transform.position = ObjectForDirectionAndHeadposition.transform.position;
 
-		// update balista hand pos
-		Vector3 balistaHandOffset = balista.transform.position - position;
-		balista.transform.position -= new Vector3(0.0f, balistaHandOffset.y, 0.0f);
+        // "set" balista rear into hands direction
+        balista.transform.LookAt(middleOfControllers);
+
+        // rotate 180 and for the right direction
+        balista.transform.Rotate(new Vector3(180.0f, 90f, 0.0f));
 	}
 }
