@@ -16,6 +16,7 @@ ModelImporter:
     100020: LinkesRad
     100022: Podest
     100024: RechtesRad
+    100026: BalistaModell
     400000: //RootNode
     400002: Baliste
     400004: Baliste_2
@@ -29,6 +30,7 @@ ModelImporter:
     400020: LinkesRad
     400022: Podest
     400024: RechtesRad
+    400026: BalistaModell
     2100000: No Name
     2300000: Baliste_2
     2300002: Bolzen

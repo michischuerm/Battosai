@@ -57,7 +57,6 @@ public class BossOneLookAtPlayer : MonoBehaviour {
         }
         else
         {
-            Debug.Log("notshooting");
             monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-LookatPositionMonster.position + monsterNeck.position), Time.deltaTime * 2);
             correctionTimer += Time.deltaTime;
             if (correctionTimer >= maxCorrectionTimer)

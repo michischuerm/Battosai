@@ -62,7 +62,10 @@ public class PlayerHitDetection : MonoBehaviour {
             sphere.transform.localScale = new Vector3(currentSphereSize, currentSphereSize, currentSphereSize);
             foreach (GameObject threat in GameObject.FindGameObjectsWithTag("makeDamage"))
             {
-                Destroy(threat);
+                if (!threat.name.Contains("BossT"))
+                {
+                    Destroy(threat);
+                }                
             }
         }
     }
