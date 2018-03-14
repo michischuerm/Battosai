@@ -6,6 +6,8 @@ public class EnemyHPHandler : MonoBehaviour {
     public int hp = 100;
     public int stageTwo = 50;
     public int stageThree = 10;
+
+    private bool bossTwoHasToChange = true;
     private void Start()
     {
         
@@ -32,8 +34,9 @@ public class EnemyHPHandler : MonoBehaviour {
         //boss 2 starts too spawn illusions
         else if (name == "BossTwo")
         {
-            if(hp <= stageTwo && hp > stageThree)
+            if(hp <= stageTwo && hp > stageThree && bossTwoHasToChange)
             {
+                bossTwoHasToChange = false;
                 GetComponent<BossTwoNavMesh>().spawnIllusion();
             }
         }
