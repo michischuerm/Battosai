@@ -15,7 +15,7 @@ public class BossOneWinder : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         MoveEnemy();
     }
     private void MoveEnemy()
