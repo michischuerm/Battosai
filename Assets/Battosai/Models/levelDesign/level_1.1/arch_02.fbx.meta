@@ -1,95 +1,21 @@
 fileFormatVersion: 2
-guid: ce67df5e386d74702af53543b181a7ff
+guid: 9528550c7c4da43809a7bb0e0673d467
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: BeforeButt
-    100002: BeforeButt_2
-    100004: Butt
-    100006: Butt_2
-    100008: Chest
-    100010: Chest_2
-    100012: Head
-    100014: Head_1
-    100016: Jaw
-    100018: Joint_4
-    100020: Joint_5
-    100022: Joint_5_2
-    100024: Joint_6
-    100026: Joint_6_2
-    100028: Joint_7
-    100030: Joint_8
-    100032: LeftWing
-    100034: LeftWing2
-    100036: LeftWing3
-    100038: LeftWing4
-    100040: LowerJaw
-    100042: LowerJawBone
-    100044: Model
-    100046: //RootNode
-    100048: Neck
-    100050: Rig
-    100052: RightWing
-    100054: RightWing2
-    100056: RightWing3
-    100058: RightWing4
-    100060: Ring
-    100062: UpperJaw
-    100064: UpperJawBone
-    100066: WingPart
-    100068: Wings
-    400000: BeforeButt
-    400002: BeforeButt_2
-    400004: Butt
-    400006: Butt_2
-    400008: Chest
-    400010: Chest_2
-    400012: Head
-    400014: Head_1
-    400016: Jaw
-    400018: Joint_4
-    400020: Joint_5
-    400022: Joint_5_2
-    400024: Joint_6
-    400026: Joint_6_2
-    400028: Joint_7
-    400030: Joint_8
-    400032: LeftWing
-    400034: LeftWing2
-    400036: LeftWing3
-    400038: LeftWing4
-    400040: LowerJaw
-    400042: LowerJawBone
-    400044: Model
-    400046: //RootNode
-    400048: Neck
-    400050: Rig
-    400052: RightWing
-    400054: RightWing2
-    400056: RightWing3
-    400058: RightWing4
-    400060: Ring
-    400062: UpperJaw
-    400064: UpperJawBone
-    400066: WingPart
-    400068: Wings
+    100000: //RootNode
+    100002: Cube
+    100004: Sphere
+    400000: //RootNode
+    400002: Cube
+    400004: Sphere
     2100000: No Name
-    2100002: Mat.2
-    4300000: Butt_2
-    4300002: BeforeButt_2
-    4300004: Chest_2
-    4300006: Wings
-    4300008: Head_1
-    4300010: Ring
-    7400000: CINEMA_4D_Basis
-    9500000: //RootNode
-    13700000: BeforeButt_2
-    13700002: Butt_2
-    13700004: Chest_2
-    13700006: Head_1
-    13700008: Ring
-    13700010: Wings
-    2186277476908879412: ImportLogs
+    2300000: Cube
+    2300002: Sphere
+    3300000: Cube
+    3300002: Sphere
+    4300000: Cube
+    4300002: Sphere
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -165,7 +91,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
