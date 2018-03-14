@@ -12,6 +12,7 @@ ModelImporter:
     100012: Handle
     100014: roberoll
     100016: stand
+    100018: shootPad
     400000: Camera
     400002: //RootNode
     400004: Cube
@@ -21,6 +22,7 @@ ModelImporter:
     400012: Handle
     400014: roberoll
     400016: stand
+    400018: shootPad
     2000000: Camera
     2100000: No Name
     2300000: Cube
@@ -29,18 +31,21 @@ ModelImporter:
     2300006: Handle
     2300008: roberoll
     2300010: stand
+    2300012: shootPad
     3300000: Cube
     3300002: Cylinder
     3300004: Cylinder.001
     3300006: Handle
     3300008: roberoll
     3300010: stand
+    3300012: shootPad
     4300000: Cube
     4300002: Cylinder
     4300004: Cylinder.001
     4300006: stand
     4300008: Handle
     4300010: roberoll
+    4300012: shootPad
     10800000: Lamp
   externalObjects: {}
   materials:
