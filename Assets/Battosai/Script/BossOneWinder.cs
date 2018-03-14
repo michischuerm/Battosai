@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class BossOneWinder : MonoBehaviour {
     public Transform target;
-    private Vector3 originalPosition;
     private Quaternion targetRotation;                  //Rotation to face the player
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
     private float distanceToWindingPosition;
     private void Start()
     {
-        originalPosition = transform.position;
     }
 
     // Update is called once per frame
