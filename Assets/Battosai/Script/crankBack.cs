@@ -23,6 +23,7 @@ public class crankBack : MonoBehaviour
 	void Update ()
 	{
 		Debug.Log("velocity: " + hingeJoint.velocity);
+		Debug.Log("angle: " + hingeJoint.angle);
 		distanceCranked += crankToDistanceFactor * hingeJoint.velocity;
 		Debug.Log("distanceCranked: " + distanceCranked);
 	}
