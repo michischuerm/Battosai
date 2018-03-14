@@ -49,9 +49,23 @@ public class crankBack : MonoBehaviour
 		//Debug.Log("fixedUpdateDistanceDelta: " + fixedUpdateDistanceDelta);
 	}
 
-	// takes values from 0 to 180
-	private float deltaDegree(float angle, float previousAngle)
+	// takes values from 0 to 360
+	private float deltaDegree(float angle, float previousAngle, float velocity)
 	{
-		return Mathf.Abs(Mathf.Abs(angle) - Mathf.Abs(previousAngle));
+		// two special cases:
+		// velocity is positive, previousAngle greater then new
+		// then 360 - previousAngle + new angle
+		//
+		// case two:
+		// velocity is negative, previousAngle less then new
+		// then previousAngle + 360 - new angle
+		// 
+		// all other cases:
+		// when velo positive
+		// new angle - previous
+		//
+		// velo negative
+		// previous - new angle
+		return -1.0f;
 	}
 }
