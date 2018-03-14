@@ -15,6 +15,10 @@ public class BossTwoNavMesh : MonoBehaviour {
     public float maxTimeTillCharge = 20;
     public float accelerationForCharge = 1;
     private float originalAcceleration;
+    private bool movementDirectionForward = true;
+    public float minTimeTillDirectionChange = 20;
+    public float maxTimeTillDirectionChange = 30;
+
     void Start () {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalAcceleration = agent.acceleration;
@@ -28,11 +32,11 @@ public class BossTwoNavMesh : MonoBehaviour {
             targets[System.Int32.Parse(enemyMovementPositions[i].name.Split('_')[1])] = enemyMovementPositions[i].transform;
         }
         currentTargetPosition = targets[currentPosition].position;
+        Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //test if distance treshold is reached
         if (DetectDistance(currentTargetPosition) <= 1)
         {
             if (isCharging)
@@ -66,12 +70,27 @@ public class BossTwoNavMesh : MonoBehaviour {
     //Find a new target, usually when the old target is reached
     private void changeTarget()
     {
-        if (currentPosition+1 >= targets.Length)
+        if (movementDirectionForward)
         {
-            currentPosition = 0;
-        }else
+            if (currentPosition + 1 >= targets.Length)
+            {
+                currentPosition = 0;
+            }
+            else
+            {
+                currentPosition++;
+            }
+        }
+        else
         {
-            currentPosition++;
+            if (currentPosition - 1 < 0)
+            {
+                currentPosition = targets.Length-1;
+            }
+            else
+            {
+                currentPosition--;
+            }
         }
     }
 
@@ -112,5 +131,12 @@ public class BossTwoNavMesh : MonoBehaviour {
         agent.transform.LookAt(currentTargetPosition);
         agent.acceleration = accelerationForCharge;
         isCharging = true;
+    }
+
+    //change the movement Direction of the boss
+    private void changeDirection()
+    {
+        movementDirectionForward = !movementDirectionForward;
+        Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
     }
 }

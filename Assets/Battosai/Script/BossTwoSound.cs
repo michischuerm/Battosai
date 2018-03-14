@@ -15,7 +15,7 @@ public class BossTwoSound : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        audio.pitch = Map(maxDistanceToThePlayer - Vector3.Distance(target.transform.position, transform.position),0,maxDistanceToThePlayer,0.8f,1.7f);
+        audio.pitch = Map(maxDistanceToThePlayer - Vector3.Distance(target.transform.position, transform.position),0,maxDistanceToThePlayer,1f,1.7f);
     }
     
     private float Map(float value, float from1, float to1, float from2, float to2)
