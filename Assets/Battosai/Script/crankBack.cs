@@ -9,6 +9,7 @@ public class crankBack : MonoBehaviour
 	public float fixedUpdateDistanceDelta = 0.0f;
 	private HingeJoint hingeJoint;
 	private float radius;
+	private float lastFixedUpdateAngle = 0.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -34,10 +35,23 @@ public class crankBack : MonoBehaviour
 	private void FixedUpdate()
 	{
 		// distance travelled this update. calulating the arc and set the sign for the direction
-		this.fixedUpdateDistanceDelta = hingeJoint.angle / 360 * Mathf.PI * 2 * radius * Mathf.Sign(hingeJoint.velocity);
+		float angle = hingeJoint.angle;
+		Debug.Log("velocity: " + hingeJoint.velocity);
+		Debug.Log("angle: " + angle);
+		float deltaAngle = deltaDegree(Mathf.Abs(angle), lastFixedUpdateAngle);
+		Debug.Log("deltaAngle: " + deltaAngle);
+		this.lastFixedUpdateAngle = angle;
+		//this.fixedUpdateDistanceDelta = hingeJoint.angle / 360 * Mathf.PI * 2 * radius * Mathf.Sign(hingeJoint.velocity);
+		this.fixedUpdateDistanceDelta = angle / 360 * Mathf.PI * 2 * radius * Mathf.Sign(hingeJoint.velocity);
 		// calculated distance travelled with factor. Relative to the start.
 		this.distanceToStartCranked += crankToDistanceFactor * fixedUpdateDistanceDelta;
 		//Debug.Log("distanceCranked: " + distanceToStartCranked);
 		//Debug.Log("fixedUpdateDistanceDelta: " + fixedUpdateDistanceDelta);
+	}
+
+	// takes values from 0 to 180
+	private float deltaDegree(float angle, float previousAngle)
+	{
+		return Mathf.Abs(Mathf.Abs(angle) - Mathf.Abs(previousAngle));
 	}
 }
