@@ -12,10 +12,20 @@ public class EnemyHPHandler : MonoBehaviour {
     }
     public void takeDamage(int damage)
     {
-        hp-=damage;
-        if(hp <= stageTwo && hp > stageThree && GetComponent<BossOneStateHandler>().state != 2)
+        if (name.Contains("BossOne"))
         {
-            GetComponent<BossOneStateHandler>().changeState(2);
+            hp -= damage;
+            if (hp <= stageTwo && hp > stageThree && GetComponent<BossOneStateHandler>().state != 2)
+            {
+                GetComponent<BossOneStateHandler>().changeState(2);
+            }
+        }else if (name.Contains("Illusion"))
+        {
+            hp -= damage;
+            if(hp <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
