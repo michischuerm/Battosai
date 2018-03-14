@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ce67df5e386d74702af53543b181a7ff
+guid: 69ca8e2173fa2d94d8e1116eb4aa102a
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -89,7 +89,6 @@ ModelImporter:
     13700006: Head_1
     13700008: Ring
     13700010: Wings
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
