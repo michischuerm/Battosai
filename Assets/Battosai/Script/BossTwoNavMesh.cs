@@ -18,6 +18,9 @@ public class BossTwoNavMesh : MonoBehaviour {
     private bool movementDirectionForward = true;
     public float minTimeTillDirectionChange = 20;
     public float maxTimeTillDirectionChange = 30;
+    public float minTimeTillIllusionSpawn = 20;
+    public float maxTimeTillIllusionSpawn = 30;
+    public GameObject bossTwoClone;
 
     void Start () {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -33,6 +36,7 @@ public class BossTwoNavMesh : MonoBehaviour {
         }
         currentTargetPosition = targets[currentPosition].position;
         Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
+        spawnIllusion();
     }
 	
 	// Update is called once per frame
@@ -48,6 +52,7 @@ public class BossTwoNavMesh : MonoBehaviour {
             }
             else
             {
+
                 changeTarget();                
             }
             //set new destination
@@ -138,5 +143,12 @@ public class BossTwoNavMesh : MonoBehaviour {
     {
         movementDirectionForward = !movementDirectionForward;
         Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
+    }
+
+    public void spawnIllusion()
+    {
+        GameObject illusion = Instantiate(bossTwoClone,targets[Random.Range(0,targets.Length-1)].position,Quaternion.identity);
+        illusion.transform.LookAt(player.transform.position);
+        Invoke("spawnIllusion",Random.Range(minTimeTillIllusionSpawn,maxTimeTillIllusionSpawn));
     }
 }
