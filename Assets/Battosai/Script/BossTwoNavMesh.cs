@@ -13,9 +13,11 @@ public class BossTwoNavMesh : MonoBehaviour {
     private Vector3 currentTargetPosition;
     public float minTimeTillCharge = 10;
     public float maxTimeTillCharge = 20;
-
+    public float accelerationForCharge = 1;
+    private float originalAcceleration;
     void Start () {
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        originalAcceleration = agent.acceleration;
         player = GameObject.Find("Camera (eye)");
         //Find all Possible MovementPositions of the Enemy and store them in a list
         GameObject[] enemyMovementPositions = GameObject.FindGameObjectsWithTag("EnemyMovement");
@@ -37,6 +39,7 @@ public class BossTwoNavMesh : MonoBehaviour {
             {
                 canCharge = true;
                 isCharging = false;
+                agent.acceleration = originalAcceleration;
                 changeTargetAfterCharge();
             }
             else
@@ -107,6 +110,7 @@ public class BossTwoNavMesh : MonoBehaviour {
         agent.velocity = new Vector3(0,0,0);
         agent.SetDestination(currentTargetPosition);
         agent.transform.LookAt(currentTargetPosition);
+        agent.acceleration = accelerationForCharge;
         isCharging = true;
     }
 }
