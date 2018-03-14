@@ -38,6 +38,6 @@ public class crankBack : MonoBehaviour
 		// calculated distance travelled with factor. Relative to the start.
 		this.distanceToStartCranked += crankToDistanceFactor * fixedUpdateDistanceDelta;
 		//Debug.Log("distanceCranked: " + distanceToStartCranked);
-		Debug.Log("fixedUpdateDistanceDelta: " + fixedUpdateDistanceDelta);
+		//Debug.Log("fixedUpdateDistanceDelta: " + fixedUpdateDistanceDelta);
 	}
 }
