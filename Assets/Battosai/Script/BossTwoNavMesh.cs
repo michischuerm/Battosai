@@ -37,6 +37,7 @@ public class BossTwoNavMesh : MonoBehaviour {
         currentTargetPosition = targets[currentPosition].position;
         Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
         illusions = new bool[targets.Length];
+        spawnIllusion();
     }
 	
 	// Update is called once per frame

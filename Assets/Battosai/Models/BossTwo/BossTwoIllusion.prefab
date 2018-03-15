@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23865990414745306}
   - component: {fileID: 65916677433917814}
   - component: {fileID: 114363416093811888}
+  - component: {fileID: 114624372827042416}
   m_Layer: 0
   m_Name: BossTwoIllusion
   m_TagString: enemy
@@ -108,6 +109,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df149b1c3f884dd40867205f9ec7559b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 100
+  hp: 30
   stageTwo: 50
   stageThree: 10
+--- !u!114 &114624372827042416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496838101575908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3640638f7a53a80439925ec51d759601, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1614270545047576, guid: 75f3cb4639547dd498a86c94d0690859, type: 2}
+  bulletSpeed: 0.4
+  timeBetweenShoots: 1
+  minTimeBetweenBursts: 5
+  maxTimeBetweenBursts: 10
+  minAmountOfShootsInOneBurst: 1
+  maxAmountOfShootsInOneBurst: 1
