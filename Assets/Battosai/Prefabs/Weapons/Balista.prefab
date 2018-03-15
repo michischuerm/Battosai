@@ -950,7 +950,7 @@ MonoBehaviour:
     type: 2}
   shotCooldown: 2
   arrowSpeedMS: 40
-  useGravity: 1
+  useGravity: 0
 --- !u!135 &135157042443465346
 SphereCollider:
   m_ObjectHideFlags: 1
