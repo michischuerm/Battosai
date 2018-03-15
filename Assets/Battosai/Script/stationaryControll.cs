@@ -7,6 +7,7 @@ public class stationaryControll : MonoBehaviour
 	public Transform stationaryFixedHinge;
 	public GameObject balista;
 	public GameObject balistaHingePoint;
+	private bool shotTriggered = false;
 	private GameObject controllerInteractionBox;
 	private List<SteamVR_TrackedObject> trackedObjs;
 	private List<SteamVR_TrackedObject> controllers;
@@ -34,6 +35,8 @@ public class stationaryControll : MonoBehaviour
 		if (controllersInBox > 0)
 		{
 			updateTrackedControllers(trackedObjs);
+			checkTriggers(trackedObjs);
+
 			//drawDebugSpheresAtControllers();
 			Vector3 middleOfControllers = middlePointBetweenControllers();
             Vector3 middleOfControlAndFixedHinge = middleOfControllers + stationaryFixedHinge.transform.position;
@@ -211,5 +214,27 @@ public class stationaryControll : MonoBehaviour
 
         // rotate 180 and for the right direction
         balista.transform.Rotate(new Vector3(180.0f, 90f, 0.0f));
+	}
+
+	private void checkTriggers(List<SteamVR_TrackedObject> vrControllers)
+	{
+		this.shotTriggered = false;
+
+		IEnumerator controllersEnumerator = vrControllers.GetEnumerator();
+		while (controllersEnumerator.MoveNext())
+		{
+			SteamVR_TrackedObject vrtrackedObj = (SteamVR_TrackedObject)controllersEnumerator.Current;
+			SteamVR_Controller.Device vrController = SteamVR_Controller.Input((int)vrtrackedObj.index);
+			
+			if (vrController.GetHairTriggerDown())
+			{
+				this.shotTriggered = true;
+			}
+		}
+	}
+
+	public bool triggerIsActive()
+	{
+		return this.shotTriggered;
 	}
 }
