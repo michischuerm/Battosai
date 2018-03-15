@@ -8,6 +8,7 @@ public class shootBalista : MonoBehaviour
 	public GameObject arrowPrefab;
 	public float shotCooldown = 2.0f;
 	public float arrowSpeedMS = 40.0f;
+	public bool useGravity = false;
 	private GameObject arrow;
 	private stationaryControll stationaryControll;
 	private bool shotReady = true;
@@ -68,7 +69,10 @@ public class shootBalista : MonoBehaviour
 	public void shootArrow()
 	{
 		arrow.transform.parent = null;
-		arrow.GetComponent<Rigidbody>().useGravity = true;
-		arrow.GetComponent<Rigidbody>().velocity = Vector3.Normalize(arrow.transform.position ) * arrowSpeedMS;
+		if (this.useGravity)
+		{
+			arrow.GetComponent<Rigidbody>().useGravity = true;
+		}
+		arrow.GetComponent<Rigidbody>().velocity = Vector3.Normalize(-1.0f * arrow.transform.up ) * arrowSpeedMS;
 	}
 }
