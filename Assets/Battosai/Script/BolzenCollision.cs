@@ -8,7 +8,7 @@ public class BolzenCollision : MonoBehaviour {
     {
         if(other.tag == "enemy" || other.tag == "enemyWeakSpot")
         {
-            other.GetComponent<BossOneStateHandler>().changeState(3);
+            other.transform.root.GetComponent<BossOneStateHandler>().changeState(3);
         }
     }
 }
