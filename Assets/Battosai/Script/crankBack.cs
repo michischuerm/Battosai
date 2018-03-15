@@ -35,11 +35,11 @@ public class crankBack : MonoBehaviour
 	private void FixedUpdate()
 	{
 		// distance travelled this update. calulating the arc and set the sign for the direction
-		float angle = hingeJoint.angle;
-		Debug.Log("velocity: " + hingeJoint.velocity);
-		Debug.Log("angle: " + angle);
-		float deltaAngle = deltaDegree(Mathf.Abs(angle), lastFixedUpdateAngle);
-		Debug.Log("deltaAngle: " + deltaAngle);
+		float angle = hingeJoint.angle + 180;
+		//Debug.Log("velocity: " + hingeJoint.velocity);
+		//Debug.Log("angle: " + angle);
+		float deltaAngle = deltaDegree(angle, lastFixedUpdateAngle, hingeJoint.velocity);
+		//Debug.Log("angle: " + angle + " lastFixedUpdateAngle:" + lastFixedUpdateAngle + " deltaAngle: " + deltaAngle + " velocity: " + hingeJoint.velocity);
 		this.lastFixedUpdateAngle = angle;
 		//this.fixedUpdateDistanceDelta = hingeJoint.angle / 360 * Mathf.PI * 2 * radius * Mathf.Sign(hingeJoint.velocity);
 		this.fixedUpdateDistanceDelta = angle / 360 * Mathf.PI * 2 * radius * Mathf.Sign(hingeJoint.velocity);
@@ -52,20 +52,35 @@ public class crankBack : MonoBehaviour
 	// takes values from 0 to 360
 	private float deltaDegree(float angle, float previousAngle, float velocity)
 	{
+		float deltaDegree = 0.0f;
 		// two special cases:
 		// velocity is positive, previousAngle greater then new
 		// then 360 - previousAngle + new angle
-		//
+		if (velocity > 0.0f && previousAngle > angle)
+		{
+			deltaDegree = previousAngle + angle - 360;
+		}
 		// case two:
 		// velocity is negative, previousAngle less then new
 		// then previousAngle + 360 - new angle
-		// 
+		else if (velocity < 0.0f && previousAngle < angle)
+		{
+			deltaDegree = previousAngle - angle + 360;
+		}
 		// all other cases:
-		// when velo positive
+		// when velocity positive
 		// new angle - previous
-		//
+		else if (velocity > 0.0f)
+		{
+			deltaDegree = angle - previousAngle;
+		}
 		// velo negative
 		// previous - new angle
-		return -1.0f;
+		else if (velocity < 0.0f)
+		{
+			deltaDegree = previousAngle - angle;
+		}
+
+		return deltaDegree;
 	}
 }
