@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23435679752005516}
   - component: {fileID: 65064306809897544}
   - component: {fileID: 114531416127156432}
+  - component: {fileID: 114922596946933850}
   m_Layer: 0
   m_Name: ControllerTrigger
   m_TagString: Untagged
@@ -294,7 +295,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1872124979491186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.024, y: 1.2738458, z: -0.032}
+  m_LocalPosition: {x: 0.024, y: 1.116, z: -0.032}
   m_LocalScale: {x: 0.5, y: 0.5000002, z: 0.5000002}
   m_Children: []
   m_Father: {fileID: 4362434855568274}
@@ -350,7 +351,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803484183994824}
   m_LocalRotation: {x: 0.9998399, y: 0.014917946, z: 0.0047630896, w: -0.008656462}
-  m_LocalPosition: {x: -0.23, y: 1.312, z: -0.028}
+  m_LocalPosition: {x: -0.23, y: 1.19, z: -0.028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4035687894702028}
@@ -394,13 +395,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721431394381260}
-  m_LocalRotation: {x: -0.7060973, y: -0.00432674, z: 0.70790476, w: -0.016696071}
-  m_LocalPosition: {x: -1.3769, y: -0.0056, z: 0.023}
+  m_LocalRotation: {x: -0.51109254, y: 0.4975041, z: 0.50362396, w: 0.48748025}
+  m_LocalPosition: {x: -1.3769002, y: -0.005599968, z: 0.022999957}
   m_LocalScale: {x: 0.050000012, y: 0.050000004, z: 0.050000004}
   m_Children: []
   m_Father: {fileID: 4409657103298278}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: -0.69000006, z: 0}
+  m_LocalEulerAnglesHint: {x: -88.023, y: -120.398, z: -149.45601}
 --- !u!4 &4863191390824294
 Transform:
   m_ObjectHideFlags: 1
@@ -933,6 +934,23 @@ MonoBehaviour:
   stationaryFixedHinge: {fileID: 4248443297569662}
   balista: {fileID: 1803484183994824}
   balistaHingePoint: {fileID: 1739795156365634}
+--- !u!114 &114922596946933850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030816231010422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fc1b02479c5ba4582279c0ad057c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowFixpoint: {fileID: 1721431394381260}
+  arrowPrefab: {fileID: 1971554611547786, guid: 2aa689b3587b8544cbeddf596ed54736,
+    type: 2}
+  shotCooldown: 2
+  arrowSpeedMS: 40
+  useGravity: 0
 --- !u!135 &135157042443465346
 SphereCollider:
   m_ObjectHideFlags: 1

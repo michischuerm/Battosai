@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33399144328908666}
   - component: {fileID: 23096653094818036}
   - component: {fileID: 54640400884757484}
+  - component: {fileID: 65932923382019478}
   m_Layer: 0
   m_Name: Bolzen
   m_TagString: Untagged
@@ -99,3 +100,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65932923382019478
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971554611547786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.115880325, y: 2.3857465, z: 0.1361362}
+  m_Center: {x: 0.007476869, y: -1.1915765, z: 0.0275432}
