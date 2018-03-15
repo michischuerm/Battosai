@@ -12,12 +12,6 @@ public class BossOneStateHandler : MonoBehaviour {
 	
     public void changeState(int newState)
     {
-        //only for testing delete after =============
-       /* if(newState == 3)
-        {
-            state = 2;
-        }*/
-        //===========================================
         if(newState == 0)
         {            
             GetComponent<EnemyHPHandler>().enabled = true;
@@ -42,10 +36,6 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyMovementAI>().rotationStrength /= 2;
             GetComponent<EnemyShoot>().minTimeBetweenBursts /= 2;
             GetComponent<EnemyShoot>().maxTimeBetweenBursts /= 2;
-            //code below only for testing purposes, delete this when the ballista is implemented
-           // state = newState;
-            //Invoke("stater", 10);
-            //====================================================================================
         }
         else if(newState == 3)
         {
@@ -69,11 +59,17 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<staticEnemy>().enabled = true;
             GetComponent<Animator>().SetBool("Grounded", true);
         }
+        else if(newState == 5)
+        {
+            GetComponent<EnemyHPHandler>().enabled = false;
+            GetComponent<BossOneIntro>().enabled = false;
+            GetComponent<EnemyMovementAI>().enabled = false;
+            GetComponent<EnemyShoot>().enabled = false;
+            GetComponent<BossOneWinder>().enabled = false;
+            GetComponent<staticEnemy>().enabled = false;
+            GetComponent<BossOneLookAtPlayer>().enabled = false;
+            GetComponent<Animator>().SetBool("Dead", true);
+        }
         state = newState;
-    }
-
-    void stater()
-    {
-        changeState(3);
     }
 }
