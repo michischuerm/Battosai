@@ -38,7 +38,7 @@ public class shootBalista : MonoBehaviour
 	private bool arrowShotCommand()
 	{
 		bool shotCommand = false;
-		stationaryControll.triggerIsActive();
+        shotCommand = stationaryControll.triggerIsActive();
 		
 		return shotCommand;
 	}
