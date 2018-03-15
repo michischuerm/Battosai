@@ -33,16 +33,16 @@ public class BossOneLookAtPlayer : MonoBehaviour {
 
     private void LateUpdate()
     {
-        if (lookDirectionTimer <= maxLookDirectionTimer && canLookAtPlayer)
+        if ((lookDirectionTimer <= maxLookDirectionTimer && canLookAtPlayer) || GetComponent<BossOneStateHandler>().state == 5)
         {
             float x = monsterNeck.localRotation.eulerAngles.x;
             float y = monsterNeck.localRotation.eulerAngles.y;
             float z = monsterNeck.localRotation.eulerAngles.z;
             x -= x > 180 ? 360 : 0;
             z -= z > 180 ? 360 : 0;
-            if (Mathf.Abs(y) < 150 && Mathf.Abs(y) > 30
+            if ((Mathf.Abs(y) < 150 && Mathf.Abs(y) > 30
                 && Mathf.Abs(x) < 90
-                && Mathf.Abs(z) < 90)
+                && Mathf.Abs(z) < 90) || GetComponent<BossOneStateHandler>().state == 5)
             {
                 startLookDirectionTimer = false;
                 lookDirectionTimer = 0;

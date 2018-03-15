@@ -73,4 +73,8 @@ public class staticEnemy : MonoBehaviour {
         attackEffect.SetActive(false);
         //change Animation to exhausted
     }
+    private void OnDisable()
+    {
+        CancelInvoke("attack");
+    }
 }
