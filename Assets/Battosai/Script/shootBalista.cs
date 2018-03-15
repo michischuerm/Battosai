@@ -57,9 +57,10 @@ public class shootBalista : MonoBehaviour
 
 	private void resetArrow()
 	{
-		//arrow.transform.parent = GetComponent<Transform>();
+		arrow.GetComponent<Rigidbody>().transform.position = transform.position;
 		arrow.transform.parent = stationaryControll.balista.transform;
 		arrow.GetComponent<Rigidbody>().useGravity = false;
+		arrow.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
 	}
 
 	public void shootArrow()
