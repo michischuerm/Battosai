@@ -60,6 +60,7 @@ public class shootBalista : MonoBehaviour
 	{
 		arrow.GetComponent<Rigidbody>().useGravity = false;
 		arrow.transform.position = arrowFixpoint.transform.position;
+		arrow.transform.rotation = arrowFixpoint.transform.rotation;
 		arrow.transform.parent = stationaryControll.balista.transform;
 		arrow.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
 	}
