@@ -6,18 +6,23 @@ public class shootBalista : MonoBehaviour
 {
 	public GameObject arrowFixpoint;
 	public GameObject arrowPrefab;
+	public float shotCooldown = 2.0f;
+	public float arrowSpeedMS = 40.0f;
 	private GameObject arrow;
 	private stationaryControll stationaryControll;
 	private bool shotReady = true;
+	private float lastShotTime = 0.0f;
 
 	// Use this for initialization
 	void Start ()
 	{
 		stationaryControll = GetComponent<stationaryControll>();
+		lastShotTime = Time.realtimeSinceStartup;
 
 		if (arrowPrefab != null)
 		{
 			arrow = (GameObject)Instantiate(arrowPrefab);
+			arrow.GetComponent<Rigidbody>().useGravity = false;
 		}
 		else
 		{
@@ -28,10 +33,17 @@ public class shootBalista : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		if ((lastShotTime + shotCooldown) < Time.realtimeSinceStartup)
+		{
+			shotReady = true;
+			resetArrow();
+		}
+
 		if (arrowShotCommand() && shotReady)
 		{
 			Debug.Log("Shot fired");
 			shotReady = false;
+			this.lastShotTime = Time.realtimeSinceStartup;
 		}
 	}
 
@@ -41,5 +53,19 @@ public class shootBalista : MonoBehaviour
         shotCommand = stationaryControll.triggerIsActive();
 		
 		return shotCommand;
+	}
+
+	private void resetArrow()
+	{
+		//arrow.transform.parent = GetComponent<Transform>();
+		arrow.transform.parent = stationaryControll.balista.transform;
+		arrow.GetComponent<Rigidbody>().useGravity = false;
+	}
+
+	public void shootArrow()
+	{
+		arrow.transform.parent = null;
+		arrow.GetComponent<Rigidbody>().useGravity = true;
+		arrow.GetComponent<Rigidbody>().velocity = Vector3.Normalize(arrow.transform.position ) * arrowSpeedMS;
 	}
 }
