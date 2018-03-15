@@ -13,10 +13,10 @@ public class BossOneStateHandler : MonoBehaviour {
     public void changeState(int newState)
     {
         //only for testing delete after =============
-        if(newState == 3)
+       /* if(newState == 3)
         {
             state = 2;
-        }
+        }*/
         //===========================================
         if(newState == 0)
         {            
@@ -43,13 +43,13 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyShoot>().minTimeBetweenBursts /= 2;
             GetComponent<EnemyShoot>().maxTimeBetweenBursts /= 2;
             //code below only for testing purposes, delete this when the ballista is implemented
-            state = newState;
-            Invoke("stater", 10);
+           // state = newState;
+            //Invoke("stater", 10);
             //====================================================================================
         }
         else if(newState == 3)
         {
-            //eney is connected with ballista
+            //enemy is connected with ballista
             GetComponent<EnemyHPHandler>().enabled = true;
             GetComponent<BossOneIntro>().enabled = false;
             GetComponent<EnemyMovementAI>().enabled = false;
