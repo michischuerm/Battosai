@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossOneAnimationFire : MonoBehaviour {
 
-public Transfor
+
 	// Use this for initialization
 	void Start () {
 		
