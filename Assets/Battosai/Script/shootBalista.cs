@@ -69,6 +69,6 @@ public class shootBalista : MonoBehaviour
 	{
 		arrow.transform.parent = null;
 		arrow.GetComponent<Rigidbody>().useGravity = true;
-		arrow.GetComponent<Rigidbody>().velocity = Vector3.Normalize(arrow.transform.position ) * arrowSpeedMS;
+		arrow.GetComponent<Rigidbody>().velocity = Vector3.Normalize(-1.0f * arrow.transform.up ) * arrowSpeedMS;
 	}
 }
