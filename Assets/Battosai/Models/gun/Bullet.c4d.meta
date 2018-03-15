@@ -1,8 +1,16 @@
 fileFormatVersion: 2
-guid: fdcbdad6add2eb14597c93aed02afae6
+guid: 2ad6c23b4d37bb14da61250e4aac779e
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
+    100000: Bullet
+    100002: //RootNode
+    400000: Bullet
+    400002: //RootNode
+    2100000: No Name
+    2300000: Bullet
+    3300000: Bullet
+    4300000: Bullet
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -79,7 +87,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

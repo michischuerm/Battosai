@@ -14,18 +14,27 @@ public class EnemyHPHandler : MonoBehaviour {
     }
     public void takeDamage(int damage)
     {
-        hp -= damage;
+        
         //change boss one's boss states
         if (name.Contains("BossOne"))
         {
-            if (hp <= stageTwo && hp > stageThree && GetComponent<BossOneStateHandler>().state != 2)
+            if((GetComponent<BossOneStateHandler>().state !=3 && hp > stageTwo) || GetComponent<BossOneStateHandler>().state==4)
+            {
+                hp -= damage;
+            }            
+            if (hp <= stageTwo && GetComponent<BossOneStateHandler>().state == 1)
             {
                 GetComponent<BossOneStateHandler>().changeState(2);
+            }
+            if(hp <= stageThree && GetComponent<BossOneStateHandler>().state == 4)
+            {
+                GetComponent<BossOneStateHandler>().changeState(5);
             }
         }
         //Destroy boss2 illusions
         else if (name.Contains("Illusion"))
         {
+            hp -= damage;
             if (hp <= 0)
             {
                 Destroy(gameObject);
@@ -34,12 +43,12 @@ public class EnemyHPHandler : MonoBehaviour {
         //boss 2 starts too spawn illusions
         else if (name == "BossTwo")
         {
-            if(hp <= stageTwo && hp > stageThree && bossTwoHasToChange)
+            hp -= damage;
+            if (hp <= stageTwo && hp > stageThree && bossTwoHasToChange)
             {
                 bossTwoHasToChange = false;
                 GetComponent<BossTwoNavMesh>().spawnIllusion();
             }
         }
     }
-
 }

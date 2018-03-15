@@ -31,10 +31,10 @@ public class staticEnemy : MonoBehaviour {
         GetComponent<EnemyShoot>().enabled = false;
         //change Animation to Exhausted
         player = GameObject.Find("Camera (eye)");
-        monsterHead = GameObject.Find("Head").transform;
+        monsterHead = GameObject.Find("BossOne/Rig/WingPart/Neck/Head").transform;
         attackEffect = Instantiate(prefab, monsterHead.position, new Quaternion(0,0,0,0));
         attackEffect.transform.position += new Vector3(0, -0.5f, 0);
-        attackEffect.transform.SetParent(monsterHead);
+        attackEffect.transform.SetParent(monsterHead,true);
        // attackEffect.transform.rotation = Quaternion.LookRotation(target.position);
     }
     // Update is called once per frame
@@ -61,6 +61,7 @@ public class staticEnemy : MonoBehaviour {
     {
         //attackEffect.transform.position = GameObject.Find("Head").transform.position;
         //  attackEffect.transform.rotation = Quaternion.identity;
+        attackEffect.transform.SetParent(monsterHead, false);
         attackEffect.transform.rotation = Quaternion.LookRotation(target.position - attackEffect.transform.position);
         attackEffect.SetActive(true);
         Invoke("finishAttack", attackLength);
@@ -71,5 +72,9 @@ public class staticEnemy : MonoBehaviour {
         canShoot = true;
         attackEffect.SetActive(false);
         //change Animation to exhausted
+    }
+    private void OnDisable()
+    {
+        CancelInvoke("attack");
     }
 }
