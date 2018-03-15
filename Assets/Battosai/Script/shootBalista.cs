@@ -44,6 +44,7 @@ public class shootBalista : MonoBehaviour
 			Debug.Log("Shot fired");
 			shotReady = false;
 			this.lastShotTime = Time.realtimeSinceStartup;
+			shootArrow();
 		}
 	}
 
@@ -57,9 +58,9 @@ public class shootBalista : MonoBehaviour
 
 	private void resetArrow()
 	{
-		arrow.GetComponent<Rigidbody>().transform.position = transform.position;
-		arrow.transform.parent = stationaryControll.balista.transform;
 		arrow.GetComponent<Rigidbody>().useGravity = false;
+		arrow.transform.position = arrowFixpoint.transform.position;
+		arrow.transform.parent = stationaryControll.balista.transform;
 		arrow.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
 	}
 
