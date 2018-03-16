@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: BossOneMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Model
+    m_Weight: 1
+  - m_Path: Model/BeforeButt_2
+    m_Weight: 1
+  - m_Path: Model/Butt_2
+    m_Weight: 1
+  - m_Path: Model/Chest_2
+    m_Weight: 1
+  - m_Path: Model/Head_1
+    m_Weight: 1
+  - m_Path: Model/Ring
+    m_Weight: 1
+  - m_Path: Model/Wings
+    m_Weight: 1
+  - m_Path: Rig
+    m_Weight: 1
+  - m_Path: Rig/WingPart
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Chest
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Chest/BeforeButt
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Chest/BeforeButt/Butt
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Chest/BeforeButt/Butt/Joint_5_2
+    m_Weight: 1
+  - m_Path: Rig/WingPart/LeftWing
+    m_Weight: 1
+  - m_Path: Rig/WingPart/LeftWing/LeftWing2
+    m_Weight: 1
+  - m_Path: Rig/WingPart/LeftWing/LeftWing2/LeftWing3
+    m_Weight: 1
+  - m_Path: Rig/WingPart/LeftWing/LeftWing2/LeftWing3/LeftWing4
+    m_Weight: 1
+  - m_Path: Rig/WingPart/LeftWing/LeftWing2/LeftWing3/LeftWing4/Joint_6_2
+    m_Weight: 1
+  - m_Path: Rig/WingPart/LeftWing/LeftWing2/LeftWing3/LeftWing4/Joint_6_2/Joint_7
+    m_Weight: 1
+  - m_Path: Rig/WingPart/LeftWing/LeftWing2/LeftWing3/LeftWing4/Joint_6_2/Joint_7/Joint_8
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Neck
+    m_Weight: 0
+  - m_Path: Rig/WingPart/Neck/Head
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Neck/Head/Jaw
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Neck/Head/Jaw/LowerJawBone
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Neck/Head/Jaw/LowerJawBone/LowerJaw
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Neck/Head/Jaw/UpperJawBone
+    m_Weight: 1
+  - m_Path: Rig/WingPart/Neck/Head/Jaw/UpperJawBone/UpperJaw
+    m_Weight: 1
+  - m_Path: Rig/WingPart/RightWing
+    m_Weight: 1
+  - m_Path: Rig/WingPart/RightWing/RightWing2
+    m_Weight: 1
+  - m_Path: Rig/WingPart/RightWing/RightWing2/RightWing3
+    m_Weight: 1
+  - m_Path: Rig/WingPart/RightWing/RightWing2/RightWing3/RightWing4
+    m_Weight: 1
+  - m_Path: Rig/WingPart/RightWing/RightWing2/RightWing3/RightWing4/Joint_4
+    m_Weight: 1
+  - m_Path: Rig/WingPart/RightWing/RightWing2/RightWing3/RightWing4/Joint_4/Joint_5
+    m_Weight: 1
+  - m_Path: Rig/WingPart/RightWing/RightWing2/RightWing3/RightWing4/Joint_4/Joint_5/Joint_6
+    m_Weight: 1
