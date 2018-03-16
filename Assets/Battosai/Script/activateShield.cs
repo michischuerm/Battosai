@@ -41,23 +41,24 @@ public class activateShield : MonoBehaviour
 	{
 		if (shieldActivated)
 		{
+			float currentPosRelativeToEnd = 0.0f;
+
+			// current position in percent
+			if ((Time.realtimeSinceStartup - this.activationTime) < this.animationTime && transform.parent.position != endPos)
+			{
+				currentPosRelativeToEnd = (Time.realtimeSinceStartup - this.activationTime) / this.animationTime;
+			}
+			else
+			{
+				currentPosRelativeToEnd = 1.0f;
+				shieldActivated = false;
+			}
+
 			// shield should go to endPos
-			if (transform.parent.position != endPos)
+			if (currentPosRelativeToEnd < 1.0f)
 			{
 				// max position
 				float endPosRelative = endPos.y - startPos.y;
-
-				float currentPosRelativeToEnd = 0.0f;
-				// current position in percent
-				if ((Time.realtimeSinceStartup - this.activationTime) < this.animationTime)
-				{
-					currentPosRelativeToEnd = (Time.realtimeSinceStartup - this.activationTime) / this.animationTime;
-				}
-				else
-				{
-					currentPosRelativeToEnd = 1.0f;
-					shieldActivated = false;
-				}
 
 				// set position
 				shieldPosition(startPos, endPos, currentPosRelativeToEnd);
@@ -65,21 +66,21 @@ public class activateShield : MonoBehaviour
 		}
 		else
 		{
-			// shield should go to startPos
-			if (transform.parent.position != startPos)
+			float currentPosRelativeToEnd = 1.0f;
+
+			if ((this.activationTime + this.lifespan) > Time.realtimeSinceStartup)
 			{
-				float currentPosRelativeToEnd = 1.0f;
+				currentPosRelativeToEnd = (this.activationTime + this.lifespan - Time.realtimeSinceStartup) / this.animationTime;
+			}
+			else
+			{
+				currentPosRelativeToEnd = 0.0f;
+				shieldActivated = false;
+			}
 
-				if ((this.activationTime + this.lifespan) > Time.realtimeSinceStartup)
-				{
-					currentPosRelativeToEnd = (this.activationTime + this.lifespan - Time.realtimeSinceStartup) / this.animationTime;
-				}
-				else
-				{
-					currentPosRelativeToEnd = 0.0f;
-					shieldActivated = false;
-				}
-
+			// shield should go to startPos
+			if (currentPosRelativeToEnd > 0.0f)
+			{
 				shieldPosition(startPos, endPos, currentPosRelativeToEnd);
 			}
 		}
@@ -97,7 +98,6 @@ public class activateShield : MonoBehaviour
 	{
 		this.activationTime = Time.realtimeSinceStartup;
 		shieldActivated = true;
-		// todo set position when triggered to activate again mid move
 	}
 
 	private void shieldPosition(Vector3 startPosition, Vector3 endPosition, float currentPosPercent)
