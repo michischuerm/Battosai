@@ -87,7 +87,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1877085780320486}
-  m_Mesh: {fileID: 4300000, guid: 7d87faeecd80405429aeb01e74a9c93a, type: 3}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54353566649170224
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -109,7 +109,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1877085780320486}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a1b97ffbdbef1d44aa8aab723f05560, type: 3}
@@ -209,6 +209,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef0f481dd6fe4b27a8cd7c197c654bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootSoundsCurrent: []
+  pitchRange: -36
+  minVolumeRange: 0.8
+  maxVolumeRange: 1
+  audioSource: {fileID: 0}
+  randomValueFromSoundArray: 0
+  pitchOctaveValue: 1.05946
 --- !u!114 &114484168870770734
 MonoBehaviour:
   m_ObjectHideFlags: 1
