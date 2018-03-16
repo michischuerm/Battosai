@@ -19,7 +19,7 @@ public class BossOneLookAtPlayer : MonoBehaviour {
     private RaycastHit hit;
     void Start()
     {
-        monsterNeck = GameObject.Find("BossOne/Rig/WingPart/Neck").transform;
+        monsterNeck = GameObject.Find("BossOne/Rig/WingPart/Neck/Head").transform;
         LookatPositionMonster = GameObject.Find("LookStraight").transform;
         target = GameObject.Find("Camera (eye)").transform;
 
@@ -32,31 +32,27 @@ public class BossOneLookAtPlayer : MonoBehaviour {
         {
             lookDirectionTimer += Time.deltaTime;
         }
-        
-      //  Physics.Raycast(transform.position, (target.position - monsterNeck.position), out hit, 5000);
-        Debug.DrawRay(transform.position, (target.position - monsterNeck.position), Color.cyan, .1f,  true);
     }
 
     private void LateUpdate()
     {        
           if ((lookDirectionTimer <= maxLookDirectionTimer && canLookAtPlayer) || GetComponent<BossOneStateHandler>().state == 5)
           {
-              float x = monsterNeck.localRotation.eulerAngles.x;
-              float y = monsterNeck.localRotation.eulerAngles.y;
-              float z = monsterNeck.localRotation.eulerAngles.z;
+              float x = Mathf.Abs(monsterNeck.localRotation.eulerAngles.x);
+              float y = Mathf.Abs(monsterNeck.localRotation.eulerAngles.y);
+              float z = Mathf.Abs(monsterNeck.localRotation.eulerAngles.z);
               x -= x > 180 ? 360 : 0;
+              y -= y > 180 ? 360 : 0;
               z -= z > 180 ? 360 : 0;
-              if ((Mathf.Abs(y) < 150 && Mathf.Abs(y) > 30
-                  && Mathf.Abs(x) < 90
-                  && Mathf.Abs(z) < 90) || GetComponent<BossOneStateHandler>().state == 5)
+              if ((Mathf.Abs(y) < 80 
+                  && Mathf.Abs(x) < 80
+                  && Mathf.Abs(z) < 80) || GetComponent<BossOneStateHandler>().state == 5)
               {
-                  startLookDirectionTimer = false;
-                  lookDirectionTimer = 0;
-                  //Rotate the head to lookto the player
-                  monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(target.position + monsterNeck.position), Time.deltaTime * 2);
-                Debug.Log("quat:"+Quaternion.LookRotation(target.position - monsterNeck.position));
-                Debug.Log("eul:"+Quaternion.LookRotation(target.position - monsterNeck.position).eulerAngles);
-              }
+                startLookDirectionTimer = false;
+                lookDirectionTimer = 0;
+                //Rotate the head to lookto the player
+                monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(target.position + monsterNeck.position), Time.deltaTime * 2);
+                }
               else
               {
                   monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-LookatPositionMonster.position + monsterNeck.position), Time.deltaTime * 2);
