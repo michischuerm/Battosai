@@ -28,7 +28,10 @@ public class activateShield : MonoBehaviour
 		Renderer[] childRenderers = transform.parent.GetComponentsInChildren<Renderer>();
 		foreach(Renderer child in childRenderers)
 		{
-			size += child.bounds.size;
+			if (child.name == "Shield")
+			{
+				size += child.bounds.size;
+			}
 		}
 		endPos.y = startPos.y + size.y;
 	}
