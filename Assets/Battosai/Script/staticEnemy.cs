@@ -59,11 +59,8 @@ public class staticEnemy : MonoBehaviour {
 
     private void attack()
     {
-        //attackEffect.transform.position = GameObject.Find("Head").transform.position;
-        //  attackEffect.transform.rotation = Quaternion.identity;
-        attackEffect.transform.SetParent(monsterHead, false);
-        attackEffect.transform.rotation = Quaternion.LookRotation(target.position - attackEffect.transform.position);
         attackEffect.SetActive(true);
+        attackEffect.transform.LookAt(target.position);
         Invoke("finishAttack", attackLength);
     }
 
