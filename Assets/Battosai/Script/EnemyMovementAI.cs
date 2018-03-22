@@ -8,6 +8,7 @@ public class EnemyMovementAI : MonoBehaviour {
     private Quaternion targetRotation;                  //Rotation to face the next position
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
+    private float originalRotationStrength = 0.8f;
     public float movementSpeed = 0.5f;                  //Speed of the movement
     private float originalMovementSpeed = 0.5f;                  //Speed of the movement
     private int lastIndex;                              //used to detect if the target location is two times the same
@@ -15,17 +16,23 @@ public class EnemyMovementAI : MonoBehaviour {
     public float maxTimeBeforeTargetChange = 15f;       //max time the enemy follows one target, before changing targets
     public float distanceToReachTarget = 15f;           //min distance the enemy has to reach to his current target, to get a new target
     private float dist;                                 //distance between target and enemy
-    private BossOneStateHandler stateHandler; 
+    private BossOneStateHandler stateHandler;
+    private int slowTargetIndex;
     void Start()
     {
         stateHandler = GetComponent<BossOneStateHandler>();
         originalMovementSpeed = movementSpeed;
+        originalRotationStrength = rotationStrength;
         //Find all Possible MovementPositions of the Enemy and store them in a list
         GameObject[] enemyMovementPositions = GameObject.FindGameObjectsWithTag("EnemyMovement");
         targets = new Transform[enemyMovementPositions.Length];
         for(int i = 0; i < enemyMovementPositions.Length; i++)
         {
             targets[i] = enemyMovementPositions[i].transform;
+            if (enemyMovementPositions[i].name.Contains("Slow"))
+            {
+                slowTargetIndex = i;
+            }
         }
         lastIndex = Random.Range(0, targets.Length);
         target = targets[lastIndex];
@@ -51,19 +58,28 @@ public class EnemyMovementAI : MonoBehaviour {
     private void changeTargetRandom()
     {
         int randomIndex = Random.Range(0, targets.Length);
+        if (stateHandler.state == 2)
+        {
+            if (randomIndex >= targets.Length / 2)
+            {
+                randomIndex = slowTargetIndex;
+            }
+        }
         if (randomIndex == lastIndex)
         {
             randomIndex = (randomIndex != 0 ? randomIndex - 1 : 1);
         }
         lastIndex = randomIndex;
         target = targets[randomIndex];
-        if(target.name.Contains("Slow") && stateHandler.state == 2)
+        if(randomIndex == slowTargetIndex && stateHandler.state == 2)
         {
-            movementSpeed /= 2;
+            movementSpeed /= 1.2f;
+            rotationStrength /= 1.2f;
         }
         else
         {
             movementSpeed = originalMovementSpeed;
+            rotationStrength = originalRotationStrength;
         }
     }
 
