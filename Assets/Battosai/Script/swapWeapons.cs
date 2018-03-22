@@ -13,6 +13,10 @@ public class swapWeapons : MonoBehaviour
 	private static GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
 
+	// sounds
+	public AudioClip weaponSwapSound;
+	private AudioSource soundEmitter;
+
 	private SteamVR_Controller.Device Controller
 	{
 		get { return SteamVR_Controller.Input((int)trackedObj.index); }
@@ -27,7 +31,8 @@ public class swapWeapons : MonoBehaviour
 	{
 		updateGunArray();
         resetEnumerator();
-        while (weaponEnumerator.MoveNext())
+		soundEmitter = GetComponent<AudioSource>();
+		while (weaponEnumerator.MoveNext())
         {
             GameObject weapon = (GameObject)weaponEnumerator.Current;
             if (weapon.name == "playerShield")
@@ -149,7 +154,9 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapWeapon(float x, float y)
 	{
-        //Debug.Log("swap Weapon");
+		soundEmitter.clip = weaponSwapSound;
+		soundEmitter.Play();
+		//Debug.Log("swap Weapon");
 		// top right
 		if (x > blindspot && y > blindspot)
 		{
