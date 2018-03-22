@@ -6,6 +6,7 @@ public class BossOneStateHandler : MonoBehaviour {
     public int state = 0;
     public GameObject prefab;
     private GameObject attackEffect;
+    public GameObject ballista;
 
     // Use this for initialization
     void Start () {
@@ -32,10 +33,8 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<staticEnemy>().enabled = false;
             GetComponent<BossOneWinder>().enabled = false;
         }
-        else if(newState == 2 && state != 2)
+        else if(newState == 2 && state < 2)
         {
-            /* GetComponent<EnemyMovementAI>().MovementSpeed  /= 2;
-             GetComponent<EnemyMovementAI>().rotationStrength /= 2;*/
             Transform spawnPoint = GameObject.Find("BossOne/Rig/WingPart/Neck/Head").transform;
 
             GameObject attackEffect = Instantiate(prefab, spawnPoint.position, new Quaternion(0, 0, 0, 0));
@@ -50,7 +49,7 @@ public class BossOneStateHandler : MonoBehaviour {
 
             GetComponent<EnemyShoot>().minTimeBetweenBursts /= 2;
             GetComponent<EnemyShoot>().maxTimeBetweenBursts /= 2;
-            GameObject.Find("Balista").SetActive(true);
+            ballista.SetActive(true);
             
         }
         else if(newState == 3)
@@ -65,7 +64,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<BossOneLookAtPlayer>().enabled = false;
             GetComponent<BossOneEndPhaseLook>().enabled = true;
             GetComponent<Animator>().SetBool("HarpoonHit", true);
-            GameObject.Find("Balista").SetActive(false);
+            ballista.SetActive(false);
         }
         else if(newState == 4)
         {
