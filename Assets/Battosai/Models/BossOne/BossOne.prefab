@@ -1350,6 +1350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  prefab: {fileID: 1988050778033914, guid: ce14eae62650cee4ab62c7867287056e, type: 2}
 --- !u!114 &114682638027501232
 MonoBehaviour:
   m_ObjectHideFlags: 1
