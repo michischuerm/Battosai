@@ -23,7 +23,7 @@ public class BossOneWinder : MonoBehaviour {
         distanceToWindingPosition = Vector3.Distance(target.position, transform.position);
        // Debug.Log((target.position - transform.position) * handle.fixedUpdateDistanceDelta / 100);
         //Move to the target !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   1 muss durch die kurbel ersetzt werden, wenn nicht gekurbelt dann 0
-        transform.position += (target.position- transform.position) * handle.fixedUpdateDistanceDelta/100;
+        transform.position += (target.position- transform.position) * handle.fixedUpdateDistanceDelta/65;
         if(distanceToWindingPosition <= 2)
         {            
             GetComponent<BossOneStateHandler>().changeState(4);

@@ -17,7 +17,7 @@ public class staticEnemy : MonoBehaviour {
     private Quaternion targetRotation;                  //Rotation to face the player
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
-    private bool stopRotation = false;
+    private bool stopRotation = true;
 
     private Transform monsterHead;
 

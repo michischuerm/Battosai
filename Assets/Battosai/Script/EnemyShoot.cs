@@ -11,7 +11,7 @@ public class EnemyShoot : MonoBehaviour
     public int maxTimeBetweenBursts = 10;
     public int minAmountOfShootsInOneBurst = 1;
     public int maxAmountOfShootsInOneBurst = 6;
-    private bool canShoot = true;
+    public bool canShoot = true;
     private GameObject player;
     private int shootCounter = 0;
     private BossOneLookAtPlayer lookScript;
@@ -72,6 +72,7 @@ public class EnemyShoot : MonoBehaviour
     {
         activateLookAtPlayer();
         CancelInvoke("shoot");
+        canShoot = true;
     }
 
     private void activateLookAtPlayer()

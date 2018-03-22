@@ -46,13 +46,8 @@ public class BossOneStateHandler : MonoBehaviour {
 
             GetComponent<EnemyMovementAI>().movementSpeed  /= 10;
             GetComponent<EnemyMovementAI>().rotationStrength /= 10;
-
-            GetComponent<EnemyShoot>().minTimeBetweenBursts /= 2;
-            GetComponent<EnemyShoot>().maxTimeBetweenBursts /= 2;
             ballista.SetActive(true);
             crank.SetActive(true);
-
-
         }
         else if(newState == 3)
         {
@@ -67,6 +62,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<BossOneEndPhaseLook>().enabled = true;
             GetComponent<Animator>().SetBool("HarpoonHit", true);
             ballista.SetActive(false);
+            crank.GetComponent<laserconnection>().enabled = true;
         }
         else if(newState == 4)
         {
@@ -102,10 +98,10 @@ public class BossOneStateHandler : MonoBehaviour {
     }
     void destroyEffect()
     {
+        GetComponent<EnemyShoot>().enabled = true;
         GetComponent<EnemyMovementAI>().movementSpeed = GetComponent<EnemyMovementAI>().originalMovementSpeed;
         GetComponent<EnemyMovementAI>().rotationStrength = GetComponent<EnemyMovementAI>().originalRotationStrength;
         attackEffect.SetActive(false);
-        Destroy(attackEffect);
-        GetComponent<EnemyShoot>().enabled = true;
+        Destroy(attackEffect);        
     }
 }
