@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 114185295541848200}
   - component: {fileID: 114468813312393356}
   - component: {fileID: 114272405678228930}
+  - component: {fileID: 114682638027501232}
   m_Layer: 0
   m_Name: BossOne
   m_TagString: enemy
@@ -1349,6 +1350,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  prefab: {fileID: 1988050778033914, guid: ce14eae62650cee4ab62c7867287056e, type: 2}
+--- !u!114 &114682638027501232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644637560217106}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00fee39dd233ac429bf1d78030305a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114828028134672438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1361,7 +1374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationStrength: 0.7
-  MovementSpeed: 0.3
+  movementSpeed: 0.5
   maxTimeBeforeTargetChange: 15
   distanceToReachTarget: 15
 --- !u!135 &135062728564897402

@@ -22,8 +22,6 @@ public class BossOneLookAtPlayer : MonoBehaviour {
         monsterNeck = GameObject.Find("BossOne/Rig/WingPart/Neck/Head").transform;
         LookatPositionMonster = GameObject.Find("LookStraight").transform;
         target = GameObject.Find("Camera (eye)").transform;
-
-        Animator anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame

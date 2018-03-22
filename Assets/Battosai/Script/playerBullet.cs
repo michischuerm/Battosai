@@ -9,7 +9,7 @@ public class playerBullet : MonoBehaviour {
     {
         if (other.tag == "enemy")
         {
-            other.GetComponent<EnemyHPHandler>().takeDamage(damage);
+            other.transform.root.GetComponent<EnemyHPHandler>().takeDamage(damage);
             gameObject.SetActive(false);
         }
         else if(other.tag == "enemyWeakSpot")
