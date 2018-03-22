@@ -17,6 +17,7 @@ public class staticEnemy : MonoBehaviour {
     private Quaternion targetRotation;                  //Rotation to face the player
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
+    private bool stopRotation = false;
 
     private Transform monsterHead;
 
@@ -40,11 +41,15 @@ public class staticEnemy : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Rotate to face the target
-        targetRotation = Quaternion.LookRotation(-target.position + transform.position);
-        str = Mathf.Min(rotationStrength * Time.deltaTime, 1);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
-
+        if (!stopRotation)
+        {
+            //Rotate to face the target
+            targetRotation = Quaternion.LookRotation(-target.position + transform.position);
+            str = Mathf.Min(rotationStrength * Time.deltaTime, 1);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
+            Debug.Log(targetRotation == transform.rotation);
+            if (targetRotation == transform.rotation) stopRotation = true;
+        }
         if (canShoot && !player.GetComponent<PlayerHitDetection>().isHit)
         {
             canShoot = false;

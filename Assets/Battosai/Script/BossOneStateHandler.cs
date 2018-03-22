@@ -57,6 +57,8 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyShoot>().enabled = false;
             GetComponent<BossOneWinder>().enabled = false;
             GetComponent<staticEnemy>().enabled = true;
+            GetComponent<BossOneLookAtPlayer>().enabled = false;
+            GetComponent<BossOneEndPhaseLook>().enabled = true;
             GetComponent<Animator>().SetBool("Grounded", true);
         }
         else if(newState == 5)
