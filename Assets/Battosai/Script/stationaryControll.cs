@@ -25,6 +25,8 @@ public class stationaryControll : MonoBehaviour
 		debugSpheres = new List<GameObject>();
 		debugSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		debugRect = GameObject.CreatePrimitive(PrimitiveType.Quad);
+		//debugSphere.SetActive(false);
+		//debugRect.SetActive(false);
 	}
 
 	// Update is called once per frame
