@@ -154,14 +154,14 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapWeapon(float x, float y)
 	{
-		soundEmitter.clip = weaponSwapSound;
-		soundEmitter.Play();
 		//Debug.Log("swap Weapon");
 		// top right
 		if (x > blindspot && y > blindspot)
 		{
 			//Debug.Log("top right");
 			swapToGun();
+			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.Play();
 		}
 
 		// bottom right
@@ -169,6 +169,8 @@ public class swapWeapons : MonoBehaviour
 		{
 			//Debug.Log("bottom right");
 			swapToShield();
+			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.Play();
 		}
 
 		// top left
@@ -176,6 +178,8 @@ public class swapWeapons : MonoBehaviour
 		{
 			//Debug.Log("top left");
 			swapToSword();
+			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.Play();
 		}
 
 		// bottom left
