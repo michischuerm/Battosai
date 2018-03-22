@@ -36,6 +36,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyMovementAI>().rotationStrength /= 2;*/
             GetComponent<EnemyShoot>().minTimeBetweenBursts /= 2;
             GetComponent<EnemyShoot>().maxTimeBetweenBursts /= 2;
+            GameObject.Find("Balista").SetActive(true);
         }
         else if(newState == 3)
         {
@@ -49,6 +50,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<BossOneLookAtPlayer>().enabled = false;
             GetComponent<BossOneEndPhaseLook>().enabled = true;
             GetComponent<Animator>().SetBool("HarpoonHit", true);
+            GameObject.Find("Balista").SetActive(false);
         }
         else if(newState == 4)
         {
