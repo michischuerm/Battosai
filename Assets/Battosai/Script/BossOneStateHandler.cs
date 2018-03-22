@@ -32,8 +32,8 @@ public class BossOneStateHandler : MonoBehaviour {
         }
         else if(newState == 2)
         { 
-            GetComponent<EnemyMovementAI>().MovementSpeed  /= 2;
-            GetComponent<EnemyMovementAI>().rotationStrength /= 2;
+           /* GetComponent<EnemyMovementAI>().MovementSpeed  /= 2;
+            GetComponent<EnemyMovementAI>().rotationStrength /= 2;*/
             GetComponent<EnemyShoot>().minTimeBetweenBursts /= 2;
             GetComponent<EnemyShoot>().maxTimeBetweenBursts /= 2;
         }
