@@ -7,7 +7,7 @@ public class BossOneStateHandler : MonoBehaviour {
     public GameObject prefab;
     private GameObject attackEffect;
     public GameObject ballista;
-
+    public GameObject crank;
     // Use this for initialization
     void Start () {
         changeState(state);
@@ -50,7 +50,9 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyShoot>().minTimeBetweenBursts /= 2;
             GetComponent<EnemyShoot>().maxTimeBetweenBursts /= 2;
             ballista.SetActive(true);
-            
+            crank.SetActive(true);
+
+
         }
         else if(newState == 3)
         {
