@@ -96,8 +96,8 @@ public class BossOneStateHandler : MonoBehaviour {
 
     void destroyEffect()
     {
-        GetComponent<EnemyMovementAI>().movementSpeed *= 10;
-        GetComponent<EnemyMovementAI>().rotationStrength *= 10;
+        GetComponent<EnemyMovementAI>().movementSpeed = GetComponent<EnemyMovementAI>().originalMovementSpeed;
+        GetComponent<EnemyMovementAI>().rotationStrength = GetComponent<EnemyMovementAI>().originalRotationStrength;
         Destroy(attackEffect);
     }
 }

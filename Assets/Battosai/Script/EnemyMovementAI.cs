@@ -8,9 +8,9 @@ public class EnemyMovementAI : MonoBehaviour {
     private Quaternion targetRotation;                  //Rotation to face the next position
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
-    private float originalRotationStrength = 0.8f;
+    public float originalRotationStrength = 0.8f;
     public float movementSpeed = 0.5f;                  //Speed of the movement
-    private float originalMovementSpeed = 0.5f;                  //Speed of the movement
+    public float originalMovementSpeed = 0.5f;                  //Speed of the movement
     private int lastIndex;                              //used to detect if the target location is two times the same
     private float safetyTargetChangeTime = 0f;          //If the Enemy tries for to long, to get to a Target and can't reach it, the target gets changed
     public float maxTimeBeforeTargetChange = 15f;       //max time the enemy follows one target, before changing targets
