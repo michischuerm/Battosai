@@ -11677,6 +11677,7 @@ MonoBehaviour:
   shootCooldownSeconds: 0.2
   shotSpeedMS: 60
   shotDirection: {fileID: 4037604056220666}
+  weaponShootSound: {fileID: 8300000, guid: 531f3de2f5ec64c738be25013b6ed33d, type: 3}
 --- !u!114 &114449372706668798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11757,6 +11758,7 @@ MonoBehaviour:
   shootCooldownSeconds: 0.2
   shotSpeedMS: 60
   shotDirection: {fileID: 4266005245002062}
+  weaponShootSound: {fileID: 8300000, guid: 531f3de2f5ec64c738be25013b6ed33d, type: 3}
 --- !u!114 &114701407392621138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11824,6 +11826,7 @@ MonoBehaviour:
   shootCooldownSeconds: 0.2
   shotSpeedMS: 40
   shotDirection: {fileID: 0}
+  weaponShootSound: {fileID: 0}
 --- !u!114 &114844482128136040
 MonoBehaviour:
   m_ObjectHideFlags: 1

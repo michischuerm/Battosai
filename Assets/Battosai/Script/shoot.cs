@@ -5,7 +5,7 @@ using UnityEngine;
 public class shoot : MonoBehaviour
 {
 	private SteamVR_TrackedObject trackedObj;
-
+	
 	private SteamVR_Controller.Device Controller
 	{
 		get { return SteamVR_Controller.Input((int)trackedObj.index); }
@@ -22,6 +22,10 @@ public class shoot : MonoBehaviour
 	public float shootCooldownSeconds = 0.2f;
 	public float shotSpeedMS = 60.0f;
 	public Transform shotDirection;
+
+	// sounds
+	public AudioClip weaponShootSound;
+	private AudioSource soundEmitter;
 
 	//private GameObject laser;
 	//private Transform laserTransform;
@@ -53,6 +57,7 @@ public class shoot : MonoBehaviour
 		laserTransform = laser.transform;
 		*/
 
+		soundEmitter = GetComponent<AudioSource>();
 		lastShot = Time.realtimeSinceStartup;
 
 		// prefill Pool
@@ -107,6 +112,9 @@ public class shoot : MonoBehaviour
 
 	private void fire()
 	{
+		soundEmitter.clip = weaponShootSound;
+		soundEmitter.Play();
+
 		ushort pulseMS = (ushort)(shootCooldownSeconds * 2500);
 		Controller.TriggerHapticPulse(pulseMS);
 		canFire = false;
