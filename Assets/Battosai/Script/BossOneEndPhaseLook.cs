@@ -14,6 +14,6 @@ public class BossOneEndPhaseLook : MonoBehaviour {
     private void LateUpdate()
     {
         //Rotate the head to lookto the player
-        monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(target.position + monsterNeck.position), Time.deltaTime * 2);
+        monsterNeck.rotation = Quaternion.Lerp(monsterNeck.rotation, Quaternion.LookRotation(-target.position + monsterNeck.position), Time.deltaTime * 2);
     }
 }
