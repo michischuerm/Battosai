@@ -15,8 +15,12 @@ public class EnemyShoot : MonoBehaviour
     private GameObject player;
     private int shootCounter = 0;
     private BossOneLookAtPlayer lookScript;
+    private Animator animator;
+    private EnemyMovementAI movement;
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        movement = GetComponent<EnemyMovementAI>();
         player = GameObject.Find("Camera (eye)");
         lookScript = GetComponent<BossOneLookAtPlayer>();
     }
@@ -38,11 +42,17 @@ public class EnemyShoot : MonoBehaviour
     {
         if (!player.GetComponent<PlayerHitDetection>().isHit)
         {
+            movement.movementSpeed /= 1.5f;
+            movement.rotationStrength /= 1.5f;
+            animator.SetTrigger("Attacking");
             GameObject attack = Instantiate(prefab, GameObject.Find("Head").transform.position, Quaternion.identity);
             attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (player.transform.position - attack.transform.position), ForceMode.Impulse);
             shootCounter--;
             if (shootCounter >= 0)
             {
+                animator.ResetTrigger("Attacking");
+                movement.movementSpeed = movement.originalMovementSpeed;
+                movement.rotationStrength = movement.originalRotationStrength;
                 Invoke("shoot", timeBetweenShoots);
             }
             else
