@@ -73,13 +73,11 @@ public class EnemyMovementAI : MonoBehaviour {
         target = targets[randomIndex];
         if(randomIndex == slowTargetIndex && stateHandler.state == 2)
         {
-            movementSpeed /= 1.2f;
-            rotationStrength /= 1.2f;
+            Invoke("slowDown", 3);
         }
         else
         {
-            movementSpeed = originalMovementSpeed;
-            rotationStrength = originalRotationStrength;
+            Invoke("resetSpeed", 3);
         }
     }
 
@@ -93,5 +91,17 @@ public class EnemyMovementAI : MonoBehaviour {
         targetRotation = Quaternion.LookRotation(-target.position + transform.position);
         str = Mathf.Min(rotationStrength * Time.deltaTime, 1);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, str);
+    }
+
+    private void slowDown()
+    {
+        movementSpeed /= 2;
+        rotationStrength /= 2;
+    }
+
+    private void resetSpeed()
+    {
+        movementSpeed = originalMovementSpeed;
+        rotationStrength = originalRotationStrength;
     }
 }
