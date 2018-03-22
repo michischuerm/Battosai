@@ -126,13 +126,47 @@ public class swapWeapons : MonoBehaviour
 		if (weapons == null)
 		{
 			weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
-			/*
-			for (int i = 0; i < weapons.Length; i++)
-			{
-				Debug.Log("weapons found: " + weapons[i].name);
-			}
-			*/
 		}
+		else
+		{
+			// all new Weps + the active wep in the other hand(s)
+			GameObject[] allActiveWeps = GameObject.FindGameObjectsWithTag(weaponsTag);
+			List<GameObject> allWeps = new List<GameObject>(weapons);
+			List<GameObject> allActiveWepsList = new List<GameObject>(allActiveWeps);
+
+			for (int i = allActiveWepsList.Count - 1; i >= 0; i--)
+			{
+				bool isInArray = false;
+
+				foreach (GameObject savedWep in weapons)
+				{
+					if (GameObject.ReferenceEquals(allActiveWepsList[i], savedWep))
+					{
+						// weapon allready in array
+						allActiveWepsList.RemoveAt(i);
+						isInArray = true;
+					}
+				}
+
+				if(!isInArray)
+				{
+					allWeps.Add(allActiveWepsList[i]);
+				}
+			}
+
+			weapons = allWeps.ToArray();
+		}
+
+		//if (weapons == null)
+		//{
+		//	weapons = GameObject.FindGameObjectsWithTag(weaponsTag);
+		/*
+		for (int i = 0; i < weapons.Length; i++)
+		{
+			Debug.Log("weapons found: " + weapons[i].name);
+		}
+		*/
+		//}
 	}
 
     private void resetEnumerator()
