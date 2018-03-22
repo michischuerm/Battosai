@@ -24,8 +24,6 @@ GameObject:
   - component: {fileID: 54353566649170224}
   - component: {fileID: 114484168870770734}
   - component: {fileID: 136322698618660524}
-  - component: {fileID: 114208552726537088}
-  - component: {fileID: 114113007328348796}
   m_Layer: 0
   m_Name: BulletTest
   m_TagString: Untagged
@@ -103,35 +101,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &114113007328348796
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1877085780320486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd3679559dd78485c8c714e9d0d58e49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114208552726537088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1877085780320486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aef0f481dd6fe4b27a8cd7c197c654bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootSoundsCurrent: []
-  pitchRange: -36
-  minVolumeRange: 0.8
-  maxVolumeRange: 1
-  audioSource: {fileID: 0}
-  randomValueFromSoundArray: 0
-  pitchOctaveValue: 1.05946
 --- !u!114 &114484168870770734
 MonoBehaviour:
   m_ObjectHideFlags: 1
