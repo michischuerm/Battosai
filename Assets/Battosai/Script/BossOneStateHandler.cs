@@ -46,6 +46,8 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyShoot>().enabled = false;
             GetComponent<staticEnemy>().enabled = false;
             GetComponent<BossOneWinder>().enabled = true;
+            GetComponent<BossOneLookAtPlayer>().enabled = false;
+            GetComponent<BossOneEndPhaseLook>().enabled = true;
             GetComponent<Animator>().SetBool("HarpoonHit", true);
         }
         else if(newState == 4)
