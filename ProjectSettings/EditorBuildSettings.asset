@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/final_levels/startScene.unity
+    guid: c58fa0812bfcc4445ba4f836d4455844
+  - enabled: 1
+    path: Assets/Scenes/final_levels/level_1.unity
+    guid: e2fb85f56836c4bc5b23344af13fa2b0
+  - enabled: 1
+    path: Assets/Scenes/final_levels/level_2.unity
+    guid: a29b5744569214496ab7a29044875eaa
+  - enabled: 1
+    path: Assets/Scenes/final_levels/level_tutorial.unity
+    guid: fc4ab9b78c6f24135a669bb0d0748c93
+  - enabled: 1
+    path: Assets/Scenes/final_levels/shootingRange.unity
+    guid: dcd4ff632d1c43e4a981c33a98885676
   m_configObjects: {}
