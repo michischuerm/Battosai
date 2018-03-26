@@ -4,12 +4,40 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Body
+    100004: Corpse
+    100006: Hand
+    100008: Symmetrie
+    100010: ToothBot
+    100012: ToothTop
+    100014: ToothTop2
     400000: //RootNode
+    400002: Body
+    400004: Corpse
+    400006: Hand
+    400008: Symmetrie
+    400010: ToothBot
+    400012: ToothTop
+    400014: ToothTop2
     2100000: No Name
     2300000: //RootNode
+    2300002: Body
+    2300004: Hand
+    2300006: ToothBot
+    2300008: ToothTop
+    2300010: ToothTop2
     3300000: //RootNode
+    3300002: Body
+    3300004: Hand
+    3300006: ToothBot
+    3300008: ToothTop
+    3300010: ToothTop2
     4300000: "W\xFCrfel"
     4300002: Hand
+    4300004: ToothBot
+    4300006: ToothTop2
+    4300008: ToothTop
+    4300010: Body
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
