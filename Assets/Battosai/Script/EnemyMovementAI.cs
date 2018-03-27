@@ -19,7 +19,7 @@ public class EnemyMovementAI : MonoBehaviour {
     private BossOneStateHandler stateHandler;           //statehandler of the boss
     private int slowTargetIndex;                        //phase two where the boss moves slower
     private bool isSlow = false;                        //if the boss currently moves slower than normal
-    public float distanceToSlowDown = 80; 
+    public float distanceToSlowDown = 100; 
     void Start()
     {
         stateHandler = GetComponent<BossOneStateHandler>();
@@ -53,9 +53,10 @@ public class EnemyMovementAI : MonoBehaviour {
             safetyTargetChangeTime = 0;
             changeTargetRandom();
         }
+        Debug.Log(Vector3.Distance(targets[slowTargetIndex].position, transform.position)+" < "+distanceToSlowDown+" :"+isSlow+" , "+movementSpeed);
         if(Vector3.Distance(targets[slowTargetIndex].position, transform.position) < distanceToSlowDown && stateHandler.state == 2)
         {
-            if (!isSlow)
+            if (!isSlow || movementSpeed != originalMovementSpeed/2)
             {
                 isSlow = true;
                 slowDown();
@@ -102,8 +103,8 @@ public class EnemyMovementAI : MonoBehaviour {
 
     private void slowDown()
     {
-        movementSpeed /= 2;
-        rotationStrength /= 2;
+        movementSpeed = originalMovementSpeed/2;
+        rotationStrength = originalRotationStrength/2;
     }
 
     private void resetSpeed()
