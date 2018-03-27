@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BossOneStateHandler : MonoBehaviour {
@@ -96,6 +97,7 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<staticEnemy>().enabled = false;
             GetComponent<BossOneLookAtPlayer>().enabled = false;
             GetComponent<Animator>().SetBool("Dead", true);
+			SceneManager.LoadScene("level_2", LoadSceneMode.Single);
         }
         state = newState;
     }
