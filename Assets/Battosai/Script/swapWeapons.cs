@@ -14,7 +14,7 @@ public class swapWeapons : MonoBehaviour
 	private static GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
 	public allWeapons selectedWeapon = allWeapons.playerShield;
-	private Scene activeScene;
+	private static Scene activeScene;
 
 	// sounds
 	private AudioClip[] weaponSwapSound;
