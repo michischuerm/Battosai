@@ -53,7 +53,7 @@ public class EnemyMovementAI : MonoBehaviour {
             safetyTargetChangeTime = 0;
             changeTargetRandom();
         }
-        Debug.Log(Vector3.Distance(targets[slowTargetIndex].position, transform.position)+" < "+distanceToSlowDown+" :"+isSlow+" , "+movementSpeed);
+        //Debug.Log(Vector3.Distance(targets[slowTargetIndex].position, transform.position)+" < "+distanceToSlowDown+" :"+isSlow+" , "+movementSpeed);
         if(Vector3.Distance(targets[slowTargetIndex].position, transform.position) < distanceToSlowDown && stateHandler.state == 2)
         {
             if (!isSlow || movementSpeed != originalMovementSpeed/2)
