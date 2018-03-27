@@ -1,49 +1,49 @@
 fileFormatVersion: 2
-guid: 8d0404f0a032e47469e81bade4a79596
+guid: 4cb4c5e4c508baf4f8b89e5251228724
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: BackBone
     100002: Body
-    100004: Corpse
-    100006: Daumen
-    100008: Daumen_2
-    100010: Joint
-    100012: Joint_2
-    100014: Joint_3
-    100016: Joint_4
-    100018: Joint_4_2
-    100020: Joint_4_3
-    100022: Joint_4_4
-    100024: Joint_4_5
-    100026: Joint_4_6
-    100028: Joint_4_7
-    100030: Joint_5
-    100032: Joint_5_2
-    100034: Joint_6
-    100036: Joint_6_2
-    100038: Joint_6_3
-    100040: Joint_7
-    100042: Joint_7_2
-    100044: Joint_7_3
-    100046: Joint_7_4
-    100048: Joint_7_5
-    100050: Joint_7_6
-    100052: Joint_7_7
-    100054: Joint_8
-    100056: KleinFinger
-    100058: KleinFinger_2
-    100060: LeftArm
-    100062: LeftArmJoint
-    100064: MittelFinger
-    100066: Mittelfinger
-    100068: MundOben
-    100070: NippelRight_1
-    100072: RightArmJoint
-    100074: RingFinger
-    100076: RingFinger_2
-    100078: Root
-    100080: //RootNode
+    100004: //RootNode
+    100006: Corpse
+    100008: Daumen
+    100010: Daumen_2
+    100012: Joint
+    100014: Joint_2
+    100016: Joint_3
+    100018: Joint_4
+    100020: Joint_4_2
+    100022: Joint_4_3
+    100024: Joint_4_4
+    100026: Joint_4_5
+    100028: Joint_4_6
+    100030: Joint_4_7
+    100032: Joint_5
+    100034: Joint_5_2
+    100036: Joint_6
+    100038: Joint_6_2
+    100040: Joint_6_3
+    100042: Joint_7
+    100044: Joint_7_2
+    100046: Joint_7_3
+    100048: Joint_7_4
+    100050: Joint_7_5
+    100052: Joint_7_6
+    100054: Joint_7_7
+    100056: Joint_8
+    100058: KleinFinger
+    100060: KleinFinger_2
+    100062: LeftArm
+    100064: LeftArmJoint
+    100066: MittelFinger
+    100068: Mittelfinger
+    100070: MundOben
+    100072: NippelRight_1
+    100074: RightArmJoint
+    100076: RingFinger
+    100078: RingFinger_2
+    100080: Root
     100082: Tongue
     100084: ToothBot
     100086: ToothTop2_1
@@ -52,45 +52,45 @@ ModelImporter:
     100092: Zunge
     400000: BackBone
     400002: Body
-    400004: Corpse
-    400006: Daumen
-    400008: Daumen_2
-    400010: Joint
-    400012: Joint_2
-    400014: Joint_3
-    400016: Joint_4
-    400018: Joint_4_2
-    400020: Joint_4_3
-    400022: Joint_4_4
-    400024: Joint_4_5
-    400026: Joint_4_6
-    400028: Joint_4_7
-    400030: Joint_5
-    400032: Joint_5_2
-    400034: Joint_6
-    400036: Joint_6_2
-    400038: Joint_6_3
-    400040: Joint_7
-    400042: Joint_7_2
-    400044: Joint_7_3
-    400046: Joint_7_4
-    400048: Joint_7_5
-    400050: Joint_7_6
-    400052: Joint_7_7
-    400054: Joint_8
-    400056: KleinFinger
-    400058: KleinFinger_2
-    400060: LeftArm
-    400062: LeftArmJoint
-    400064: MittelFinger
-    400066: Mittelfinger
-    400068: MundOben
-    400070: NippelRight_1
-    400072: RightArmJoint
-    400074: RingFinger
-    400076: RingFinger_2
-    400078: Root
-    400080: //RootNode
+    400004: //RootNode
+    400006: Corpse
+    400008: Daumen
+    400010: Daumen_2
+    400012: Joint
+    400014: Joint_2
+    400016: Joint_3
+    400018: Joint_4
+    400020: Joint_4_2
+    400022: Joint_4_3
+    400024: Joint_4_4
+    400026: Joint_4_5
+    400028: Joint_4_6
+    400030: Joint_4_7
+    400032: Joint_5
+    400034: Joint_5_2
+    400036: Joint_6
+    400038: Joint_6_2
+    400040: Joint_6_3
+    400042: Joint_7
+    400044: Joint_7_2
+    400046: Joint_7_3
+    400048: Joint_7_4
+    400050: Joint_7_5
+    400052: Joint_7_6
+    400054: Joint_7_7
+    400056: Joint_8
+    400058: KleinFinger
+    400060: KleinFinger_2
+    400062: LeftArm
+    400064: LeftArmJoint
+    400066: MittelFinger
+    400068: Mittelfinger
+    400070: MundOben
+    400072: NippelRight_1
+    400074: RightArmJoint
+    400076: RingFinger
+    400078: RingFinger_2
+    400080: Root
     400082: Tongue
     400084: ToothBot
     400086: ToothTop2_1
@@ -103,10 +103,13 @@ ModelImporter:
     4300004: ToothBot
     4300006: Body
     4300008: ToothTop2_1
-    7400000: mouth
-    7400002: All
-    7400004: Arm
-    7400006: Attack
+    7400000: Mouth_Attack
+    7400002: Mouth_Taunt
+    7400004: Arm_Right_Transition
+    7400006: Arm_Right_Idle
+    7400008: Arm_Right_Taunt
+    7400010: Arm_Left_Transition
+    7400012: Death
     9500000: //RootNode
     13700000: Body
     13700002: NippelRight_1
@@ -142,7 +145,35 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mouth
+      name: Mouth_Attack
+      takeName: CINEMA_4D_Basis
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Mouth_Taunt
       takeName: CINEMA_4D_Basis
       firstFrame: 20
       lastFrame: 42
@@ -170,66 +201,122 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: All
+      name: Arm_Right_Transition
       takeName: CINEMA_4D_Basis
-      firstFrame: 0
+      firstFrame: 50
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Arm_Right_Idle
+      takeName: CINEMA_4D_Basis
+      firstFrame: 60
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Arm_Right_Taunt
+      takeName: CINEMA_4D_Basis
+      firstFrame: 75
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Arm_Left_Transition
+      takeName: CINEMA_4D_Basis
+      firstFrame: 120
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Death
+      takeName: CINEMA_4D_Basis
+      firstFrame: 140
       lastFrame: 150
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Arm
-      takeName: CINEMA_4D_Basis
-      firstFrame: 30
-      lastFrame: 40
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Attack
-      takeName: CINEMA_4D_Basis
-      firstFrame: 0
-      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -11,6 +11,49 @@ ModelImporter:
     100010: ToothBot
     100012: ToothTop
     100014: ToothTop2
+    100016: BackBone
+    100018: Daumen
+    100020: Daumen_2
+    100022: Joint
+    100024: Joint_2
+    100026: Joint_3
+    100028: Joint_4
+    100030: Joint_4_2
+    100032: Joint_4_3
+    100034: Joint_4_4
+    100036: Joint_4_5
+    100038: Joint_4_6
+    100040: Joint_4_7
+    100042: Joint_5
+    100044: Joint_5_2
+    100046: Joint_6
+    100048: Joint_6_2
+    100050: Joint_6_3
+    100052: Joint_7
+    100054: Joint_7_2
+    100056: Joint_7_3
+    100058: Joint_7_4
+    100060: Joint_7_5
+    100062: Joint_7_6
+    100064: Joint_7_7
+    100066: Joint_8
+    100068: KleinFinger
+    100070: KleinFinger_2
+    100072: LeftArm
+    100074: LeftArmJoint
+    100076: MittelFinger
+    100078: Mittelfinger
+    100080: MundOben
+    100082: NippelRight_1
+    100084: RightArmJoint
+    100086: RingFinger
+    100088: RingFinger_2
+    100090: Root
+    100092: Tongue
+    100094: ToothTop2_1
+    100096: ZeigeFinger
+    100098: ZeigeFinger_2
+    100100: Zunge
     400000: //RootNode
     400002: Body
     400004: Corpse
@@ -19,6 +62,49 @@ ModelImporter:
     400010: ToothBot
     400012: ToothTop
     400014: ToothTop2
+    400016: BackBone
+    400018: Daumen
+    400020: Daumen_2
+    400022: Joint
+    400024: Joint_2
+    400026: Joint_3
+    400028: Joint_4
+    400030: Joint_4_2
+    400032: Joint_4_3
+    400034: Joint_4_4
+    400036: Joint_4_5
+    400038: Joint_4_6
+    400040: Joint_4_7
+    400042: Joint_5
+    400044: Joint_5_2
+    400046: Joint_6
+    400048: Joint_6_2
+    400050: Joint_6_3
+    400052: Joint_7
+    400054: Joint_7_2
+    400056: Joint_7_3
+    400058: Joint_7_4
+    400060: Joint_7_5
+    400062: Joint_7_6
+    400064: Joint_7_7
+    400066: Joint_8
+    400068: KleinFinger
+    400070: KleinFinger_2
+    400072: LeftArm
+    400074: LeftArmJoint
+    400076: MittelFinger
+    400078: Mittelfinger
+    400080: MundOben
+    400082: NippelRight_1
+    400084: RightArmJoint
+    400086: RingFinger
+    400088: RingFinger_2
+    400090: Root
+    400092: Tongue
+    400094: ToothTop2_1
+    400096: ZeigeFinger
+    400098: ZeigeFinger_2
+    400100: Zunge
     2100000: No Name
     2300000: //RootNode
     2300002: Body
@@ -26,18 +112,27 @@ ModelImporter:
     2300006: ToothBot
     2300008: ToothTop
     2300010: ToothTop2
+    2300012: NippelRight_1
+    2300014: Tongue
+    2300016: ToothTop2_1
     3300000: //RootNode
     3300002: Body
     3300004: Hand
     3300006: ToothBot
     3300008: ToothTop
     3300010: ToothTop2
+    3300012: NippelRight_1
+    3300014: Tongue
+    3300016: ToothTop2_1
     4300000: "W\xFCrfel"
     4300002: Hand
     4300004: ToothBot
     4300006: ToothTop2
     4300008: ToothTop
     4300010: Body
+    4300012: NippelRight_1
+    4300014: Tongue
+    4300016: ToothTop2_1
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
