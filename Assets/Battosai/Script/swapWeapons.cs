@@ -12,6 +12,7 @@ public class swapWeapons : MonoBehaviour
 	// first call to updateGunArray will fill the weapons array
 	private static GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
+	public allWeapons selectedWeapon = allWeapons.playerShield;
 
 	// sounds
 	public AudioClip weaponSwapSound;
@@ -35,7 +36,24 @@ public class swapWeapons : MonoBehaviour
 		while (weaponEnumerator.MoveNext())
         {
             GameObject weapon = (GameObject)weaponEnumerator.Current;
-            if (weapon.name == "playerShield")
+			string selectedWepString;
+			switch (selectedWeapon)
+			{
+				case allWeapons.playerGun:
+					selectedWepString = "playerGun";
+					break;
+				case allWeapons.playerSword:
+					selectedWepString = "playerSword";
+					break;
+				case allWeapons.playerShield:
+					selectedWepString = "playerShield";
+					break;
+				default:
+					selectedWepString = "playerShield";
+					break;
+			}
+
+			if (weapon.name == selectedWepString)
             {
                 weapon.SetActive(true);
             }
@@ -221,5 +239,12 @@ public class swapWeapons : MonoBehaviour
 		{
 			//Debug.Log("bottom left");
 		}
+	}
+
+	public enum allWeapons
+	{
+		playerShield = 1,
+		playerSword,
+		playerGun
 	}
 }
