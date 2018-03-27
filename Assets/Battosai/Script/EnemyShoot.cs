@@ -44,25 +44,26 @@ public class EnemyShoot : MonoBehaviour
         {
             movement.movementSpeed /= 1.5f;
             movement.rotationStrength /= 1.5f;
-            animator.SetTrigger("Attacking");
+            animator.SetBool("Attack",true);
             GameObject attack = Instantiate(prefab, GameObject.Find("Head").transform.position, Quaternion.identity);
             attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (player.transform.position - attack.transform.position), ForceMode.Impulse);
             shootCounter--;
             if (shootCounter >= 0)
-            {
-                animator.ResetTrigger("Attacking");
+            {                
                 movement.movementSpeed = movement.originalMovementSpeed;
                 movement.rotationStrength = movement.originalRotationStrength;
                 Invoke("shoot", timeBetweenShoots);
             }
             else
             {
+                animator.SetBool("Attack", false);
                 deactivateLookAtPlayer();
                 canShoot = true;
             }
         }
         else
         {
+            animator.SetBool("Attack", false);
             deactivateLookAtPlayer();
             canShoot = true;
         }
@@ -73,6 +74,7 @@ public class EnemyShoot : MonoBehaviour
         activateLookAtPlayer();
         CancelInvoke("shoot");
         canShoot = true;
+        animator.SetBool("Attack", false);
     }
 
     private void activateLookAtPlayer()
