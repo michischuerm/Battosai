@@ -27,6 +27,9 @@ public class VRButtons : MonoBehaviour
 
 		switch(thisButton)
 		{
+			case Button.Back:
+				SceneManager.LoadScene("startScene", LoadSceneMode.Single);
+				break;
 			case Button.Start:
 				SceneManager.LoadScene("level_1", LoadSceneMode.Single);
 				break;
@@ -62,6 +65,7 @@ public class VRButtons : MonoBehaviour
 		Tutorial,
 		Level1,
 		Level2,
-		shootingRange
+		shootingRange,
+		Back
 	};
 }
