@@ -29,26 +29,21 @@ public class VRButtons : MonoBehaviour
 		{
 			case Button.Start:
 				SceneManager.LoadScene("level_1", LoadSceneMode.Single);
-				SceneManager.SetActiveScene(SceneManager.GetSceneByName("level_1"));
 				break;
 			case Button.Exit:
 				Application.Quit();
 				break;
 			case Button.Tutorial:
 				SceneManager.LoadScene("level_tutorial", LoadSceneMode.Single);
-				SceneManager.SetActiveScene(SceneManager.GetSceneByName("level_tutorial"));
 				break;
 			case Button.Level1:
 				SceneManager.LoadScene("level_1", LoadSceneMode.Single);
-				SceneManager.SetActiveScene(SceneManager.GetSceneByName("level_1"));
 				break;
 			case Button.Level2:
 				SceneManager.LoadScene("level_2", LoadSceneMode.Single);
-				SceneManager.SetActiveScene(SceneManager.GetSceneByName("level_2"));
 				break;
 			case Button.shootingRange:
 				SceneManager.LoadScene("shootingRange", LoadSceneMode.Single);
-				SceneManager.SetActiveScene(SceneManager.GetSceneByName("shootingRange"));
 				break;
 			default:
 				break;
