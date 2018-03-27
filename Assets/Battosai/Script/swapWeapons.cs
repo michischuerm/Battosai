@@ -211,12 +211,13 @@ public class swapWeapons : MonoBehaviour
 	{
 		Vector2 axis = new Vector2(x, y);
 		Vector2 zeroPoint = new Vector2(1.0f, 0.0f);
-		Debug.Log("touch angle from right side: " + Vector2.Angle(zeroPoint, axis));
+		//Debug.Log("touch angle from right side: " + Vector2.SignedAngle(zeroPoint, axis));
 		int rndVal = (int)Mathf.Round(Random.value * (weaponSwapSound.Length - 1));
+		float signedAngle = Vector2.SignedAngle(zeroPoint, axis);
 
 		// cross straight
 		// top
-		if (Vector2.Angle(zeroPoint, axis) >= 35f && Vector2.Angle(zeroPoint, axis) < 125f)
+		if (signedAngle >= 45f && signedAngle < 135f)
 		{
 			swapToGun();
 			soundEmitter.clip = weaponSwapSound[rndVal];
@@ -224,7 +225,7 @@ public class swapWeapons : MonoBehaviour
 		}
 
 		// left
-		if (Vector2.Angle(zeroPoint, axis) >= 125f && Vector2.Angle(zeroPoint, axis) < 215f)
+		if (signedAngle > 135f || signedAngle <= -135f)
 		{
 			swapToShield();
 			soundEmitter.clip = weaponSwapSound[rndVal];
@@ -232,7 +233,7 @@ public class swapWeapons : MonoBehaviour
 		}
 
 		// bottom
-		if (Vector2.Angle(zeroPoint, axis) >= 215f && Vector2.Angle(zeroPoint, axis) < 305f)
+		if (signedAngle <= -45f && signedAngle > -135f)
 		{
 			swapToSword();
 			soundEmitter.clip = weaponSwapSound[rndVal];
@@ -240,7 +241,7 @@ public class swapWeapons : MonoBehaviour
 		}
 
 		// right
-		if (Vector2.Angle(zeroPoint, axis) >= 305f && Vector2.Angle(zeroPoint, axis) < 35f)
+		if (signedAngle >= -45f && signedAngle < 45f)
 		{
 
 		}
