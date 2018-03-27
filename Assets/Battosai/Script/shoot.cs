@@ -24,7 +24,7 @@ public class shoot : MonoBehaviour
 	public Transform shotDirection;
 
 	// sounds
-	public AudioClip weaponShootSound;
+	private AudioClip[] weaponShootSounds = null;
 	private AudioSource soundEmitter;
 
 	//private GameObject laser;
@@ -56,6 +56,16 @@ public class shoot : MonoBehaviour
 		laser = Instantiate(laserPrefab);
 		laserTransform = laser.transform;
 		*/
+
+		// set bulletsounds
+		/*
+		AudioClip bullet1 = Instantiate(Resources.Load("bullet_1", typeof(AudioClip))) as AudioClip;
+		AudioClip bullet2 = Instantiate(Resources.Load("bullet_2", typeof(AudioClip))) as AudioClip;
+		AudioClip bullet3 = Instantiate(Resources.Load("bullet_3", typeof(AudioClip))) as AudioClip;
+		AudioClip bullet4 = Instantiate(Resources.Load("bullet_4", typeof(AudioClip))) as AudioClip;
+		weaponShootSounds = new AudioClip[] { bullet1, bullet2, bullet3, bullet4 };
+		*/
+		weaponShootSounds = Resources.LoadAll<AudioClip>("Sounds/bullet_sound");
 
 		soundEmitter = GetComponent<AudioSource>();
 		lastShot = Time.realtimeSinceStartup;
@@ -112,7 +122,8 @@ public class shoot : MonoBehaviour
 
 	private void fire()
 	{
-		soundEmitter.clip = weaponShootSound;
+		int rndVal = (int)Mathf.Round(Random.value * (weaponShootSounds.Length - 1));
+		soundEmitter.clip = weaponShootSounds[rndVal];
 		soundEmitter.Play();
 
 		ushort pulseMS = (ushort)(shootCooldownSeconds * 2500);
