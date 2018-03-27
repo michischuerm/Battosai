@@ -13,23 +13,20 @@ public class BossOneAnimationFire : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyDown("space"))
 		{
-			animator.SetTrigger("Attacking");
+			animator.SetTrigger("IsAttacking");
 		}
 		if (Input.GetKeyDown("1"))
 		{
-			animator.Play("Fly");
+			animator.SetTrigger("IsTransitioning");
 		}
+
 		if (Input.GetKeyDown("2"))
 		{
-			animator.Play("Hover");
-		}		
-		if (Input.GetKeyDown("3"))
-		{
-			animator.Play("Death");
+           animator.SetTrigger("IsTaunting");
 		}
-		if (Input.GetKeyDown("4"))
+			if (Input.GetKeyDown("3"))
 		{
-			animator.Play("RightWing");
+           animator.SetTrigger("IsDying");
 		}
 	}
 }

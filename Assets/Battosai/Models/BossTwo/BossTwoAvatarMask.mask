@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: BossTwoAvatarMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Corpse
+    m_Weight: 0
+  - m_Path: Corpse/Body
+    m_Weight: 0
+  - m_Path: Corpse/NippelRight_1
+    m_Weight: 0
+  - m_Path: Corpse/Tongue
+    m_Weight: 0
+  - m_Path: Corpse/ToothBot
+    m_Weight: 0
+  - m_Path: Corpse/ToothTop2_1
+    m_Weight: 0
+  - m_Path: Root
+    m_Weight: 0
+  - m_Path: Root/Joint
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/Daumen
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/Daumen/Joint_4_5
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/KleinFinger
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/KleinFinger/Joint_4
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/MittelFinger
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/MittelFinger/Joint_4_3
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/RingFinger
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/RingFinger/Joint_4_2
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/ZeigeFinger
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/LeftArmJoint/LeftArm/Joint_2/ZeigeFinger/Joint_4_4
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Joint_5_2
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Joint_5_2/Joint_6
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Zunge
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Zunge/Joint_6_2
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Zunge/Joint_6_2/Joint_7_6
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Zunge/Joint_6_2/Joint_7_6/Joint_8
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Zunge/Joint_6_3
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/MundOben/Joint_4_7/Zunge/Joint_6_3/Joint_7_7
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/RightArmJoint
+    m_Weight: 0
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/Daumen_2
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/Daumen_2/Joint_7_2
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/KleinFinger_2
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/KleinFinger_2/Joint_7_4
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/Mittelfinger
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/Mittelfinger/Joint_7_3
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/RingFinger_2
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/RingFinger_2/Joint_7
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/ZeigeFinger_2
+    m_Weight: 1
+  - m_Path: Root/Joint/BackBone/RightArmJoint/Joint_3/Joint_4_6/Joint_5/ZeigeFinger_2/Joint_7_5
+    m_Weight: 1
