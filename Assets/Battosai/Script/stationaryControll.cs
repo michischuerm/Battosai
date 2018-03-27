@@ -25,8 +25,8 @@ public class stationaryControll : MonoBehaviour
 		debugSpheres = new List<GameObject>();
 		debugSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 		debugRect = GameObject.CreatePrimitive(PrimitiveType.Quad);
-		//debugSphere.SetActive(false);
-		//debugRect.SetActive(false);
+		debugSphere.SetActive(false);
+		debugRect.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -194,15 +194,17 @@ public class stationaryControll : MonoBehaviour
 
 	private void drawDebugsphereAtPosition(Vector3 position)
 	{
+		debugSphere.SetActive(true);
 		debugSphere.transform.position = position;
 		debugSphere.transform.localScale = new Vector3(0.015f, 0.015f, 0.015f);
 	}
 
 	private void drawDebugRectFromPos(Vector3 position, Transform ObjectForDirection)
 	{
-		debugSphere.transform.position = position;
-		debugSphere.transform.localScale = new Vector3(0.015f, 0.015f, 0.1f);
-		debugSphere.transform.LookAt(ObjectForDirection);
+		debugRect.SetActive(true);
+		debugRect.transform.position = position;
+		debugRect.transform.localScale = new Vector3(0.015f, 0.015f, 0.1f);
+		debugRect.transform.LookAt(ObjectForDirection);
 	}
 
 	private void drawBalistaFromPos(Vector3 middleOfControllers, Transform ObjectForDirectionAndHeadposition, GameObject balista)
