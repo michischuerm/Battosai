@@ -8,6 +8,7 @@ public class BossOneStateHandler : MonoBehaviour {
     private GameObject attackEffect;
     public GameObject ballista;
     public GameObject crank;
+    public GameObject[] shields;
     // Use this for initialization
     void Start () {
         changeState(state);
@@ -47,6 +48,10 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<EnemyMovementAI>().movementSpeed  /= 10;
             GetComponent<EnemyMovementAI>().rotationStrength /= 10;
             ballista.SetActive(true);
+            foreach(GameObject shield in shields)
+            {
+                shield.SetActive(false);
+            }
             crank.SetActive(true);
         }
         else if(newState == 3)
@@ -76,6 +81,10 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<BossOneLookAtPlayer>().enabled = false;
             GetComponent<BossOneEndPhaseLook>().enabled = true;
             GetComponent<Animator>().SetBool("Grounded", true);
+            foreach (GameObject shield in shields)
+            {
+                shield.SetActive(true);
+            }
         }
         else if(newState == 5)
         {

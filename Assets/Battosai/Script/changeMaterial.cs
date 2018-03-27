@@ -12,10 +12,6 @@ public class changeMaterial : MonoBehaviour {
     private float blinkTimer = 0;
     private bool changeBack = false;
     private bool changeTime = false;
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

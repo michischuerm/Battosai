@@ -8,7 +8,7 @@ public class BossOneWinder : MonoBehaviour {
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
     private float distanceToWindingPosition;
-    public float handleSlowDown = 50;
+    public float handleSlowDown = 40;
     crankBack handle;
     private void Start()
     {
