@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class swapWeapons : MonoBehaviour
@@ -13,6 +14,7 @@ public class swapWeapons : MonoBehaviour
 	private static GameObject[] weapons;
 	private IEnumerator weaponEnumerator;
 	public allWeapons selectedWeapon = allWeapons.playerShield;
+	private Scene activeScene;
 
 	// sounds
 	private AudioClip[] weaponSwapSound;
@@ -30,7 +32,17 @@ public class swapWeapons : MonoBehaviour
 
 	private void Start()
 	{
-		print("This is the Start() function");
+		// reset weapons array on scene change
+		if (activeScene == null)
+		{
+			SceneManager.GetActiveScene();
+		}
+		else if (activeScene.name != SceneManager.GetActiveScene().name)
+		{
+			weapons = null;
+			activeScene = SceneManager.GetActiveScene();
+		}
+
 		weaponSwapSound = Resources.LoadAll<AudioClip>("Sounds/wep_switch");
 
 		updateGunArray();
