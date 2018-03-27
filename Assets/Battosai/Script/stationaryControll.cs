@@ -53,6 +53,14 @@ public class stationaryControll : MonoBehaviour
 		if (controllersInBox >= 2)
 		{
 			//Debug.Log("at least two controller active: " + controllers);
+
+			// TODO
+			// check if this really works? 
+			swapWeapons[] controllersWithScript = FindObjectsOfType<swapWeapons>();
+			foreach (swapWeapons swapWeaponScript in controllersWithScript)
+			{
+				swapWeaponScript.changeWeaponsOnBalista();
+			}
 		}
 	}
 

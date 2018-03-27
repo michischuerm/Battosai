@@ -301,4 +301,13 @@ public class swapWeapons : MonoBehaviour
 		playerSword,
 		playerGun
 	}
+	
+	public void changeWeaponsOnBalista()
+	{
+		int rndVal = (int)Mathf.Round(Random.value * (weaponSwapSound.Length - 1));
+
+		swapToShield();
+		soundEmitter.clip = weaponSwapSound[rndVal];
+		soundEmitter.Play();
+	}
 }
