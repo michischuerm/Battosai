@@ -18,17 +18,19 @@ public class EnemyHPHandler : MonoBehaviour {
         //change boss one's boss states
         if (name.Contains("BossOne"))
         {
-            if((GetComponent<BossOneStateHandler>().state !=3 && hp > stageTwo) || GetComponent<BossOneStateHandler>().state==4)
+            BossOneStateHandler stateHandler = GetComponent<BossOneStateHandler>();
+            if ((stateHandler.state !=3 && stateHandler.state != 0 && hp > stageTwo) || stateHandler.state==4)
             {
                 hp -= damage;
+                GetComponent<changeMaterial>().startSwap();
             }            
-            if (hp <= stageTwo && GetComponent<BossOneStateHandler>().state == 1)
+            if (hp <= stageTwo && stateHandler.state == 1)
             {
-                GetComponent<BossOneStateHandler>().changeState(2);
+                stateHandler.changeState(2);
             }
-            if(hp <= stageThree && GetComponent<BossOneStateHandler>().state == 4)
+            if(hp <= stageThree && stateHandler.state == 4)
             {
-                GetComponent<BossOneStateHandler>().changeState(5);
+                stateHandler.changeState(5);
             }
         }
         //Destroy boss2 illusions
