@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BossTwoVisibility : MonoBehaviour {
-    private Renderer renderer;
+    public string makeVisibleObjectParent;
+    private List<SkinnedMeshRenderer> visibilityToggleObjects = new List<SkinnedMeshRenderer>();
 
     private void Start()
-    {
-        renderer = GetComponent<Renderer>();
-        renderer.enabled = false;
+    {        
+        foreach(SkinnedMeshRenderer renderer in GameObject.Find(makeVisibleObjectParent).GetComponentsInChildren<SkinnedMeshRenderer>())
+        {
+            visibilityToggleObjects.Add(renderer);
+            renderer.enabled = false;
+        }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "makeVisible")
+        if (other.tag == "makeVisible")
         {
-            renderer.enabled = true;
+            foreach (SkinnedMeshRenderer renderer in visibilityToggleObjects)
+            {
+                renderer.enabled = true;
+            }
         }
     }
 
@@ -22,7 +30,10 @@ public class BossTwoVisibility : MonoBehaviour {
     {
         if (other.tag == "makeVisible")
         {
-            renderer.enabled = false;
+            foreach (SkinnedMeshRenderer renderer in visibilityToggleObjects)
+            {
+                renderer.enabled = false;
+            }
         }
     }
 }
