@@ -11,7 +11,7 @@ public class changeMaterial : MonoBehaviour {
     private float stopTimer = 0;
     private float blinkTimer = 0;
     private bool changeBack = false;
-    private bool changeTime = true;
+    private bool changeTime = false;
 	// Use this for initialization
 	void Start () {
 		

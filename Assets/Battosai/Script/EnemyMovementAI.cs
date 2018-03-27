@@ -8,16 +8,18 @@ public class EnemyMovementAI : MonoBehaviour {
     private Quaternion targetRotation;                  //Rotation to face the next position
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
-    public float originalRotationStrength = 0.8f;
+    public float originalRotationStrength = 0.8f;       //original strength of the rotation
     public float movementSpeed = 0.5f;                  //Speed of the movement
-    public float originalMovementSpeed = 0.5f;                  //Speed of the movement
+    public float originalMovementSpeed = 0.5f;          //original Speed of the movement
     private int lastIndex;                              //used to detect if the target location is two times the same
     private float safetyTargetChangeTime = 0f;          //If the Enemy tries for to long, to get to a Target and can't reach it, the target gets changed
     public float maxTimeBeforeTargetChange = 15f;       //max time the enemy follows one target, before changing targets
     public float distanceToReachTarget = 15f;           //min distance the enemy has to reach to his current target, to get a new target
     private float dist;                                 //distance between target and enemy
-    private BossOneStateHandler stateHandler;
-    private int slowTargetIndex;
+    private BossOneStateHandler stateHandler;           //statehandler of the boss
+    private int slowTargetIndex;                        //phase two where the boss moves slower
+    private bool isSlow = false;                        //if the boss currently moves slower than normal
+    public float distanceToSlowDown = 80; 
     void Start()
     {
         stateHandler = GetComponent<BossOneStateHandler>();
@@ -51,6 +53,19 @@ public class EnemyMovementAI : MonoBehaviour {
             safetyTargetChangeTime = 0;
             changeTargetRandom();
         }
+        if(Vector3.Distance(targets[slowTargetIndex].position, transform.position) < distanceToSlowDown && stateHandler.state == 2)
+        {
+            if (!isSlow)
+            {
+                isSlow = true;
+                slowDown();
+            }
+        }
+        else if (isSlow)
+        {
+            isSlow = false;
+            resetSpeed();
+        }
         MoveEnemy();
     }
 
@@ -71,14 +86,6 @@ public class EnemyMovementAI : MonoBehaviour {
         }
         lastIndex = randomIndex;
         target = targets[randomIndex];
-        if(randomIndex == slowTargetIndex && stateHandler.state == 2)
-        {
-            Invoke("slowDown", 3);
-        }
-        else
-        {
-            Invoke("resetSpeed", 3);
-        }
     }
 
     //MoveEnemy is called by the GameManger each turn to tell each Enemy to try to move towards the player.
