@@ -210,7 +210,7 @@ public class swapWeapons : MonoBehaviour
 	private void swapWeapon(float x, float y)
 	{
 		Vector2 axis = new Vector2(x, y);
-		Vector2 zeroPoint = new Vector2(0, 0);
+		Vector2 zeroPoint = new Vector2(1.0f, 0.0f);
 		Debug.Log("touch angle from right side: " + Vector2.Angle(zeroPoint, axis));
 		int rndVal = (int)Mathf.Round(Random.value * (weaponSwapSound.Length - 1));
 
