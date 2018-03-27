@@ -8,6 +8,7 @@ public class BossOneWinder : MonoBehaviour {
     private float str;                                  //multiplikation of rotation strength and time
     public float rotationStrength = 0.8f;               //Strength of the rotation
     private float distanceToWindingPosition;
+    public float handleSlowDown = 50;
     crankBack handle;
     private void Start()
     {
@@ -23,7 +24,7 @@ public class BossOneWinder : MonoBehaviour {
         distanceToWindingPosition = Vector3.Distance(target.position, transform.position);
        // Debug.Log((target.position - transform.position) * handle.fixedUpdateDistanceDelta / 100);
         //Move to the target !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   1 muss durch die kurbel ersetzt werden, wenn nicht gekurbelt dann 0
-        transform.position += (target.position- transform.position) * handle.fixedUpdateDistanceDelta/65;
+        transform.position += (target.position- transform.position) * handle.fixedUpdateDistanceDelta/handleSlowDown;
         if(distanceToWindingPosition <= 2)
         {            
             GetComponent<BossOneStateHandler>().changeState(4);
