@@ -30,6 +30,7 @@ public class swapWeapons : MonoBehaviour
 
 	private void Start()
 	{
+		print("This is the Start() function");
 		updateGunArray();
         resetEnumerator();
 		soundEmitter = GetComponent<AudioSource>();
