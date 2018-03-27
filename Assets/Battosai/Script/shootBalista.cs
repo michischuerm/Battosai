@@ -14,11 +14,18 @@ public class shootBalista : MonoBehaviour
 	private bool shotReady = true;
 	private float lastShotTime = 0.0f;
 
+	// sounds
+	private AudioClip[] weaponShootSounds = null;
+	private AudioSource soundEmitter;
+
 	// Use this for initialization
 	void Start ()
 	{
 		stationaryControll = GetComponent<stationaryControll>();
 		lastShotTime = Time.realtimeSinceStartup;
+
+		weaponShootSounds = Resources.LoadAll<AudioClip>("Sounds/balista_bullet");
+		soundEmitter = GetComponent<AudioSource>();
 
 		if (arrowPrefab != null)
 		{
@@ -68,6 +75,10 @@ public class shootBalista : MonoBehaviour
 
 	public void shootArrow()
 	{
+		int rndVal = (int)Mathf.Round(Random.value * (weaponShootSounds.Length - 1));
+		soundEmitter.clip = weaponShootSounds[rndVal];
+		soundEmitter.Play();
+
 		arrow.transform.parent = null;
 		if (this.useGravity)
 		{
