@@ -64,7 +64,7 @@ public class staticEnemy : MonoBehaviour {
 
     private void attack()
     {
-        animator.SetTrigger("Attacking");
+        animator.SetBool("Attack",true);
         attackEffect.SetActive(true);
         attackEffect.transform.LookAt(target.position);
         Invoke("finishAttack", attackLength);
@@ -72,7 +72,7 @@ public class staticEnemy : MonoBehaviour {
 
     private void finishAttack()
     {
-        animator.ResetTrigger("Attacking");
+        animator.SetBool("Attack",false);
         canShoot = true;
         attackEffect.SetActive(false);
         //change Animation to exhausted
