@@ -15,7 +15,7 @@ public class swapWeapons : MonoBehaviour
 	public allWeapons selectedWeapon = allWeapons.playerShield;
 
 	// sounds
-	public AudioClip weaponSwapSound;
+	private AudioClip[] weaponSwapSound;
 	private AudioSource soundEmitter;
 
 	private SteamVR_Controller.Device Controller
@@ -31,6 +31,8 @@ public class swapWeapons : MonoBehaviour
 	private void Start()
 	{
 		print("This is the Start() function");
+		weaponSwapSound = Resources.LoadAll<AudioClip>("Sounds/wep_switch");
+
 		updateGunArray();
         resetEnumerator();
 		soundEmitter = GetComponent<AudioSource>();
@@ -210,13 +212,14 @@ public class swapWeapons : MonoBehaviour
 		Vector2 axis = new Vector2(x, y);
 		Vector2 zeroPoint = new Vector2(0, 0);
 		Debug.Log("touch angle from right side: " + Vector2.Angle(zeroPoint, axis));
+		int rndVal = (int)Mathf.Round(Random.value * (weaponSwapSound.Length - 1));
 
 		// cross straight
 		// top
 		if (Vector2.Angle(zeroPoint, axis) >= 35f && Vector2.Angle(zeroPoint, axis) < 125f)
 		{
 			swapToGun();
-			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.clip = weaponSwapSound[rndVal];
 			soundEmitter.Play();
 		}
 
@@ -224,7 +227,7 @@ public class swapWeapons : MonoBehaviour
 		if (Vector2.Angle(zeroPoint, axis) >= 125f && Vector2.Angle(zeroPoint, axis) < 215f)
 		{
 			swapToShield();
-			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.clip = weaponSwapSound[rndVal];
 			soundEmitter.Play();
 		}
 
@@ -232,7 +235,7 @@ public class swapWeapons : MonoBehaviour
 		if (Vector2.Angle(zeroPoint, axis) >= 215f && Vector2.Angle(zeroPoint, axis) < 305f)
 		{
 			swapToSword();
-			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.clip = weaponSwapSound[rndVal];
 			soundEmitter.Play();
 		}
 
