@@ -66,7 +66,7 @@ public class staticEnemy : MonoBehaviour {
     {
         animator.SetBool("Attack",true);
         attackEffect.SetActive(true);
-        attackEffect.transform.LookAt(target.position);
+        attackEffect.transform.LookAt(new Vector3(target.position.x,target.position.y-.8f,target.position.z));
         Invoke("finishAttack", attackLength);
     }
 
