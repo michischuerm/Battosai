@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 54152935965863302}
   - component: {fileID: 114081516037138784}
   m_Layer: 0
-  m_Name: BossTwo
+  m_Name: BossTwoPrefab
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
