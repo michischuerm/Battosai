@@ -65,7 +65,7 @@ public class shoot : MonoBehaviour
 		AudioClip bullet4 = Instantiate(Resources.Load("bullet_4", typeof(AudioClip))) as AudioClip;
 		weaponShootSounds = new AudioClip[] { bullet1, bullet2, bullet3, bullet4 };
 		*/
-		weaponShootSounds = Resources.LoadAll<AudioClip>("Sounds/GunShoot");
+		weaponShootSounds = Resources.LoadAll<AudioClip>("Sounds/bullet_sound");
 
 		soundEmitter = GetComponent<AudioSource>();
 		lastShot = Time.realtimeSinceStartup;
@@ -122,8 +122,7 @@ public class shoot : MonoBehaviour
 
 	private void fire()
 	{
-		int rndVal = (int)Mathf.Floor(Random.value * weaponShootSounds.Length);
-		Debug.Log("random shoot sound nr: " + rndVal);
+		int rndVal = (int)Mathf.Round(Random.value * (weaponShootSounds.Length - 1));
 		soundEmitter.clip = weaponShootSounds[rndVal];
 		soundEmitter.Play();
 
