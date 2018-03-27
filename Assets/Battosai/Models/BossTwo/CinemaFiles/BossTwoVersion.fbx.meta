@@ -12,6 +12,8 @@ ModelImporter:
     100012: ToothBot
     100014: ToothTop
     100016: ToothTop2
+    100018: Scheibe
+    100020: Scheibe_1
     400000: Body
     400002: //RootNode
     400004: Corpse
@@ -21,22 +23,30 @@ ModelImporter:
     400012: ToothBot
     400014: ToothTop
     400016: ToothTop2
+    400018: Scheibe
+    400020: Scheibe_1
     2100000: No Name
     2300000: Body
     2300002: Tongue
     2300004: ToothBot
     2300006: ToothTop
     2300008: ToothTop2
+    2300010: Scheibe
+    2300012: Scheibe_1
     3300000: Body
     3300002: Tongue
     3300004: ToothBot
     3300006: ToothTop
     3300008: ToothTop2
+    3300010: Scheibe
+    3300012: Scheibe_1
     4300000: Tongue
     4300002: ToothBot
     4300004: ToothTop2
     4300006: ToothTop
     4300008: Body
+    4300010: Scheibe
+    4300012: Scheibe_1
   externalObjects: {}
   materials:
     importMaterials: 1
