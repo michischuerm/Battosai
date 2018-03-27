@@ -207,7 +207,43 @@ public class swapWeapons : MonoBehaviour
 
 	private void swapWeapon(float x, float y)
 	{
-		//Debug.Log("swap Weapon");
+		Vector2 axis = new Vector2(x, y);
+		Vector2 zeroPoint = new Vector2(0, 0);
+		Debug.Log("touch angle from right side: " + Vector2.Angle(zeroPoint, axis));
+
+		// cross straight
+		// top
+		if (Vector2.Angle(zeroPoint, axis) >= 35f && Vector2.Angle(zeroPoint, axis) < 125f)
+		{
+			swapToGun();
+			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.Play();
+		}
+
+		// left
+		if (Vector2.Angle(zeroPoint, axis) >= 125f && Vector2.Angle(zeroPoint, axis) < 215f)
+		{
+			swapToShield();
+			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.Play();
+		}
+
+		// bottom
+		if (Vector2.Angle(zeroPoint, axis) >= 215f && Vector2.Angle(zeroPoint, axis) < 305f)
+		{
+			swapToSword();
+			soundEmitter.clip = weaponSwapSound;
+			soundEmitter.Play();
+		}
+
+		// right
+		if (Vector2.Angle(zeroPoint, axis) >= 305f && Vector2.Angle(zeroPoint, axis) < 35f)
+		{
+
+		}
+
+		/*
+		//cross diagonal
 		// top right
 		if (x > blindspot && y > blindspot)
 		{
@@ -240,6 +276,7 @@ public class swapWeapons : MonoBehaviour
 		{
 			//Debug.Log("bottom left");
 		}
+		*/
 	}
 
 	public enum allWeapons
