@@ -23,6 +23,12 @@ public class BossTwoNavMesh : MonoBehaviour {
     public GameObject bossTwoClone;
     private bool[] illusions;
     private Animator anim;
+    public Transform intro;
+    public Transform intro2;
+    private bool introIsFinisehd = false;
+    private bool reachdIntroOne = false;
+    private bool waitForIntroFinish = true;
+
     void Start () {
         anim = GetComponentInChildren<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -36,37 +42,80 @@ public class BossTwoNavMesh : MonoBehaviour {
         {
             targets[System.Int32.Parse(enemyMovementPositions[i].name.Split('_')[1])] = enemyMovementPositions[i].transform;
         }
-        currentTargetPosition = targets[currentPosition].position;
-        Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
-        illusions = new bool[targets.Length];
-        spawnIllusion();
+        currentTargetPosition = targets[currentPosition].position;       
+        illusions = new bool[targets.Length];        
+        anim.SetTrigger("IsTransitioning");
+        anim.speed -= 0.8f;
+        //spawnIllusion(); //testing only
     }
-	
+
+    private void finishIntro()
+    {
+        anim.ResetTrigger("IsTaunting");
+        anim.ResetTrigger("IsTransitioning");
+        introIsFinisehd = true;
+        Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
+       // Invoke("resetAnimationSpeed", 2);
+    }
+  /*  private void resetAnimationSpeed()
+    {
+        anim.speed += .4f;
+    }*/
+
 	// Update is called once per frame
 	void Update () {
-        if (DetectDistance(currentTargetPosition) <= 1)
+        if (introIsFinisehd)
         {
-            if (isCharging)
+            if (DetectDistance(currentTargetPosition) <= 1)
             {
-                canCharge = true;
-                isCharging = false;
-                agent.acceleration = originalAcceleration;
-                changeTargetAfterCharge();
+                if (isCharging)
+                {
+                    canCharge = true;
+                    isCharging = false;
+                    agent.acceleration = originalAcceleration;
+                    changeTargetAfterCharge();
+                }
+                else
+                {
+
+                    changeTarget();
+                }
+                //set new destination
+                currentTargetPosition = targets[currentPosition].position;
+            }
+            if (canCharge)
+            {
+                canCharge = false;
+                Invoke("chargeToThePlayer", Random.Range(minTimeTillCharge, maxTimeTillCharge));
+            }
+            MoveEnemy(currentTargetPosition);
+        }
+        else if(waitForIntroFinish)
+        {
+            if (DetectDistance(intro.position) > 1 && !reachdIntroOne) {
+                MoveEnemy(intro.position);
             }
             else
             {
-
-                changeTarget();                
-            }
-            //set new destination
-            currentTargetPosition = targets[currentPosition].position;
+                anim.SetTrigger("IsTaunting");
+                if (anim.speed < 0.5f)
+                {
+                    anim.speed += 0.3f;
+                }
+                reachdIntroOne = true;
+                if (DetectDistance(intro2.position) > 1)
+                {
+                   // anim.SetTrigger("IsTaunting");
+                   // anim.SetTrigger("IsTransitioning");
+                    MoveEnemy(intro2.position);
+                }
+                else
+                {
+                    waitForIntroFinish = false;
+                    Invoke("finishIntro", 2f);
+                }               
+            }           
         }
-        if (canCharge)
-        {
-            canCharge = false;
-            Invoke("chargeToThePlayer",Random.Range(minTimeTillCharge, maxTimeTillCharge));
-        }
-        MoveEnemy(currentTargetPosition);
     }
 
     //Move Navagent towards a position
@@ -163,5 +212,10 @@ public class BossTwoNavMesh : MonoBehaviour {
             illusions[arrayPosition] = true;
         }
         Invoke("spawnIllusion",Random.Range(minTimeTillIllusionSpawn,maxTimeTillIllusionSpawn));
+    }
+
+    public bool getIntroIsFinished()
+    {
+        return introIsFinisehd;
     }
 }

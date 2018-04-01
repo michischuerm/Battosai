@@ -6,13 +6,16 @@ public class BossTwoVisibility : MonoBehaviour {
     public string makeVisibleObjectParent;
     private List<SkinnedMeshRenderer> visibilityToggleObjects = new List<SkinnedMeshRenderer>();
     private Animator anim;
+    private BossTwoNavMesh navScript;
+
     private void Start()
     {
+        navScript = GetComponent<BossTwoNavMesh>();
         anim = GetComponentInChildren<Animator>();
         foreach (SkinnedMeshRenderer renderer in GameObject.Find(makeVisibleObjectParent).GetComponentsInChildren<SkinnedMeshRenderer>())
         {
             visibilityToggleObjects.Add(renderer);
-            renderer.enabled = false;
+       //     renderer.enabled = false;
         }
     }
 
@@ -25,8 +28,10 @@ public class BossTwoVisibility : MonoBehaviour {
                 renderer.enabled = true;
             }
         }
-        anim.SetTrigger("IsAttacking");
-        anim.speed += .5f;
+        if (navScript.getIntroIsFinished()) { 
+            anim.SetTrigger("IsAttacking");
+            anim.speed += .5f;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -38,7 +43,10 @@ public class BossTwoVisibility : MonoBehaviour {
                 renderer.enabled = false;
             }
         }
-        anim.ResetTrigger("IsAttacking");
-        anim.speed -= .5f;
+        if (navScript.getIntroIsFinished())
+        {
+            anim.ResetTrigger("IsAttacking");
+            anim.speed -= anim.speed > .5f ? .5f : 0;
+        }
     }
 }

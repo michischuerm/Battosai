@@ -7,28 +7,29 @@ public class EnemyHPHandler : MonoBehaviour {
     public int stageTwo = 50;
     public int stageThree = 10;
 
+    private int startHp;
     private bool bossTwoHasToChange = true;
     private void Start()
     {
-        
+        startHp = hp;
     }
     public void takeDamage(int damage)
     {
-        
+
         //change boss one's boss states
         if (name.Contains("BossOne"))
         {
             BossOneStateHandler stateHandler = GetComponent<BossOneStateHandler>();
-            if ((stateHandler.state !=3 && stateHandler.state != 0 && hp > stageTwo) || stateHandler.state==4)
+            if ((stateHandler.state != 3 && stateHandler.state != 0 && hp > stageTwo) || stateHandler.state == 4)
             {
                 hp -= damage;
                 GetComponent<changeMaterial>().startSwap();
-            }            
+            }
             if (hp <= stageTwo && stateHandler.state == 1)
             {
                 stateHandler.changeState(2);
             }
-            if(hp <= stageThree && stateHandler.state == 4)
+            if (hp <= stageThree && stateHandler.state == 4)
             {
                 stateHandler.changeState(5);
             }
@@ -41,26 +42,32 @@ public class EnemyHPHandler : MonoBehaviour {
             {
                 GetComponent<BossTwoIllusionShoot>().enabled = false;
                 Animator anim = GetComponentInChildren<Animator>();
-                anim.SetTrigger("IsTransisioning");
+                anim.SetTrigger("IsTransitioning");
                 anim.SetTrigger("IsDying");
                 Invoke("destroyThisGameobject", 5);
             }
         }
         //boss 2 starts too spawn illusions
-        else if (name == "BossTwo")
+        else if (name == "BossTwoPrefab")
         {
-            hp -= damage;
-            if (hp <= stageTwo && hp > stageThree && bossTwoHasToChange)
-            {
-                bossTwoHasToChange = false;
-                GetComponent<BossTwoNavMesh>().spawnIllusion();
+            if (hp != startHp) { 
+                hp -= damage;
+                if (hp <= stageTwo && hp > stageThree && bossTwoHasToChange)
+                {
+                    bossTwoHasToChange = false;
+                    GetComponent<BossTwoNavMesh>().spawnIllusion();
+                }
+                if (hp <= 0)
+                {
+                    Animator anim = GetComponentInChildren<Animator>();
+                    anim.SetTrigger("IsTransitioning");
+                    anim.SetTrigger("IsDying");
+                    Debug.Log("bossIsDead");
+                }
             }
-            if(hp <= 0)
+            else if (GetComponent<BossTwoNavMesh>().getIntroIsFinished())
             {
-                Animator anim = GetComponentInChildren<Animator>();
-                anim.SetTrigger("IsTransisioning");
-                anim.SetTrigger("IsDying");
-                Debug.Log("bossIsDead");
+                hp-= damage;
             }
         }
     }
