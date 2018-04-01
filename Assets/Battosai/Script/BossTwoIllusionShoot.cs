@@ -14,10 +14,12 @@ public class BossTwoIllusionShoot : MonoBehaviour {
     private bool canShoot = true;
     private GameObject player;
     private int shootCounter = 0;
+    private Animator anim;
 
     private void Start()
     {
         player = GameObject.Find("Camera (eye)");
+        anim = GetComponentInChildren<Animator>();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -33,12 +35,11 @@ public class BossTwoIllusionShoot : MonoBehaviour {
     }
 
     private void shoot()
-    {
+    {        
         if (!player.GetComponent<PlayerHitDetection>().isHit)
         {
-            GameObject attack = Instantiate(prefab, transform.position, Quaternion.identity);
-            attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (player.transform.position - attack.transform.position), ForceMode.Impulse);
-            shootCounter--;
+            anim.SetTrigger("IsAttacking");
+            Invoke("spawnShoot", 0.8f);
             if (shootCounter > 0)
             {
                 Invoke("shoot", timeBetweenShoots);
@@ -52,6 +53,13 @@ public class BossTwoIllusionShoot : MonoBehaviour {
         {
             canShoot = true;
         }
+    }
+
+    private void spawnShoot()
+    {
+        GameObject attack = Instantiate(prefab, new Vector3(transform.position.x,transform.position.y+1,transform.position.z), Quaternion.identity);
+        attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (player.transform.position - attack.transform.position), ForceMode.Impulse);
+        shootCounter--;
     }
 
     private void OnDisable()

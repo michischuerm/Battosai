@@ -22,7 +22,9 @@ public class BossTwoNavMesh : MonoBehaviour {
     public float maxTimeTillIllusionSpawn = 30;
     public GameObject bossTwoClone;
     private bool[] illusions;
+    private Animator anim;
     void Start () {
+        anim = GetComponentInChildren<Animator>();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         originalAcceleration = agent.acceleration;
         player = GameObject.Find("Camera (eye)");
@@ -37,7 +39,7 @@ public class BossTwoNavMesh : MonoBehaviour {
         currentTargetPosition = targets[currentPosition].position;
         Invoke("changeDirection", Random.Range(minTimeTillDirectionChange, maxTimeTillDirectionChange));
         illusions = new bool[targets.Length];
-        //spawnIllusion();
+        spawnIllusion();
     }
 	
 	// Update is called once per frame
@@ -128,6 +130,7 @@ public class BossTwoNavMesh : MonoBehaviour {
     //enemy charges through the player
     private void chargeToThePlayer()
     {
+        anim.SetTrigger("IsTransitioning");
         Vector3 chargeVector = player.transform.position - transform.position;
         chargeVector *= Random.Range(12, 20)/10;
         chargeVector.y = transform.position.y;

@@ -39,7 +39,11 @@ public class EnemyHPHandler : MonoBehaviour {
             hp -= damage;
             if (hp <= 0)
             {
-                Destroy(gameObject);
+                GetComponent<BossTwoIllusionShoot>().enabled = false;
+                Animator anim = GetComponentInChildren<Animator>();
+                anim.SetTrigger("IsTransisioning");
+                anim.SetTrigger("IsDying");
+                Invoke("destroyThisGameobject", 5);
             }
         }
         //boss 2 starts too spawn illusions
@@ -51,6 +55,18 @@ public class EnemyHPHandler : MonoBehaviour {
                 bossTwoHasToChange = false;
                 GetComponent<BossTwoNavMesh>().spawnIllusion();
             }
+            if(hp <= 0)
+            {
+                Animator anim = GetComponentInChildren<Animator>();
+                anim.SetTrigger("IsTransisioning");
+                anim.SetTrigger("IsDying");
+                Debug.Log("bossIsDead");
+            }
         }
+    }
+
+    private void destroyThisGameobject()
+    {
+        Destroy(gameObject);
     }
 }

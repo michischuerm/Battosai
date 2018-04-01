@@ -5,10 +5,11 @@ using UnityEngine;
 public class BossTwoVisibility : MonoBehaviour {
     public string makeVisibleObjectParent;
     private List<SkinnedMeshRenderer> visibilityToggleObjects = new List<SkinnedMeshRenderer>();
-
+    private Animator anim;
     private void Start()
-    {        
-        foreach(SkinnedMeshRenderer renderer in GameObject.Find(makeVisibleObjectParent).GetComponentsInChildren<SkinnedMeshRenderer>())
+    {
+        anim = GetComponentInChildren<Animator>();
+        foreach (SkinnedMeshRenderer renderer in GameObject.Find(makeVisibleObjectParent).GetComponentsInChildren<SkinnedMeshRenderer>())
         {
             visibilityToggleObjects.Add(renderer);
             renderer.enabled = false;
@@ -24,6 +25,8 @@ public class BossTwoVisibility : MonoBehaviour {
                 renderer.enabled = true;
             }
         }
+        anim.SetTrigger("IsAttacking");
+        anim.speed += .5f;
     }
 
     private void OnTriggerExit(Collider other)
@@ -35,5 +38,7 @@ public class BossTwoVisibility : MonoBehaviour {
                 renderer.enabled = false;
             }
         }
+        anim.ResetTrigger("IsAttacking");
+        anim.speed -= .5f;
     }
 }
