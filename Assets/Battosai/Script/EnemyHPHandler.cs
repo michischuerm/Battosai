@@ -59,10 +59,14 @@ public class EnemyHPHandler : MonoBehaviour {
                 }
                 if (hp <= 0)
                 {
+                    foreach (SkinnedMeshRenderer renderer in GameObject.Find("BossTwoPrefab/BossTwo/Corpse").GetComponentsInChildren<SkinnedMeshRenderer>())
+                    {
+                        renderer.enabled = true;
+                    }
                     Animator anim = GetComponentInChildren<Animator>();
                     anim.SetTrigger("IsTransitioning");
                     anim.SetTrigger("IsDying");
-                    Debug.Log("bossIsDead");
+                    Invoke("destroyThisGameobject", 5);
                 }
             }
             else if (GetComponent<BossTwoNavMesh>().getIntroIsFinished())
