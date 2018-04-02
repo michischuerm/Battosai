@@ -35,7 +35,7 @@ public class swapWeapons : MonoBehaviour
 		// reset weapons array on scene change
 		if (activeScene == null)
 		{
-			SceneManager.GetActiveScene();
+            activeScene = SceneManager.GetActiveScene();
 		}
 		else if (activeScene.name != SceneManager.GetActiveScene().name)
 		{
@@ -170,10 +170,10 @@ public class swapWeapons : MonoBehaviour
 			for (int i = allActiveWepsList.Count - 1; i >= 0; i--)
 			{
 				bool isInArray = false;
-
-				foreach (GameObject savedWep in weapons)
+                
+                foreach (GameObject savedWep in weapons)
 				{
-					if (GameObject.ReferenceEquals(allActiveWepsList[i], savedWep))
+					if (!isInArray && GameObject.ReferenceEquals(allActiveWepsList[i], savedWep))
 					{
 						// weapon allready in array
 						allActiveWepsList.RemoveAt(i);
