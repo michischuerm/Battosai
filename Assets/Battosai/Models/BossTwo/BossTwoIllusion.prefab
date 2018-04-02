@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 65916677433917814}
   - component: {fileID: 114363416093811888}
   - component: {fileID: 114624372827042416}
+  - component: {fileID: 114254189731196182}
   m_Layer: 0
   m_Name: BossTwoIllusion
   m_TagString: enemy
@@ -1485,6 +1486,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114254189731196182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1496838101575908}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206102c8905520644be2ad267f0e26f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldMaterial: {fileID: 2100000, guid: f4af017e16b4417479834feeef49ffc8, type: 2}
+  newMaterial: {fileID: 2100000, guid: 58a8c35ff7fdcfa488b66e3900ffe222, type: 2}
+  changeChilds: BossTwoIllusion/BossTwo/Corpse
+  timerTillChangeBack: 2
+  blinkTime: 0.2
 --- !u!114 &114363416093811888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1496,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df149b1c3f884dd40867205f9ec7559b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 30
+  hp: 20
   stageTwo: 50
   stageThree: 10
 --- !u!114 &114624372827042416
