@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114979915519074848}
   m_Layer: 0
   m_Name: Particle System
-  m_TagString: Untagged
+  m_TagString: makeDamage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
