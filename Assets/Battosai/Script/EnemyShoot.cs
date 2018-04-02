@@ -46,6 +46,10 @@ public class EnemyShoot : MonoBehaviour
             movement.rotationStrength /= 1.5f;
             animator.SetBool("Attack",true);
             GameObject attack = Instantiate(prefab, GameObject.Find("Head").transform.position, Quaternion.identity);
+            attack.transform.LookAt(player.transform.position);
+           // Quaternion rotateToPlayer = new Quaternion();
+           // rotateToPlayer.eulerAngles = new Vector3(attack.transform.rotation.eulerAngles.x, -70, attack.transform.rotation.eulerAngles.z);
+           // attack.transform.rotation = rotateToPlayer;
             attack.GetComponent<Rigidbody>().AddForce(bulletSpeed * (player.transform.position - attack.transform.position), ForceMode.Impulse);
             shootCounter--;
             if (shootCounter >= 0)
