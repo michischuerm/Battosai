@@ -223,9 +223,12 @@ public class swapWeapons : MonoBehaviour
 	{
 		Vector2 axis = new Vector2(x, y);
 		Vector2 zeroPoint = new Vector2(1.0f, 0.0f);
-		//Debug.Log("touch angle from right side: " + Vector2.SignedAngle(zeroPoint, axis));
-		int rndVal = (int)Mathf.Round(Random.value * (weaponSwapSound.Length - 1));
-		float signedAngle = Vector2.SignedAngle(zeroPoint, axis);
+        //Debug.Log("touch angle from right side: " + Vector2.SignedAngle(zeroPoint, axis));
+
+        //int rndVal = (int)Mathf.Round(Random.value * (weaponSwapSound.Length - 1));
+        // Debug.Log();
+        int rndVal = Random.Range(0, weaponSwapSound.Length - 1);
+        float signedAngle = Vector2.SignedAngle(zeroPoint, axis);
 
 		// cross straight
 		// top
