@@ -12,9 +12,15 @@ public class changeMaterial : MonoBehaviour {
     private float blinkTimer = 0;
     private bool changeBack = false;
     private bool changeTime = false;
-	
-	// Update is called once per frame
-	void Update () {
+    private GameObject parent;
+
+
+    private void Start()
+    {
+        parent = GameObject.Find(name+"/"+changeChilds);
+    }
+    // Update is called once per frame
+    void Update () {
         if (changeTime)
         {
             stopTimer += Time.deltaTime;
@@ -51,7 +57,7 @@ public class changeMaterial : MonoBehaviour {
     private void swap()
     {
         changeBack = true;
-        foreach (Renderer renderer in GameObject.Find(changeChilds).GetComponentsInChildren<Renderer>())
+        foreach (Renderer renderer in parent.GetComponentsInChildren<Renderer>())
         {
             renderer.material = newMaterial;
         }
@@ -67,9 +73,9 @@ public class changeMaterial : MonoBehaviour {
     private void swapBack()
     {
         changeBack = false;
-        foreach (Renderer renderer in GameObject.Find(changeChilds).GetComponentsInChildren<Renderer>())
+        foreach (Renderer renderer in parent.GetComponentsInChildren<Renderer>())
         {
             renderer.material = oldMaterial;
-        }        
+        }
     }
 }

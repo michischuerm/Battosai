@@ -38,6 +38,7 @@ public class EnemyHPHandler : MonoBehaviour {
         else if (name.Contains("Illusion"))
         {
             hp -= damage;
+            GetComponent<changeMaterial>().startSwap();
             if (hp <= 0)
             {
                 GetComponent<BossTwoIllusionShoot>().enabled = false;

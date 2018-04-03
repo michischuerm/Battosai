@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oldMaterial: {fileID: 2100000, guid: 33c1000119828374d889e2d15db1fc9d, type: 2}
   newMaterial: {fileID: 2100000, guid: 58a8c35ff7fdcfa488b66e3900ffe222, type: 2}
-  changeChilds: BossOne/Model
+  changeChilds: Model
   timerTillChangeBack: 2
   blinkTime: 0.2
 --- !u!114 &114185295541848200
@@ -1338,6 +1338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4006053826165590, guid: f1510a8d7631f2f4896bdb0151df2c43, type: 2}
   rotationStrength: 0.8
+  handleSlowDown: 40
 --- !u!114 &114545712028939326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1371,6 +1372,7 @@ MonoBehaviour:
   prefab: {fileID: 1988050778033914, guid: ce14eae62650cee4ab62c7867287056e, type: 2}
   ballista: {fileID: 0}
   crank: {fileID: 0}
+  shields: []
 --- !u!114 &114682638027501232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1400,6 +1402,7 @@ MonoBehaviour:
   originalMovementSpeed: 0.5
   maxTimeBeforeTargetChange: 15
   distanceToReachTarget: 15
+  distanceToSlowDown: 100
 --- !u!135 &135062728564897402
 SphereCollider:
   m_ObjectHideFlags: 1
