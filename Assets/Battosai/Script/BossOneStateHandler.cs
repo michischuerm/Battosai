@@ -97,7 +97,8 @@ public class BossOneStateHandler : MonoBehaviour {
             GetComponent<staticEnemy>().enabled = false;
             GetComponent<BossOneLookAtPlayer>().enabled = false;
             GetComponent<Animator>().SetBool("Dead", true);
-			SceneManager.LoadScene("level_2", LoadSceneMode.Single);
+           // SceneManager.LoadScene("level_2", LoadSceneMode.Single);
+            Invoke("loadStartScene", 3);
         }
         state = newState;
     }
@@ -106,6 +107,10 @@ public class BossOneStateHandler : MonoBehaviour {
     {
         attackEffect.SetActive(true);
         Invoke("destroyEffect", 3);
+    }
+    void loadStartScene()
+    {
+        SceneManager.LoadScene("startScene", LoadSceneMode.Single);
     }
     void destroyEffect()
     {
