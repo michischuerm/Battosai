@@ -21,12 +21,16 @@ public class TerrainGenerator : MonoBehaviour
         // generate the vertices
         int vertexAmount = (tileCountX + tileCountY + 2) * (tileCountX + tileCountY + 2);
         Vector3[] vertices = new Vector3[vertexAmount];
+        Vector2[] uv = new Vector2[vertexAmount];
         int xVertexNumber = 0;
         int zVertexNumber = 0;
 
         for (int i = 0; i < vertexAmount; i++)
         {
-            vertices[i] = new Vector3(xVertexNumber * (width / (tileCountX + 1)), 0, zVertexNumber * (height / (tileCountY + 1)));
+            float xPosition = xVertexNumber * (width / (tileCountX + 1));
+            float zPosition = zVertexNumber * (height / (tileCountY + 1));
+            vertices[i] = new Vector3(xPosition, 0, zPosition);
+            uv[i] = new Vector2(xPosition, zPosition);
 
             xVertexNumber++;
             if (xVertexNumber > tileCountX)
@@ -37,6 +41,7 @@ public class TerrainGenerator : MonoBehaviour
         }
 
         mesh.vertices = vertices;
+        mesh.uv = uv;
 
         // setup the triangles from the vertices
         // every tile is built by 2 triangles
@@ -64,6 +69,14 @@ public class TerrainGenerator : MonoBehaviour
         }
 
         mesh.triangles = trianglePoints;
+
+        Vector3[] normals = new Vector3[vertexAmount];
+        for (int i = 0; i < vertexAmount; i++)
+        {
+            normals[i] = -Vector3.forward;
+        }
+
+        mesh.normals = normals;
 	}
 	
 	// Update is called once per frame
