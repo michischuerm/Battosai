@@ -36,7 +36,11 @@ public class TerrainGenerator : MonoBehaviour
             {
                 GameObject debugSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 debugSphere.name = "debugSphere";
-                debugSphere.GetComponent<Transform>().position = new Vector3(transform.position.x + xPosition, transform.position.y + 0, transform.position.z + zPosition);
+                debugSphere.GetComponent<Transform>().position = 
+                    new Vector3(
+                        transform.position.x + xPosition, 
+                        transform.position.y + 0, 
+                        transform.position.z + zPosition);
                 debugSphere.GetComponent<Transform>().localScale = new Vector3(0.2f, 0.2f, 0.2f);
                 Material debugMaterial = new Material(Shader.Find("Standard"));
                 debugMaterial.color = new Color(1.0f, 0.7f, 0.0f);
