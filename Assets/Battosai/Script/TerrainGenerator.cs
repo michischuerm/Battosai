@@ -5,7 +5,7 @@ using UnityEngine;
 public class TerrainGenerator : MonoBehaviour
 {
     public int tileCountX = 30;
-    public int tileCountY = 30;
+    public int tileCountZ = 30;
     public float width = 10.0f;
     public float height = 10.0f;
 
@@ -13,14 +13,14 @@ public class TerrainGenerator : MonoBehaviour
     void Start ()
     {
         bool displayDebugPoints = true;
-        print("tileCountX " + tileCountX + " tileCountY " + tileCountY);
+        print("tileCountX " + tileCountX + " tileCountY " + tileCountZ);
         MeshFilter meshFilter = null;
         Mesh mesh = new Mesh();
         meshFilter = GetComponent<MeshFilter>();
         meshFilter.mesh = mesh;
 
         // generate the vertices
-        int vertexAmount = (tileCountX + tileCountY + 2) * (tileCountX + tileCountY + 2);
+        int vertexAmount = (tileCountX + tileCountZ + 2) * (tileCountX + tileCountZ + 2);
         Vector3[] vertices = new Vector3[vertexAmount];
         Vector2[] uv = new Vector2[vertexAmount];
         int xVertexNumber = 0;
@@ -29,7 +29,7 @@ public class TerrainGenerator : MonoBehaviour
         for (int i = 0; i < vertexAmount; i++)
         {
             float xPosition = xVertexNumber * (width / (tileCountX + 1));
-            float zPosition = zVertexNumber * (height / (tileCountY + 1));
+            float zPosition = zVertexNumber * (height / (tileCountZ + 1));
             vertices[i] = new Vector3(xPosition, 0, zPosition);
             uv[i] = new Vector2(xPosition, zPosition);
             if (displayDebugPoints)
@@ -60,9 +60,9 @@ public class TerrainGenerator : MonoBehaviour
 
         // setup the triangles from the vertices
         // every tile is built by 2 triangles
-        int triangleAmount = tileCountX * tileCountY * 2;
+        int triangleAmount = tileCountX * tileCountZ * 2;
         int vertexPointsX = tileCountX + 1;
-        int vertexPointsY = tileCountY + 1;
+        int vertexPointsY = tileCountZ + 1;
         int[] trianglePoints = new int[triangleAmount * 3];
         int counterForTopTwoPoints = 0;
         int counterForBottomTwoPoints = 0;
