@@ -12,9 +12,9 @@ public class TerrainGenerator : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        bool displayDebugPoints = true;
+        bool displayDebug = true;
 
-        if (displayDebugPoints)
+        if (displayDebug)
         {
             print("tileCountX " + tileCountX + " tileCountY " + tileCountZ);
         }
@@ -36,7 +36,7 @@ public class TerrainGenerator : MonoBehaviour
             float zPosition = zVertexNumber * (height / (tileCountZ + 1));
             vertices[i] = new Vector3(xPosition, 0, zPosition);
             uv[i] = new Vector2(xPosition, zPosition);
-            if (displayDebugPoints)
+            if (displayDebug)
             {
                 GameObject debugSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
                 debugSphere.name = "debugSphere";
@@ -65,48 +65,56 @@ public class TerrainGenerator : MonoBehaviour
         // setup the triangles from the vertices
         // every tile is built by 2 triangles
         int triangleAmount = tileCountX * tileCountZ * 2;
-        print("triangleAmount " + triangleAmount);
+        if (displayDebug)
+        {
+            print("triangleAmount " + triangleAmount);
+        }
         int vertexPointsX = tileCountX + 1;
         int vertexPointsY = tileCountZ + 1;
         int[] trianglePoints = new int[triangleAmount * 3];
-        int counterForTopTwoPoints = 0;
-        int counterForBottomTwoPoints = 0;
         int trianglePointIndex = 0;
+        int xCounter = 0;
+        int yCounter = 0;
+
         for (int i = 0; i < triangleAmount; i++)
         {
-            if (displayDebugPoints)
+            if (displayDebug)
             {
                 print("trianglePointIndex " + trianglePointIndex);
             }
             
             if (i % 2 == 0)
             {
-                // top 2 points are the number half the triangle count and +1
-                trianglePoints[trianglePointIndex] = (i / 2);
-                trianglePoints[trianglePointIndex + 1] = vertexPointsX + counterForTopTwoPoints;
-                trianglePoints[trianglePointIndex + 2] = (i / 2) + 1;
-                if (displayDebugPoints)
+                trianglePoints[trianglePointIndex] = xCounter + yCounter * vertexPointsX; // x0y0
+                trianglePoints[trianglePointIndex + 1] = xCounter + (yCounter + 1) * vertexPointsX; // x0y1
+                trianglePoints[trianglePointIndex + 2] = (xCounter + 1) + yCounter * vertexPointsX; // x1y0
+                if (displayDebug)
                 {
-                    print("triangleTop " + (i / 2)
-                        + " " + (vertexPointsX + counterForTopTwoPoints)
-                        + " " + ((i / 2) + 1));
+                    print("triangleTop " + (xCounter + yCounter * vertexPointsX)
+                        + " " + (xCounter + (yCounter + 1) * vertexPointsX)
+                        + " " + ((xCounter + 1) + yCounter * vertexPointsX));
                 }
-                counterForTopTwoPoints++;
             }
             else
             {
-                trianglePoints[trianglePointIndex] = counterForBottomTwoPoints + 1;
-                trianglePoints[trianglePointIndex + 1] = vertexPointsX + counterForBottomTwoPoints;
-                trianglePoints[trianglePointIndex + 2] = vertexPointsX + counterForBottomTwoPoints + 1;
-                if (displayDebugPoints)
+                trianglePoints[trianglePointIndex] = (xCounter + 1) + yCounter * vertexPointsX; // x1y0
+                trianglePoints[trianglePointIndex + 1] = xCounter + (yCounter + 1) * vertexPointsX; // x0y1
+                trianglePoints[trianglePointIndex + 2] = (xCounter + 1) + (yCounter + 1) * vertexPointsX; // x1y1
+                if (displayDebug)
                 {
-                    print("triangleBottom " + (counterForBottomTwoPoints + 1)
-                        + " " + (vertexPointsX + counterForBottomTwoPoints)
-                        + " " + (vertexPointsX + counterForBottomTwoPoints + 1));
+                    print("triangleBottom " + ((xCounter + 1) + yCounter * vertexPointsX)
+                        + " " + (xCounter + (yCounter + 1) * vertexPointsX)
+                        + " " + ((xCounter + 1) + (yCounter + 1) * vertexPointsX));
                 }
-                counterForBottomTwoPoints++;
+
+                xCounter++;
+                if (xCounter + 1 >= vertexPointsX)
+                {
+                    yCounter++;
+                    xCounter = 0;
+                }
             }
-            
+
             trianglePointIndex = trianglePointIndex + 3;
         }
 
