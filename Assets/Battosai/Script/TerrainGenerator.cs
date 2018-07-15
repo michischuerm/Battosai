@@ -9,6 +9,7 @@ public class TerrainGenerator : MonoBehaviour
     public float width = 10.0f;
     public float length = 10.0f;
     public float height = 5.0f;
+    public float worldHighlightScale = 0.03f;
     private System.Random worldSeedGenerator = new System.Random();
     public int worldSeed;
 
@@ -16,6 +17,7 @@ public class TerrainGenerator : MonoBehaviour
     void Start ()
     {
         bool displayDebug = false;
+        // init Worldseed and randomgen
         if (worldSeed == 0)
         {
             worldSeed = Random.Range(1, int.MaxValue);
@@ -30,28 +32,32 @@ public class TerrainGenerator : MonoBehaviour
         {
             print("tileCountX " + tileCountX + " tileCountY " + tileCountZ);
         }
+
+        // prepare Object for new Mesh
         MeshFilter meshFilter = null;
         Mesh mesh = new Mesh();
         meshFilter = GetComponent<MeshFilter>();
         meshFilter.mesh = mesh;
 
         // generate the vertices and uv maps
-        int vertexAmount = (tileCountX + 1) * (tileCountZ + 1);
+        int verticesForX = (tileCountX + 1);
+        int verticesForY = (tileCountZ + 1);
+        int vertexAmount = verticesForX * verticesForY;
         Vector3[] vertices = new Vector3[vertexAmount];
         Vector2[] uv = new Vector2[vertexAmount];
         int xVertexNumber = 0;
         int zVertexNumber = 0;
+        int perlinStartValueX = worldSeedGenerator.Next(0, 10000);
+        int perlinStartValueY = worldSeedGenerator.Next(0, 10000);
 
         for (int i = 0; i < vertexAmount; i++)
         {
             float xPosition = xVertexNumber * (width / (tileCountX + 1));
             float zPosition = zVertexNumber * (length / (tileCountZ + 1));
-            Random rnd = new Random();
-            
-            float yPosition = Mathf.PerlinNoise((
-                (1.0f * worldSeedGenerator.Next(1, int.MaxValue)) / int.MaxValue), 
-                ((1.0f * worldSeedGenerator.Next(1, int.MaxValue)) / int.MaxValue)) * height;
-            print(yPosition);
+            float xValuePerlin = perlinStartValueX + xVertexNumber * worldHighlightScale;
+            float yValuePerlin = perlinStartValueY - zVertexNumber * worldHighlightScale;
+            float yPosition = Mathf.PerlinNoise(xValuePerlin, yValuePerlin) * height;
+
             vertices[i] = new Vector3(xPosition, yPosition, zPosition);
             uv[i] = new Vector2(xPosition, zPosition);
             if (displayDebug)
@@ -76,20 +82,13 @@ public class TerrainGenerator : MonoBehaviour
                 zVertexNumber++;
             }
         }
-
+        
         mesh.vertices = vertices;
         mesh.uv = uv;
 
         // setup the triangles from the vertices
         mesh.triangles = trianglesFromTiles(tileCountX, tileCountZ, displayDebug);
-
-        Vector3[] normals = new Vector3[vertexAmount];
-        for (int i = 0; i < vertexAmount; i++)
-        {
-            normals[i] = -Vector3.forward;
-        }
-
-        mesh.normals = normals;
+        mesh.normals = getMeshNormals(vertexAmount);
 	}
 	
 	// Update is called once per frame
@@ -156,4 +155,62 @@ public class TerrainGenerator : MonoBehaviour
 
         return trianglePoints;
     }
+
+    Vector3[] getMeshNormals(int vertexAmount)
+    {
+        Vector3[] normals = new Vector3[vertexAmount];
+        for (int i = 0; i < vertexAmount; i++)
+        {
+            normals[i] = -Vector3.forward;
+        }
+        return normals;
+    }
+
+    /*
+    // returns an array with amountOfPoints*amountOfPoints values range from 0.0f to 1.0f
+    float[,] getRandomWorldPoints(int amountOfPoints)
+    {
+        float[,] xyPoints = new float[amountOfPoints, amountOfPoints];
+        for(int x = 0, y = 0; x < amountOfPoints; x++)
+        {
+            if (x >= amountOfPoints)
+            {
+                x = 0;
+                y++;
+            }
+            xyPoints[x,y] = (1.0f * worldSeedGenerator.Next(1, int.MaxValue)) / int.MaxValue;
+        }
+
+        return xyPoints;
+    }
+    */
+
+    /*
+    // maps continous values to a linear discrete scale
+    int valueMap(int discreteFrom, int discreteTo, 
+        float continuousFrom, float continuousTo, float continuousCurrentValue)
+    {
+        int mappedValue = -1;
+        float continousStepSize = (continuousTo - continuousFrom) / (discreteTo - discreteFrom);
+        float continousStepSizeHalfed = continousStepSize / 2;
+        int discreteStepSize = 1; // linear scale
+
+        int i = 0;
+        do
+        {
+            if (continuousCurrentValue < (continuousFrom + continousStepSize * i + continousStepSizeHalfed))
+            {
+                print("continuousCurrentValue < (continuousFrom + continousStepSize * i + continousStepSizeHalfed) "
+                    + continuousCurrentValue + " < " + continuousFrom + " " + continousStepSize + " * " + i + " " + continousStepSizeHalfed
+                    + " " + "mappedValue: " + discreteFrom + i * discreteStepSize);
+                mappedValue = discreteFrom + i * discreteStepSize;
+                i = (discreteTo - discreteFrom); // break do while
+            }
+            i++;
+        }
+        while (i < (discreteTo - discreteFrom));
+        
+        return mappedValue;
+    }
+    */
 }
