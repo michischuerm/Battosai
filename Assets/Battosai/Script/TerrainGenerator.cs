@@ -12,10 +12,20 @@ public class TerrainGenerator : MonoBehaviour
     public float worldHighlightScale = 0.03f;
     private System.Random worldSeedGenerator = new System.Random();
     public int worldSeed;
+    private MeshCollider objectMeshCollider;
 
     // Use this for initialization
     void Start ()
     {
+        // create a meshCollider and save for later use
+        objectMeshCollider = GetComponent<MeshCollider>();
+        if (objectMeshCollider == null)
+        {
+            GameObject thisTerrain = gameObject;
+            thisTerrain.AddComponent<MeshCollider>();
+            objectMeshCollider = GetComponent<MeshCollider>();
+        }
+
         bool displayDebug = false;
         // init Worldseed and randomgen
         if (worldSeed == 0)
@@ -33,7 +43,7 @@ public class TerrainGenerator : MonoBehaviour
             print("tileCountX " + tileCountX + " tileCountY " + tileCountZ);
         }
 
-        // prepare Object for new Mesh
+        // prepare Object for the terrain Mesh
         MeshFilter meshFilter = null;
         Mesh mesh = new Mesh();
         meshFilter = GetComponent<MeshFilter>();
@@ -89,7 +99,10 @@ public class TerrainGenerator : MonoBehaviour
         // setup the triangles from the vertices
         mesh.triangles = trianglesFromTiles(tileCountX, tileCountZ, displayDebug);
         mesh.normals = getMeshNormals(vertexAmount);
-	}
+        
+        // update collision Mesh
+        objectMeshCollider.sharedMesh = mesh;
+    }
 	
 	// Update is called once per frame
 	void Update ()
